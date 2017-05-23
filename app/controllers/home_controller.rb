@@ -10,6 +10,7 @@ class HomeController < ApplicationController
 
   def separate
     first_line = params[:doc].lines.first
+    @bullet = []
     @header = (first_line.include?("------")) ? params[:doc].lines.second.chomp : first_line
     params[:doc].each_line do |line|
       @quotation = $1 if line.match(/(".*")/)
