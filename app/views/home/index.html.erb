@@ -1,16 +1,29 @@
-<div class="type-box">
-  <%= form_tag(action: 'create') do %>
-    Please type in your text: <br/>
-    <%= text_area_tag :doc, nil, size: "50x50" %> <br/>
-    <%= submit_tag "Submit", style: "margin-left: 100px; font-size: 20px; height: 50px; width:100px; background-color: deepskyblue;" %>
-  <% end %>
-</div>
+<div class="doc-container">
+  <div class="type-box">
+    <%= form_tag({action: 'create'}, multipart: true) do %>
+      <%= text_area_tag :doc, @file_content, placeholder: "Type in your text here.", size: "50x20" %> <br />
+      <%= submit_tag "Submit", class: "btn btn-info", style: "margin-left: 100px; font-size: 16px; height: 30px; width: 80px;" %>
+      <%= file_field_tag :uploaded_file, onchange:"form.submit()" %>
+    <% end %>
+  </div>
 
-<div class="result">
-  header: <%= @header %> <br/>
-  quotation: <%= @quotation %> <br/>
-  bullet: <br/>
-  <% @bullet.each do |bullet| %>
-    <%= bullet %><br/>
-  <% end %>
+  <div class="result">
+    <div id="header"><%= @header %></div>
+    <div id="quotation"><%= @quotation %></div>
+    <div id="bullet">
+      <% @bullet.each do |bullet| %>
+        <%= bullet %><br />
+      <% end %>
+    </div>
+  </div>
+
+  <div class="image-options">
+    <div class="image-extra-options">
+      <div class="text-toggles" onselectstart="return false">
+        <span class="text-toggle-selected" onclick="select_text(this);">Header</span>
+        <span class="text-toggle-selected" onclick="select_text(this);">Quotation</span>
+        <span class="text-toggle-selected" onclick="select_text(this);">Bullet</span>
+      </div>
+    </div>
+  </div>
 </div>

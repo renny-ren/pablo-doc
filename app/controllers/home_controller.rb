@@ -5,22 +5,17 @@ class HomeController < ApplicationController
 
   def create
     separate
-    render :index
+    @file_content = params[:uploaded_file].nil? ? nil : params[:uploaded_file].read
+    render 'index'
   end
 
   def separate
-    first_line = params[:doc].lines.first
+    first_line = params[:doc].lines.first || ""
     @bullet = []
     @header = (first_line.include?("------")) ? params[:doc].lines.second.chomp : first_line
     params[:doc].each_line do |line|
       @quotation = $1 if line.match(/(".*")/)
       @bullet.push $1.chomp if line.match(/(.*:.*)/m)
     end
-  end
-
-  private
-
-  def analysis
-
   end
 end

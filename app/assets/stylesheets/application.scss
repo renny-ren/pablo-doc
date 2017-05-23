@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+.header{
+  height: 45px;
+  border-bottom: solid 1px #DEDEDE;
+}
+
+.header-container{
+  font-family: 'Chalkboard', 'Comic Sans MS', 'MV Boli';
+  font-size: 20px;
+  margin: 0 auto;
+  width: 1000px;
+  padding: 10px;
+}

@@ -1,9 +1,46 @@
+.doc-container{
+  margin: 20px;
+}
+
 .type-box{
   float: left;
 }
 
 .result{
   float: left;
+  width: 500px;
+  height: 600px;
   padding-left: 50px;
   font-size: 20px;
+}
+
+.image-options{
+  float: left;
+}
+
+#header{
+  position: absolute;
+  margin-left: 30px;
+}
+
+#quotation{
+  position: absolute;
+  margin-top: 300px;
+}
+
+#bullet{
+  position: absolute;
+  margin-top: 80px;
+}
+
+.text-toggle{
+  padding: 5px;
+  border: solid 1px grey;
+  cursor: pointer;
+}
+
+.text-toggle-selected{
+  padding: 5px;
+  border: solid 2px deepskyblue;
+  cursor: pointer;
 }
