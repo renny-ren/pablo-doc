@@ -1,1 +1,16 @@
-hello
+<div class="type-box">
+  <%= form_tag(action: 'create') do %>
+    Please type in your text: <br/>
+    <%= text_area_tag :doc, nil, size: "50x50" %> <br/>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>
+
+<div class="result">
+  header: <%= @header %> <br/>
+  quotation: <%= @quotation %> <br/>
+  bullet: <br/>
+  <% @bullet.each do |bullet| %>
+    <%= bullet %><br/>
+  <% end %>
+</div>
