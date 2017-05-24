@@ -1,9 +1,10 @@
 <div class="doc-container">
   <div class="type-box">
     <%= form_tag({action: 'create'}, multipart: true) do %>
-      <%= text_area_tag :doc, @file_content, placeholder: "Type in your text here.", size: "50x20" %> <br />
+      Please type your text or upload file
+      <%= kindeditor_tag :doc, @file_content, simple_mode: true, langType: 'en', height: '600px' %>
       <%= submit_tag "Submit", class: "btn btn-info", style: "margin-left: 100px; font-size: 16px; height: 30px; width: 80px;" %>
-      <%= file_field_tag :uploaded_file, onchange:"form.submit()" %>
+      <%= file_field_tag :uploaded_file, onchange:"form.submit();" %>
     <% end %>
   </div>
 
@@ -19,6 +20,7 @@
 
   <div class="image-options">
     <div class="image-extra-options">
+      <div class="image-extra-options-header">TEXT</div>
       <div class="text-toggles" onselectstart="return false">
         <span class="text-toggle-selected" onclick="select_text(this);">Header</span>
         <span class="text-toggle-selected" onclick="select_text(this);">Quotation</span>
