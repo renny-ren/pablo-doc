@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     @header = ""
     @quotation = ""
     @bullet = []
+    @items = ["fontname","fontsize","|","forecolor","hilitecolor","bold","italic","underline","removeformat","|","justifyleft","justifycenter","justifyright","insertorderedlist","insertunorderedlist","|","image","link"]
   end
 
   private
