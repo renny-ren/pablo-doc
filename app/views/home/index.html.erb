@@ -1,31 +1,39 @@
 <div class="doc-container">
-  <div class="type-box">
-    <%= form_tag({action: 'create'}, multipart: true) do %>
-      Please type your text or upload file
-      <%= kindeditor_tag :doc, @file_content, simple_mode: true, langType: 'en' %>
-      <%= submit_tag "Submit", class: "btn btn-info", style: "margin-left: 100px; font-size: 16px; height: 30px; width: 80px;" %>
-      <%= file_field_tag :uploaded_file, onchange:"form.submit();" %>
-    <% end %>
+  <div class="gallery">
+    <div class="gallery-header">Images</div>
+    <div class="gallery-search"></div>
+    <div class="gallery-list"></div>  
   </div>
 
-  <div class="result">
-    <div id="header"><%== @header %></div>
-    <div id="quotation"><%== @quotation %></div>
-    <div id="bullet">
-      <% @bullet.each do |bullet| %>
-        <%== bullet %><br />
+  <div class="canvas-center">
+    <div class="result">
+      <div id="header">
+        <% @header.each do |header| %>
+          <%== header %>
+        <% end %>
+      </div>
+      <div id="quotation"><%== @quotation %></div>
+      <div id="bullet">
+        <% @bullet.each do |bullet| %>
+          <%== bullet %><br />
+        <% end %>
+      </div>
+      <div id="bold"><%== @bold %></div>
+    </div>
+  
+    <div class="type-box">
+      <%= form_tag({action: 'create'}, multipart: true) do %>
+        <p style="text-align: center;">Please type your text or upload file</p>
+        <%= kindeditor_tag :doc, @file_content, langType: 'en' %>
+        <%= submit_tag "Submit", class: "btn btn-info", style: "margin-left: 100px; font-size: 16px; height: 30px; width: 80px;" %>
+        <%= file_field_tag :uploaded_file, onchange:"form.submit();" %>
       <% end %>
     </div>
   </div>
 
   <div class="image-options">
-    <div class="image-extra-options">
-      <div class="image-extra-options-header">TEXT</div>
-      <div class="text-toggles" onselectstart="return false">
-        <span class="text-toggle-selected" onclick="select_text(this);">Header</span>
-        <span class="text-toggle-selected" onclick="select_text(this);">Quotation</span>
-        <span class="text-toggle-selected" onclick="select_text(this);">Bullet</span>
-      </div>
-    </div>
+    <%= render 'size' %>
+    <%= render 'filter' %>
+    <%= render 'text' %>
   </div>
 </div>

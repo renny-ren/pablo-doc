@@ -11,10 +11,9 @@ class HomeController < ApplicationController
   end
 
   def initialize_options
-    @header = ""
+    @header = []
     @quotation = ""
     @bullet = []
-    @items = ["fontname","fontsize","|","forecolor","hilitecolor","bold","italic","underline","removeformat","|","justifyleft","justifycenter","justifyright","insertorderedlist","insertunorderedlist","|","image","link"]
   end
 
   private
@@ -23,17 +22,26 @@ class HomeController < ApplicationController
     if params[:uploaded_file].nil?
       nil
     else
-      (params[:uploaded_file].content_type == 'application/msword') ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
+      (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     end
   end
 
   def separate
-    doc = params[:doc].gsub("<br />\r", "")
-    first_line = doc.lines.first || ""
-    @header = (first_line.include?("------")) ? doc.lines.second.chomp : first_line
+    doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
+    @header = get_header(doc)
+    
     @quotation = $1 if doc.match(/(".*")/m)
-    doc.each_line do |line|
-      @bullet.push $1.chomp if line.match(/(.*:.*)/m)
+    @bold = $1 if doc.match(/(<strong>.*<\/strong>)/m)
+    doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) }
+  end
+
+  def get_header(doc)
+    if doc.match(/h[123]/)
+      doc.scan(/<h[123]>.*?<\/h[123]>/m)
+    else
+      # doc = doc.gsub(/<.*>/).lstrip
+      first_line = doc.lines.first || ""
+      (first_line.include?("------")) ? doc.lines.second.chomp.split : first_line.split
     end
   end
 end

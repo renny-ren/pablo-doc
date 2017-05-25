@@ -1,45 +1,79 @@
+$commonBorder: solid 1px #f2f2f2;
+
 .doc-container{
-  margin: 20px;
+  margin: 20px 150px;
 }
 
 .type-box{
   float: left;
+  width: 550px;
+}
+
+.canvas-center{
+  background: #FCFCFC;
+  float: left;
+  width: 600px;
+  height: 800px;
+  margin: 0 20px;
+  padding: 0 28px;
 }
 
 .result{
-  background: #FCFCFC;
-  float: left;
   width: 500px;
-  height: 600px;
-  padding-left: 50px;
-  margin: 0 20px;
-  font-size: 20px;
+  height: 400px;
 }
 
-.image-options{
-  background: #FFFFFF;
+.image-options, .gallery{
   float: left;
+}
+
+@mixin basic-config{
+  background: #FFFFFF;
+  border: $commonBorder;
+  border-radius: 8px;
+  width: 260px;
+  margin: 20px 0;
 }
 
 .image-extra-options{
-  border: solid 1px #f2f2f2;
-  width: 260px;
+  @include basic-config;
+  height: 140px;
+}
+
+.image-sizes{
+  @include basic-config;
   height: 100px;
 }
 
-.image-extra-options-header{
+.image-filters{
+  @include basic-config;
+  height: 100px;
+}
+
+.gallery{
+  background: #FFFFFF;
+  border: $commonBorder;
+  border-radius: 6px;
+  width: 200px;
+  height: 400px;
+  margin: 20px 0;
+}
+
+.image-extra-options-header, .gallery-header, .image-sizes-header, .image-filters-header{
   color: #98A0A6;
-  border-bottom: solid 1px #f2f2f2;
+  border-bottom: $commonBorder;
   padding: 10px 10px 3px 10px;
 }
 
 .text-toggles{
-  padding: 16px;
+  padding: 10px 15px;
+  line-height: 2.5em;
 }
 
 #header{
   position: absolute;
-  margin-left: 30px;
+  margin-left: 10px;
+  width: 600px;
 }
 
 #quotation{
@@ -50,6 +84,13 @@
 #bullet{
   position: absolute;
   margin-top: 80px;
+}
+
+#bold{
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 200px;
+  width: 280px;
 }
 
 .text-toggle{
