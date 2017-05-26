@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'rails_kindeditor'
 gem 'docx'
-gem 'nokogiri'
+gem "wysiwyg-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

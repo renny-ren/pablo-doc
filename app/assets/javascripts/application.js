@@ -15,3 +15,7 @@
 //= require kindeditor
 //= require turbolinks
 //= require_tree .
+
+//= require froala_editor.min.js
+
+$('selector').froalaEditor();

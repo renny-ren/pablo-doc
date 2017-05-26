@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   def initialize_options
     @header = []
     @quotation = ""
-    @bullet = []
+    @bullet = [""]
   end
 
   private
@@ -33,6 +33,7 @@ class HomeController < ApplicationController
     @quotation = $1 if doc.match(/(".*")/m)
     @bold = $1 if doc.match(/(<strong>.*<\/strong>)/m)
     doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) }
+    check_amend
   end
 
   def get_header(doc)
@@ -43,5 +44,10 @@ class HomeController < ApplicationController
       first_line = doc.lines.first || ""
       (first_line.include?("------")) ? doc.lines.second.chomp.split : first_line.split
     end
+  end
+
+  def check_amend
+    @quotation = "" if @quotation.length > 40
+    @bullet = [] if @bullet.last.length > 40
   end
 end
