@@ -19,10 +19,15 @@ class HomeController < ApplicationController
   private
 
   def read_file_content
-    if params[:uploaded_file].nil?
+    # if params[:uploaded_file].nil?
+    #   params[:doc]
+    # else
+    #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
+    # end
+    if params[:url].empty?
       params[:doc]
     else
-      (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
+      Nokogiri::HTML(open(params[:url]))
     end
   end
 
@@ -33,7 +38,7 @@ class HomeController < ApplicationController
     @quotation = $1 if doc.match(/(".*")/m)
     @bold = $1 if doc.match(/(<strong>.*<\/strong>)/m)
     doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) }
-    check_amend
+    check_length
   end
 
   def get_header(doc)
@@ -46,7 +51,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def check_amend
+  def check_length
     @quotation = "" if @quotation.length > 40
     @bullet = [] if @bullet.last.length > 40
   end

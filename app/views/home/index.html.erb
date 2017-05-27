@@ -7,12 +7,12 @@
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/js/froala_editor.pkgd.min.js"></script> -->
 
 <!-- Initialize the editor. -->
-<script> $(function() { $('.editable').froalaEditor({
+<!-- <script> $(function() { $('.editable').froalaEditor({
       toolbarInline: true,
       charCounterCount: false,
       toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', 'insertImage', 'insertLink', 'insertFile', 'insertVideo', 'undo', 'redo'],
       toolbarVisibleWithoutSelection: true
-  }) }); </script>
+  }) }); </script> -->
 
 <div class="doc-container">
   <div class="gallery">
@@ -39,10 +39,11 @@
   
     <div class="type-box">
       <%= form_tag({action: 'create'}, multipart: true) do %>
-        <p style="text-align: center;">Please type your text or upload file</p>
+        <p style="text-align: center;">Please type your text or paste URL</p>
         <%= kindeditor_tag :doc, @file_content, langType: 'en' %>
-        <%= submit_tag "Submit", class: "btn btn-info", style: "margin-left: 100px; font-size: 16px; height: 30px; width: 80px;" %>
-        <%= file_field_tag :uploaded_file, onchange:"form.submit();" %>
+        <%= submit_tag "Submit", class: "btn btn-info", style: "font-size: 16px; height: 30px; width: 80px;" %>
+        <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
+        <%= text_field_tag :url, nil, placeholder: "put URL here...", size: 61 %>
       <% end %>
     </div>
   </div>
