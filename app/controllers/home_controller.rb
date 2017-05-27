@@ -20,7 +20,7 @@ class HomeController < ApplicationController
 
   def read_file_content
     if params[:uploaded_file].nil?
-      nil
+      params[:doc]
     else
       (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     end
@@ -40,7 +40,7 @@ class HomeController < ApplicationController
     if doc.match(/h[123]/)
       doc.scan(/<h[123]>.*?<\/h[123]>/m)
     else
-      # doc = doc.gsub(/<.*>/).lstrip
+      doc = doc.gsub(/<.*>/,"").lstrip
       first_line = doc.lines.first || ""
       (first_line.include?("------")) ? doc.lines.second.chomp.split : first_line.split
     end

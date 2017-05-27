@@ -1,3 +1,19 @@
+<!-- Include external JS libs. -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script> -->
+
+<!-- Include Editor JS files. -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/js/froala_editor.pkgd.min.js"></script> -->
+
+<!-- Initialize the editor. -->
+<script> $(function() { $('.editable').froalaEditor({
+      toolbarInline: true,
+      charCounterCount: false,
+      toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', 'insertImage', 'insertLink', 'insertFile', 'insertVideo', 'undo', 'redo'],
+      toolbarVisibleWithoutSelection: true
+  }) }); </script>
+
 <div class="doc-container">
   <div class="gallery">
     <div class="gallery-header">Images</div>
@@ -7,18 +23,18 @@
 
   <div class="canvas-center">
     <div class="result">
-      <div id="header">
+      <div id="header" class="editable">
         <% @header.each do |header| %>
           <%== header %>
         <% end %>
       </div>
-      <div id="quotation"><%== @quotation %></div>
-      <div id="bullet">
+      <div id="quotation" class="editable"><%== @quotation %></div>
+      <div id="bullet" class="editable">
         <% @bullet.each do |bullet| %>
           <%== bullet %><br />
         <% end %>
       </div>
-      <div id="bold"><%== @bold %></div>
+      <div id="bold" class="editable"><%== @bold %></div>
     </div>
   
     <div class="type-box">
