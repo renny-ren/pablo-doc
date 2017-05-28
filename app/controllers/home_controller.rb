@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     @header = []
     @quotation = ""
     @bullet = [""]
+    @bold = [""]
   end
 
   private
@@ -36,19 +37,23 @@ class HomeController < ApplicationController
     @header = get_header(doc)
     
     @quotation = $1 if doc.match(/(".*")/m)
-    @bold = $1 if doc.match(/(<strong>.*<\/strong>)/m)
+    @bold = get_bold(doc)
     doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) }
     check_length
   end
 
   def get_header(doc)
-    if doc.match(/h[123]/)
+    if doc.match(/h[123]/)  # if there is heading format text, return them as header
       doc.scan(/<h[123]>.*?<\/h[123]>/m)
-    else
+    else  # if there is no heading, first or second line would be header
       doc = doc.gsub(/<.*>/,"").lstrip
       first_line = doc.lines.first || ""
       (first_line.include?("------")) ? doc.lines.second.chomp.split : first_line.split
     end
+  end
+
+  def get_bold(doc)
+    doc.scan(/<strong>.*?<\/strong>/m)
   end
 
   def check_length

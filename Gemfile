@@ -35,9 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap'
 gem 'rails_kindeditor'
-gem 'docx'
+# gem 'docx'
 gem "wysiwyg-rails"
-gem 'mechanize'
 gem 'nokogiri'
 
 group :development, :test do
