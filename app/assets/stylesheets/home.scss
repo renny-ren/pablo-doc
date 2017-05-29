@@ -52,6 +52,27 @@ $commonBorder: solid 1px #f2f2f2;
   position: absolute;
 }
 
+#toolbar{
+  display: none;
+  position: relative;
+  z-index: 88;
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  background: #242A30;
+  text-align: center;
+}
+
+#delete{
+  cursor: pointer;
+  /* position: absolute; */
+}
+
+.item-deleted{
+  cursor: pointer;
+  position: static;
+}
+
 @mixin basic-config{
   background: #FFFFFF;
   border: $commonBorder;
@@ -88,10 +109,6 @@ $commonBorder: solid 1px #f2f2f2;
   color: #98A0A6;
   border-bottom: $commonBorder;
   padding: 10px 10px 3px 10px;
-}
-
-.draggable{
-  cursor: move;
 }
 
 .text-toggles{

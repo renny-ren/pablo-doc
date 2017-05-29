@@ -34,9 +34,13 @@
   <div class="canvas-center">
     <div class="result">
       <canvas id="background"></canvas>
+      <div id="toolbar">
+        <span id="delete" onclick="delete_element();">❌</span>
+      </div>
       <div id="header" class="editable">
         <% @header.each do |header| %>
-          <div class="draggable"><%== header %></div>
+          <span class="draggable" ><%== header %></span>
+          <!-- onclick="select_element(this);" -->
         <% end %>
       </div>
       <div id="quotation" class="editable draggable"><%== @quotation %></div>
@@ -49,9 +53,9 @@
         <% @bold.each do |bold| %>
           <p class="draggable"><%== bold %></p> <br />
         <% end %>
-      </div>      
-    </div>  
-  
+      </div>
+    </div>
+
     <div class="type-box">
       <%= form_tag({action: 'create'}, multipart: true) do %>
         <p style="text-align: center;">Please type your text or paste URL</p>
