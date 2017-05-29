@@ -28,6 +28,30 @@ $commonBorder: solid 1px #f2f2f2;
   float: left;
 }
 
+.gallery-list{
+  padding: 20px 10px;
+  height: 550px;
+  overflow: scroll;
+}
+
+.gallery-item{
+  list-style: none;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.gallery-item-selected{
+  border: solid 4px skyblue;
+  border-radius: 5px;
+  box-shadow: 1px 8px 5px #888888;
+}
+
+#background{
+  width: 600px;
+  height: 320px;
+  position: absolute;
+}
+
 @mixin basic-config{
   background: #FFFFFF;
   border: $commonBorder;
@@ -55,8 +79,8 @@ $commonBorder: solid 1px #f2f2f2;
   background: #FFFFFF;
   border: $commonBorder;
   border-radius: 6px;
-  width: 200px;
-  height: 400px;
+  width: 230px;
+  height: 600px;
   margin: 20px 0;
 }
 
@@ -64,6 +88,10 @@ $commonBorder: solid 1px #f2f2f2;
   color: #98A0A6;
   border-bottom: $commonBorder;
   padding: 10px 10px 3px 10px;
+}
+
+.draggable{
+  cursor: move;
 }
 
 .text-toggles{

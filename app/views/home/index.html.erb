@@ -23,11 +23,17 @@
   <div class="gallery">
     <div class="gallery-header">Images</div>
     <div class="gallery-search"></div>
-    <div class="gallery-list"></div>  
+    <ul class="gallery-list">
+      <% 5.times do |n| %>
+        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-thumbnail/#{@images[:batch_2_thumbnail][n]}.jpg", alt: "background", width: '200px' %></li>
+        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/#{@images[:thumbnail][n]}.jpg", alt: "background", width: '200px' %></li>
+      <% end %>
+    </ul>  
   </div>
 
   <div class="canvas-center">
     <div class="result">
+      <canvas id="background"></canvas>
       <div id="header" class="editable">
         <% @header.each do |header| %>
           <div class="draggable"><%== header %></div>
@@ -43,7 +49,7 @@
         <% @bold.each do |bold| %>
           <p class="draggable"><%== bold %></p> <br />
         <% end %>
-      </div>
+      </div>      
     </div>  
   
     <div class="type-box">
