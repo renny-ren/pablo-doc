@@ -33,8 +33,9 @@
 
   <div class="canvas-center">
     <div class="result">
-      <div id="toolbar">
-        <span id="delete" onclick="delete_element();">❌</span>
+      <div id="toolbar" onselectstart="return false">
+        <span id="change-color" onclick="change_color();" title="change font-color">A</span>
+        <span id="delete" onclick="delete_element();" title="delete">×</span>
       </div>
       <div id="header" class="editable">
         <% @header.each do |header| %>

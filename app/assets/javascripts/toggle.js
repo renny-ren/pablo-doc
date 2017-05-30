@@ -28,7 +28,7 @@ function select_image(obj){
     var c = document.getElementById('background-images');
     var header_num = document.getElementById('header').children.length;
 
-    c.innerHTML = "";
+    // c.innerHTML = "";
     for (var i = 0; i < header_num; i++) {
       var img = c.appendChild(obj.childNodes[0].cloneNode(true));
       img.classList.add('background-selected');
