@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 
   def initialize_options
     @header = []
-    @quotation = ""
+    @quotation = [""]
     @bullet = [""]
     @bold = [""]
     @images = { batch_2_thumbnail: (1..74).to_a.sample(5), thumbnail: (1..33).to_a.sample(5) }
@@ -34,13 +34,14 @@ class HomeController < ApplicationController
   end
 
   def separate
-    doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
-    @header = get_header(doc)
-    
-    @quotation = $1 if doc.match(/(".*")/m)
-    @bold = get_bold(doc)
-    doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) }
-    check_length
+    unless params[:doc].empty?
+      doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
+      @header = get_header(doc)    
+      @quotation = get_quotation(doc)
+      @bold = get_bold(doc)
+      @bullet = get_bullet(doc)
+      check_length
+    end
   end
 
   def get_header(doc)
@@ -57,8 +58,16 @@ class HomeController < ApplicationController
     doc.scan(/<strong>.*?<\/strong>/m)
   end
 
+  def get_quotation(doc)
+    doc.scan(/(".*?")/m).flatten if doc.scan(/(".*?")/m)
+  end
+
+  def get_bullet(doc)
+    doc.scan(/^.{1,15}:.*{1,20}$|<ul>.*?<\/ul>/m).flatten
+    # doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) or line.match(/<ul>.*?<\/ul>/m) }
+  end
+
   def check_length
-    @quotation = "" if @quotation.length > 40
-    @bullet = [] if @bullet.last.length > 40
+    @quotation = [""] if @quotation.length > 10 
   end
 end

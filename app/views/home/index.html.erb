@@ -33,22 +33,27 @@
 
   <div class="canvas-center">
     <div class="result">
-      <canvas id="background"></canvas>
       <div id="toolbar">
         <span id="delete" onclick="delete_element();">❌</span>
       </div>
       <div id="header" class="editable">
         <% @header.each do |header| %>
-          <span class="draggable" ><%== header %></span>
-          <!-- onclick="select_element(this);" -->
+          <div class="draggable text-header" onclick="select_element(this);"><%== header %></div>
         <% end %>
       </div>
-      <div id="quotation" class="editable draggable"><%== @quotation %></div>
+
+      <div id="quotation" class="editable">
+        <% @quotation.each do |quotation| %>
+          <div class="draggable"><%== quotation %></div>
+        <% end %>
+      </div>
+
       <div id="bullet" class="editable">
         <% @bullet.each do |bullet| %>
           <div class="draggable"><%== bullet %><br /></div>
         <% end %>
       </div>
+
       <div id="bold" class="editable">
         <% @bold.each do |bold| %>
           <p class="draggable"><%== bold %></p> <br />
@@ -56,15 +61,7 @@
       </div>
     </div>
 
-    <div class="type-box">
-      <%= form_tag({action: 'create'}, multipart: true) do %>
-        <p style="text-align: center;">Please type your text or paste URL</p>
-        <%= kindeditor_tag :doc, @file_content, langType: 'en' %>
-        <%= submit_tag "Submit", class: "btn btn-info", style: "font-size: 16px; height: 30px; width: 80px;" %>
-        <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
-        <%= text_field_tag :url, nil, placeholder: "put URL here...", size: 61 %>
-      <% end %>
-    </div>
+    <div id="background-images"></div>    
   </div>
 
   <div class="image-options">
