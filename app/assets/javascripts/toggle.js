@@ -26,13 +26,19 @@ function select_image(obj){
     obj.classList.toggle("gallery-item-selected", true);
 
     var c = document.getElementById('background-images');
-    var header_num = document.getElementById('header').children.length;
+    var header = document.getElementById('header').children;
 
     // c.innerHTML = "";
-    for (var i = 0; i < header_num; i++) {
+    for (var i = 0; i < header.length; i++) {
       var img = c.appendChild(obj.childNodes[0].cloneNode(true));
+      if(i != 0){
+        header.item(i).style.top = parseInt(header.item(i-1).style.top.replace(/[^0-9|-]/ig,"")) + 15 + "em";
+        // header.item(i).style.top = header.item(i-1).offsetTop + 180 + "px";
+      }
+      else{
+        header.item(0).style.top = "-6px";
+      }
       img.classList.add('background-selected');
-      // document.getElementById('header').childNodes[header_num].style.width = "100px";
     }
     
     // var c = document.getElementById("background");

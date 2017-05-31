@@ -40,7 +40,7 @@ class HomeController < ApplicationController
       @quotation = get_quotation(doc)
       @bold = get_bold(doc)
       @bullet = get_bullet(doc)
-      check_length
+      # check_length
     end
   end
 
@@ -59,15 +59,17 @@ class HomeController < ApplicationController
   end
 
   def get_quotation(doc)
-    doc.scan(/(".*?")/m).flatten if doc.scan(/(".*?")/m)
+    doc = doc.gsub(/<(style|script|iframe)[^>]*?>[\s\S]+?<\/\1\s*>/i,'').gsub(/<[^>]+?>/,'').gsub(/\s+/,' ').gsub(/ /,' ').gsub(/>/,' ')
+    doc.scan(/(".*?"|“.*?”)/m).flatten if doc.scan(/(".*?"|“.*?”)/m)
   end
 
   def get_bullet(doc)
-    doc.scan(/^.{1,15}:.*{1,20}$|<ul>.*?<\/ul>/m).flatten
+    doc.scan(/<ul>.*?<\/ul>/m).flatten
+    # ^.{1,10}:.*{1,10}$|
     # doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) or line.match(/<ul>.*?<\/ul>/m) }
   end
 
   def check_length
-    @quotation = [""] if @quotation.length > 10 
+    # @quotation = [""] if @quotation.first.length > 60 
   end
 end
