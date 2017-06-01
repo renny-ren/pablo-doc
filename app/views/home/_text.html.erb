@@ -10,10 +10,10 @@
   <div class="type-box">
     <%= form_tag({action: 'create'}, multipart: true) do %>
       <p style="text-align: center;">Please type your text or paste URL</p>
-      <%= kindeditor_tag :doc, @file_content, langType: 'en' %>
-      <%= submit_tag "Submit", class: "btn btn-info", style: "font-size: 16px; height: 30px; width: 80px;" %>
+      <%= kindeditor_tag :doc, @content, langType: 'en' %>
+      <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 61 %> <br />
+      <%= submit_tag "Submit", class: "btn btn-info", data: { disable_with: "Loading..." } %> 
       <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
-      <%= text_field_tag :url, nil, placeholder: "put URL here...", size: 61 %>
     <% end %>
   </div>
 </div>

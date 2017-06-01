@@ -25,8 +25,8 @@
     <div class="gallery-search"></div>
     <ul class="gallery-list">
       <% 5.times do |n| %>
-        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-thumbnail/#{@images[:batch_2_thumbnail][n]}.jpg", alt: "background", width: '200px' %></li>
-        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/#{@images[:thumbnail][n]}.jpg", alt: "background", width: '200px' %></li>
+        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-thumbnail/#{@images[:batch_2_thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
+        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/#{@images[:thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
       <% end %>
     </ul>  
   </div>
@@ -39,25 +39,25 @@
       </div>
       <div id="header" class="editable">
         <% @header.each do |header| %>
-          <div class="draggable text-header" onclick="select_element(this);"><%== header %></div>
+          <div class="draggable" id="header-item" onclick="select_element(this);"><%== header %></div>
         <% end %>
       </div>
 
       <div id="quotation" class="editable">
         <% @quotation.each do |quotation| %>
-          <div class="draggable"><%== quotation %></div>
+          <div class="draggable" id="quotation-item"><%== quotation %></div>
         <% end %>
       </div>
 
       <div id="bullet" class="editable">
         <% @bullet.each do |bullet| %>
-          <div class="draggable"><%== bullet %><br /></div>
+          <div class="draggable" id="bullet-item"><%== bullet %><br /></div>
         <% end %>
       </div>
 
       <div id="bold" class="editable">
         <% @bold.each do |bold| %>
-          <p class="draggable"><%== bold %></p> <br />
+          <p class="draggable" id="bold-item"><%== bold %></p> <br />
         <% end %>
       </div>
     </div>

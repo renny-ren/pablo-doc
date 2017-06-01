@@ -5,8 +5,8 @@ class HomeController < ApplicationController
   end
 
   def create
-    @file_content = read_file_content
-    separate
+    @content = read_content
+    separate(@content)
     render :index
   end
 
@@ -20,28 +20,22 @@ class HomeController < ApplicationController
 
   private
 
-  def read_file_content
+  def read_content
     # if params[:uploaded_file].nil?
     #   params[:doc]
     # else
     #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     # end
-    if params[:url].empty?
-      params[:doc]
-    else
-      Nokogiri::HTML(open(params[:url]))
-    end
+    params[:url].empty? ? params[:doc] : Nokogiri::HTML(open(params[:url]))
   end
 
-  def separate
-    unless params[:doc].empty?
-      doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
-      @header = get_header(doc)    
-      @quotation = get_quotation(doc)
-      @bold = get_bold(doc)
-      @bullet = get_bullet(doc)
-      # check_length
-    end
+  def separate(content)
+    doc = content.to_param.gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
+    @header = get_header(doc)    
+    @quotation = get_quotation(doc)
+    @bold = get_bold(doc)
+    @bullet = get_bullet(doc)
+    # check_length
   end
 
   def get_header(doc)
@@ -66,7 +60,6 @@ class HomeController < ApplicationController
   def get_bullet(doc)
     doc.scan(/<ul>.*?<\/ul>/m).flatten
     # ^.{1,10}:.*{1,10}$|
-    # doc.each_line { |line|  @bullet.push $1.chomp if line.match(/(.*:.*)/m) or line.match(/<ul>.*?<\/ul>/m) }
   end
 
   def check_length
