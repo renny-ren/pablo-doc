@@ -1,6 +1,6 @@
 $(function(){
   toolbar = document.getElementById('toolbar');
-  header_num = document.getElementById('header').children.length;  
+  header_num = document.getElementById('header').children.length;
 }); 
 
 function select_element(obj){

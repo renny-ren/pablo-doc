@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'rails_kindeditor'
 # gem 'docx'
-gem "wysiwyg-rails"
+# gem "wysiwyg-rails"
 gem 'nokogiri'
 
 group :development, :test do

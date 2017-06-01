@@ -12,7 +12,7 @@
       <p style="text-align: center;">Please type your text or paste URL</p>
       <%= kindeditor_tag :doc, @content, langType: 'en' %>
       <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 61 %> <br />
-      <%= submit_tag "Submit", class: "btn btn-info", data: { disable_with: "Loading..." } %> 
+      <%= submit_tag "Submit", class: "btn btn-info", data: { disable_with: "Loading..." }, style: "margin-top: 10px;" %> 
       <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
     <% end %>
   </div>

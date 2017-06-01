@@ -13,7 +13,18 @@
   <body>
     <section class="header">
       <div class="header-container">
-        Word-doc
+        <span style="float: left;">Word-doc</span>
+        <div id="templates">
+          <div class="templates-label" onselectstart="return false">Templates</div>
+          <div class="templates-container">
+            <ul class="templates-list">
+              <li class="templates-item templates-item-blank">Blank</li>
+              <li class="templates-item templates-item-quote">Quote</li>
+              <li class="templates-item templates-item-announcement">Announcement</li>
+              <li class="templates-item templates-item-promotion">Promotion</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>      
     <%= yield %>

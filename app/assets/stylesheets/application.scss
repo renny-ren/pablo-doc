@@ -14,11 +14,6 @@
  *= require_self
 
  */
-@import "froala_editor.min.css";
-@import "froala_style.min.css";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 @import "bootstrap";
 
 body{
@@ -37,4 +32,27 @@ body{
   margin: 0 auto;
   width: 1000px;
   padding: 10px;
+  position: relative;
+}
+
+#templates{
+  position: absolute;
+  left: 50%;
+  z-index: 5;
+}
+
+.templates-label{
+  color: #168EEA;
+  cursor: pointer;
+}
+
+.templates-list{
+  background: #FFF;
+  border: solid 1px #DAE1E7;
+  border-radius: 4px;
+  display: none;
+}
+
+.templates-item{
+  cursor: pointer;
 }
