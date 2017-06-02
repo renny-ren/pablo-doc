@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def create
     @content = read_content
-    separate(@content)
+    separate
     render :index
   end
 
@@ -29,13 +29,15 @@ class HomeController < ApplicationController
     params[:url].empty? ? params[:doc] : Nokogiri::HTML(open(params[:url]))
   end
 
-  def separate(content)
-    doc = content.to_param.gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
-    @header = get_header(doc)    
-    @quotation = get_quotation(doc)
-    @bold = get_bold(doc)
-    @bullet = get_bullet(doc)
-    # check_length
+  def separate
+    unless params[:doc].empty?
+      doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
+      @header = get_header(doc)    
+      @quotation = get_quotation(doc)
+      @bold = get_bold(doc)
+      @bullet = get_bullet(doc)
+      # check_length
+    end
   end
 
   def get_header(doc)

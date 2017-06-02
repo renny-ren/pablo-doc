@@ -1,6 +1,10 @@
 $(function(){
   toolbar = document.getElementById('toolbar');
-  header_num = document.getElementById('header').children.length;
+  header_num = $('#header').children().length;
+  quotation_num = $('#quotation').children().length;
+  bullet_num = $('#bullet').children().length;
+  bold_num = $('#bold').children().length;
+  image_num =  header_num + quotation_num + bullet_num + bold_num;
 }); 
 
 function select_element(obj){

@@ -34,13 +34,13 @@ function select_image(obj){
       img.classList.add('background-selected');  // apply css
 
       // rearrange headers
-      if(i != 0){
-        headers.item(i).style.top = parseInt(headers.item(i-1).style.top.replace(/[^0-9|-]/ig,"")) + 15 + "em";
-        // header.item(i).style.top = header.item(i-1).offsetTop + 180 + "px";
-      }
-      else{
-        headers.item(0).style.top = "-6px";
-      }
+      // if (i != 0) {
+      //   headers.item(i).style.top = parseInt(headers.item(i-1).style.top.replace(/[^0-9|-]/ig,"")) + 15 + "em";
+      //   // header.item(i).style.top = header.item(i-1).offsetTop + 180 + "px";
+      // }
+      // else{
+      //   headers.item(0).style.top = "-6px";
+      // }
 
     }
     if (document.querySelector(".gallery-item-selected")) {

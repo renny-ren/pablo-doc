@@ -51,8 +51,16 @@ body{
   border: solid 1px #DAE1E7;
   border-radius: 4px;
   display: none;
+  list-style: none;
+  padding: 10px;
 }
 
 .templates-item{
   cursor: pointer;
+}
+
+.template-item-selected{
+  border: solid 4px skyblue;
+  border-radius: 5px;
+  box-shadow: 1px 8px 5px #888888;
 }
