@@ -22,6 +22,7 @@ $commonBorder: solid 1px #f2f2f2;
   width: 500px;
   /* overflow: scroll; */
   position: absolute;
+  z-index: 2;
 }
 
 .image-options, .gallery{
@@ -49,7 +50,8 @@ $commonBorder: solid 1px #f2f2f2;
 .background-selected{
   width: 500px;
   height: 280px;
-  padding: 10px 0;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 #toolbar{
@@ -87,10 +89,6 @@ $commonBorder: solid 1px #f2f2f2;
 
 #item-selected{
   cursor: text;
-}
-
-.draggable{
-  cursor: move;
 }
 
 @mixin basic-config{
@@ -136,6 +134,10 @@ $commonBorder: solid 1px #f2f2f2;
   line-height: 2.5em;
 }
 
+#background-images{
+  z-index: 1;
+}
+
 #header{
   margin-left: 10px;
   padding-top: 10px;
@@ -147,6 +149,7 @@ $commonBorder: solid 1px #f2f2f2;
 
 #bullet{
   /* margin-top: 80px; */
+  padding: 0 20px;
 }
 
 #bold{

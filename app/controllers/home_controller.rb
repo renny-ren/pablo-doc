@@ -60,7 +60,7 @@ class HomeController < ApplicationController
   end
 
   def get_bullet(doc)
-    doc.scan(/<ul>.*?<\/ul>/m).flatten
+    doc.scan(/<li>.*?<\/li>/m).flatten
     # ^.{1,10}:.*{1,10}$|
   end
 

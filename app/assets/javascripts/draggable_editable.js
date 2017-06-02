@@ -5,6 +5,7 @@ $(function(){
 function draggable_editable(){
   $(".draggable")
     .draggable({
+      cursor: "move",
       containment: ".result"
     })
 
