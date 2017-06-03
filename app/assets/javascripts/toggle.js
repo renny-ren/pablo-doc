@@ -100,7 +100,7 @@ function select_image(obj){
       j++;
     }
 
-    if (document.querySelector(".gallery-item-selected")) {     // if select multiple images
+    if (document.querySelector(".gallery-item-selected") || document.querySelector(".template-item-selected")) {     // if select multiple images
         var header_copy = result.appendChild(header.cloneNode(true));   // clone headers 
         header_copy.style.position = 'relative';
         header_copy.style.top = result.style.height;  // rearrange headers

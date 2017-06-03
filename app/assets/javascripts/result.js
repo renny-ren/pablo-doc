@@ -9,16 +9,18 @@ $(function(){
 
 function select_element(obj){
   $('#item-selected').removeAttr('id');
-  toolbar.style.display = "block";
+  toolbar.style.display = 'block';
   // toolbar.style.top = getComputedStyle(obj, null).top;
-  toolbar.style.top = obj.offsetTop - 30 + obj.parentNode.offsetTop + "px";
+  toolbar.style.top = obj.offsetTop - 30 + obj.parentNode.offsetTop + 'px';
   // toolbar.style.left = parseInt(getComputedStyle(obj, null).left.replace(/[^0-9]/ig,"")) + 15 + "px";
   toolbar.style.left = obj.offsetLeft + 120 + "px";
   obj.id = 'item-selected';
+  obj.style.border = 'dotted 2px #168EEA';
 
   $("#item-selected").blur(function(){
     $(this).removeAttr('id');
-    toolbar.style.display = "none";
+    this.style.border = 'none';
+    toolbar.style.display = 'none';
   });
 }
 

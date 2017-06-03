@@ -6,7 +6,7 @@ function draggable_editable(){
   $(".draggable")
     .draggable({
       cursor: "move",
-      containment: ".result"
+      containment: '.result'
     })
 
     .click(function(){

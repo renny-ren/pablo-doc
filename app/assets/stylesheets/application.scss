@@ -52,15 +52,26 @@ body{
   border-radius: 4px;
   display: none;
   list-style: none;
+  position: absolute;
+  left: -433px;
   padding: 10px;
+  width: 930px;
+  text-align: center;
 }
 
 .templates-item{
   cursor: pointer;
+  display: inline-block;
 }
 
 .template-item-selected{
-  border: solid 4px skyblue;
+  border: solid 2px orange;
   border-radius: 5px;
-  box-shadow: 1px 8px 5px #888888;
+  box-shadow: 1px 6px 5px #888888;
+}
+
+.templates-description{
+  text-align: center;
+  font-size: 12px;
+  color: #a4a4a4;
 }
