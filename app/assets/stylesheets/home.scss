@@ -106,7 +106,8 @@ $commonBorder: solid 1px #f2f2f2;
 
 .image-sizes{
   @include basic-config;
-  height: 100px;
+  width: 220px;
+  height: 110px;
 }
 
 .image-filters{
@@ -168,4 +169,48 @@ $commonBorder: solid 1px #f2f2f2;
   padding: 5px;
   border: solid 2px deepskyblue;
   cursor: pointer;
+}
+
+.image-sizes-item{
+  cursor: pointer;
+  background-color: #F8F8F8;
+  border: solid 1px #D8D8D8;
+  border-radius: 3px;
+}
+
+.image-sizes-item-selected{
+  border: solid 2px deepskyblue;
+}
+
+@mixin bg-setting{
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tall{
+  width: 26px;
+  height: 45px;
+  display: inline-block;
+  margin: 10px 10px 0 15px;
+  background-image: url(https://static.buffer.com/images/pablo/sizes-pinterest.png);
+  @include bg-setting;
+}
+
+.square{
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  background-image: url('https://static.buffer.com/images/pablo/sizes-instagram.png');
+  @include bg-setting;
+}
+
+.wide{
+  width: 76px;
+  height: 45px;
+  display: inline-block;
+  margin-top: 10px;
+  background-image: url(https://static.buffer.com/images/pablo/sizes-facebook-twitter.png);
+  @include bg-setting;
 }
