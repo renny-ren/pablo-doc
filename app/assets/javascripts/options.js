@@ -25,19 +25,28 @@ $(function(){
       $('.image-filters-list').hide();
       $('.image-filters-selector').children().get(0).className = $(this).children().get(0).className;
       $($('.image-filters-selector').children().get(1)).html($($(this).children().get(1)).html());
+      deg = (deg+180)%360;
+      $('.filter-arrow').css('transform', 'rotate(' + deg + 'deg)');
     });
 
   $('.tall').click(function(){
     $('.background-selected').css('height', '650px');
+    rearrange();
   });
 
   $('.square').click(function(){
     $('.background-selected').css('height', '280px');
+    rearrange();
   });
 
   $('.wide').click(function(){
     $('.background-selected').css('height', '220px');
+    rearrange();
   });
+
+  $('.none').click(function(){
+    $('.background-selected').removeAttr('style');
+  })
 
   $('.light-contrast').click(function(){
     // $('.background-selected').removeAttr('id');

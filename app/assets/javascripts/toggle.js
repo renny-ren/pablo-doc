@@ -72,33 +72,7 @@ function select_image(obj){
       img.removeAttribute('width');
     }
 
-    for (var i = 0; i < header_num; i++) {
-      // rearrange headers
-      headers.item(i).style.position = 'absolute';
-      headers.item(i).style.top = background.childNodes[i].offsetTop - 60 + 'px';
-      j = i + 1;
-    }
-
-    for (var i = 0; i < quotation_num; i++) {
-      // rearrange quotations
-      quotations.item(i).style.position = 'absolute';
-      quotations.item(i).style.top = background.childNodes[j].offsetTop - 60 + 'px';
-      j++;
-    }
-
-    for (var i = 0; i < bullet_num; i++) {
-      // rearrange bullet
-      bullets.item(i).style.position = 'absolute';
-      bullets.item(i).style.top = background.childNodes[j].offsetTop - 60 + 'px';
-      j++;
-    }
-
-    for (var i = 0; i < bold_num; i++) {
-      // rearrange bold-text
-      bolds.item(i).style.position = 'absolute';
-      bolds.item(i).style.top = background.childNodes[j].offsetTop - 60 + 'px';
-      j++;
-    }
+    rearrange();
 
     if (document.querySelector(".gallery-item-selected") || document.querySelector(".template-item-selected")) {     // if select multiple images
         var header_copy = result.appendChild(header.cloneNode(true));   // clone headers 
@@ -129,4 +103,45 @@ function select_image(obj){
 
     // ctx.drawImage(img, 0, 0, 200, 100);
   }  
+}
+
+
+function rearrange(){
+  var background = document.getElementById('background-images');
+  var header = document.getElementById('header');
+  var headers = header.children;
+  var quotation = document.getElementById('quotation');
+  var quotations = quotation.children;
+  var bullet = document.getElementById('bullet');
+  var bullets = bullet.children;
+  var bold = document.getElementById('bold');
+  var bolds = bold.children;
+
+  for (var i = 0; i < header_num; i++) {
+    // rearrange headers
+    headers.item(i).style.position = 'absolute';
+    headers.item(i).style.top = background.childNodes[i].offsetTop - 60 + 'px';
+    j = i + 1;
+  }
+
+  for (var i = 0; i < quotation_num; i++) {
+    // rearrange quotations
+    quotations.item(i).style.position = 'absolute';
+    quotations.item(i).style.top = background.childNodes[j].offsetTop - 60 + 'px';
+    j++;
+  }
+
+  for (var i = 0; i < bullet_num; i++) {
+    // rearrange bullet
+    bullets.item(i).style.position = 'absolute';
+    bullets.item(i).style.top = background.childNodes[j].offsetTop - 60 + 'px';
+    j++;
+  }
+
+  for (var i = 0; i < bold_num; i++) {
+    // rearrange bold-text
+    bolds.item(i).style.position = 'absolute';
+    bolds.item(i).style.top = background.childNodes[j].offsetTop - 60 + 'px';
+    j++;
+  }
 }
