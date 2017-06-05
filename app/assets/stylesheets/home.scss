@@ -1,12 +1,30 @@
-$commonBorder: solid 1px #f2f2f2;
+$commonBorder: solid 1px #ced7df;
+
+@mixin basic-config{
+  background: #FFFFFF;
+  border: $commonBorder;
+  border-radius: 8px;
+  width: 220px;
+  margin: 20px 0;
+}
 
 .doc-container{
   margin: 20px 150px;
 }
 
 .type-box{
+  @include basic-config;
   float: left;
   width: 550px;
+}
+
+.type-box-content{
+  padding: 10px;
+}
+
+#url{
+  box-shadow: 1px 3px 3px #888888;
+  margin-top: 10px;
 }
 
 .canvas-center{
@@ -58,12 +76,13 @@ $commonBorder: solid 1px #f2f2f2;
   display: none;
   position: absolute;
   z-index: 2;
-  width: 50px;
-  height: 30px;
+  width: 100px;
+  height: 35px;
   border-radius: 5px;
   border-top: solid 5px #222222;
   background: #FFFFFF;
   text-align: center;
+  padding: 5px;
 }
 
 #header-item, #quotation-item, #bullet-item, #bold-item{
@@ -81,6 +100,11 @@ $commonBorder: solid 1px #f2f2f2;
   padding: 0 4px;
 }
 
+#change-weight{
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .item-deleted{
   cursor: pointer;
   position: static;
@@ -89,14 +113,6 @@ $commonBorder: solid 1px #f2f2f2;
 
 #item-selected{
   cursor: text;
-}
-
-@mixin basic-config{
-  background: #FFFFFF;
-  border: $commonBorder;
-  border-radius: 8px;
-  width: 220px;
-  margin: 20px 0;
 }
 
 .image-extra-options{
@@ -123,9 +139,9 @@ $commonBorder: solid 1px #f2f2f2;
   margin: 20px 0;
 }
 
-.image-extra-options-header, .gallery-header, .image-sizes-header, .image-filters-header{
+.image-extra-options-header, .gallery-header, .image-sizes-header, .image-filters-header, .type-box-header{
   color: #98A0A6;
-  border-bottom: $commonBorder;
+  border-bottom: dashed 1.2px #f2f2f2;
   padding: 10px 10px 3px 10px;
 }
 
@@ -212,4 +228,9 @@ $commonBorder: solid 1px #f2f2f2;
   margin-top: 10px;
   background-image: url(https://static.buffer.com/images/pablo/sizes-facebook-twitter.png);
   @include bg-setting;
+}
+
+.share-download button{
+  border-radius: 20px;
+  margin-top: 20px;
 }

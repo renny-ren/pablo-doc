@@ -5,6 +5,11 @@ $(function(){
   bullet_num = $('#bullet').children().length;
   bold_num = $('#bold').children().length;
   image_num =  header_num + quotation_num + bullet_num + bold_num;
+
+
+  $('.share-download').click(function(){
+    alert("Under developing...");
+  })
 }); 
 
 function select_element(obj){
@@ -40,6 +45,17 @@ function change_color(){
     item.style.color = 'white';
   }
 }
+
+function change_weight(){
+  var text = $('#item-selected').children().get(0);
+  if ($(text).css('font-weight') == 700) {
+    $(text).css('font-weight', 'normal');
+  }
+  else{
+    $(text).css('font-weight', 'bold');
+  }
+}
+
 
 // function refresh_trash(){
 //   var trash = document.getElementById('trash');

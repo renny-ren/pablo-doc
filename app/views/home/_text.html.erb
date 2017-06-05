@@ -6,15 +6,21 @@
     <span class="text-toggle-selected" onclick="select_text(this);">Bullet</span>
     <span class="text-toggle-selected" onclick="select_text(this);">Bold</span>
   </div>
+
+  <div class="share-download">
+    <%= button_tag "Share & Download", class: "btn btn-primary" %>
+  </div>
   <!-- <div id="trash"></div> -->
   <div class="type-box">
     <%= form_tag({action: 'create'}, multipart: true) do %>
-      <p style="text-align: center;">Please type your text or paste URL</p>
-      <%= kindeditor_tag :doc, @content, langType: 'en' %>
-      <%= submit_tag "Generate Content", class: "btn btn-info", data: { disable_with: "Loading..." }, style: "margin-top: 10px;" %> 
-      <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 61 %> <br />
-      <%= submit_tag "Submit URL", class: "btn btn-info", data: { disable_with: "Loading..." }, style: "margin-top: 10px;" %> 
-      <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
+      <div class="type-box-header">Put your awesome text or generate from URL</div>
+      <div class="type-box-content">
+        <%= kindeditor_tag :doc, @content, langType: 'en' %>
+        <%= submit_tag "Generate Content", class: "btn btn-info", data: { disable_with: "Generating..." }, style: "margin-top: 8px;" %>
+        <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 73 %> <br />
+        <%= submit_tag "Submit URL", class: "btn btn-info", data: { disable_with: "Loading..." } %> 
+        <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
+      </div>
     <% end %>
 
   </div>
