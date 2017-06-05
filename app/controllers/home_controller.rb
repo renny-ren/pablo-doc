@@ -26,7 +26,16 @@ class HomeController < ApplicationController
     # else
     #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     # end
-    params[:url].empty? ? params[:doc] : Nokogiri::HTML(open(params[:url]))
+    if params[:url].empty?  
+      params[:doc] 
+    else
+      if params[:url].match(/.*\..*/)
+        url = "http://" + params[:url] unless params[:url].match(/^http.*/)
+        url.nil? ? Nokogiri::HTML(open(params[:url])) : Nokogiri::HTML(open(url))
+      else
+        ""
+      end
+    end
   end
 
   def separate

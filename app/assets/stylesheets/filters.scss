@@ -1,0 +1,90 @@
+.image-filters-selector{
+  cursor: pointer;
+  position: relative;
+  padding: 8px 20px;
+}
+
+.filter-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-size: contain;
+}
+
+.filter-name{
+  position: absolute;
+  left: 70px;
+  top: 20px;
+}
+
+.filter-arrow{
+  width: 16px;
+  height: 8px;
+  right: 12px;
+  top: 28px;
+  position: absolute;
+  background:  url(https://static.buffer.com/images/pablo/filters-arrow.png) no-repeat;
+}
+
+.image-filters-list{
+  display: none;
+  position: absolute;
+  z-index: 6;
+  background: #FFF;
+  border: solid #ced7df;
+  border-width: 0 1px 1px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  width: 220px;
+  max-height: 250px;
+  overflow: scroll;
+}
+
+.image-filters-option{
+  cursor: pointer;
+  position: relative;
+  padding: 8px 20px;
+}
+
+.filter-none{
+  background-image: url(https://static.buffer.com/images/pablo/filters-example-none.jpg);
+}
+
+.filter-light-contrast{
+  background: url(https://static.buffer.com/images/pablo/filters-example-light-contrast.jpg);
+}
+
+.filter-heavy-contrast{
+  background: url(https://static.buffer.com/images/pablo/filters-example-heavy-contrast.jpg);
+}
+
+.filter-light-blur{
+  background: url(https://static.buffer.com/images/pablo/filters-example-light-blur.jpg);
+}
+
+.filter-heavy-blur{
+  background: url(https://static.buffer.com/images/pablo/filters-example-heavy-blur.jpg);
+}
+
+.filter-grayscale{
+  background: url(https://static.buffer.com/images/pablo/filters-example-grayscale.jpg);
+}
+
+.filter-blur-grayscale{
+  background: url(https://static.buffer.com/images/pablo/filters-example-blur-grayscale.jpg);
+}
+
+.filter-sepia{
+  background: url(sample-sepia.png);
+}
+
+.filter-seturate{
+  background: url(sample-saturate.png);
+}
+
+.filter-opacity{
+  background: url(sample-opacity.png);
+}
+
+#background-light-contrast{
+
+}
