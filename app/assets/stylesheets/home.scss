@@ -181,9 +181,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .text-toggle-selected{
-  padding: 5px;
-  border: solid 2px deepskyblue;
-  cursor: pointer;
+  border: solid 2px deepskyblue !important;
 }
 
 .image-sizes-item{

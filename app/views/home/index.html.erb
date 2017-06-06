@@ -25,8 +25,8 @@
     <div class="gallery-search"></div>
     <ul class="gallery-list">
       <% 5.times do |n| %>
-        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-thumbnail/#{@images[:batch_2_thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
-        <li class="gallery-item" onclick="select_image(this);"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/#{@images[:thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
+        <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-thumbnail/#{@images[:batch_2_thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
+        <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/#{@images[:thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
       <% end %>
     </ul>  
   </div>
