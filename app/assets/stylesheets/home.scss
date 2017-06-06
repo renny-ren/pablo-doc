@@ -76,7 +76,7 @@ $commonBorder: solid 1px #ced7df;
   display: none;
   position: absolute;
   z-index: 2;
-  width: 100px;
+  width: 280px;
   height: 35px;
   border-radius: 5px;
   border-top: solid 5px #222222;
@@ -89,20 +89,95 @@ $commonBorder: solid 1px #ced7df;
   display: inline-block;
 }
 
-#delete{
-  cursor: pointer;
-  color: red;
-}
-
 #change-color{
   cursor: pointer;
-  background: orange;
-  padding: 0 4px;
+  background: black;
+  float: left;
+  margin-right: 15px;
+  margin-top: 2px;
+  border-radius: 5px;
+  border: solid 1px gray;
+  width: 20px;
+  height: 20px;
+}
+
+.color-menu{
+  display: none;
+  height: 60px;
+  width: 100px;
+  top: 26px;
+  left: 160px;
+  position: relative;
+  background: #242A30;
+  z-index: 5;
+  padding: 0 10px;
+}
+
+.font-menu{
+  display: none;
+  height: 200px;
+  width: 120px;
+  position: relative;
+  background: #242A30;
+  z-index: 5;
+  padding: 0 10px;
+  overflow: scroll;
+}
+
+.color-white{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  float: left;
+  background: white;
+  margin-right: 10px;
+}
+
+.color-black{
+  cursor: pointer;
+  float: left;
+  width: 20px;
+  height: 20px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  background: black;
+}
+
+#change-font{
+  cursor: pointer;
+  position: relative;
+  float: left;
+  width: 20px;
+  top: 6px;
+  margin-left: 100px;
+}
+
+.change-font-arrow{
+  width: 16px;
+  height: 8px;
+  background: url(https://static.buffer.com/images/pablo/filters-arrow.png) no-repeat;
 }
 
 #change-weight{
   cursor: pointer;
+  float: left;
+  margin-right: 15px;
   font-weight: bold;
+}
+
+#change-italic, #change-size{
+  cursor: pointer;
+  float: left;
+  margin-right: 15px;
+}
+
+#delete{
+  cursor: pointer;
+  color: red;
+  float: left;
+  margin-right: 10px;
 }
 
 .item-deleted{
@@ -229,6 +304,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .share-download button{
+  cursor: pointer;
   border-radius: 20px;
   margin-top: 20px;
 }
