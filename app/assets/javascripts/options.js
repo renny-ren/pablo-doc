@@ -11,6 +11,12 @@ $(function(){
     $('.image-filters-list').toggle();
   });
 
+  $('.image-filters-reset').click(function(){
+    $('.background-selected').removeAttr('style');
+    $('.image-filters-selector').children().get(0).className = 'filter-icon filter-none';
+    $($('.image-filters-selector').children().get(1)).html('None');
+  })
+
   $('.image-filters-option')
     .hover(
       function(){

@@ -2,6 +2,18 @@
   cursor: pointer;
   position: relative;
   padding: 8px 20px;
+  margin-top: 38px;
+}
+
+.image-filters-header, .image-filters-reset{
+  float: left;
+}
+
+.image-filters-reset{
+  color: #98A0A6;
+  padding: 14px 0 0 100px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .filter-icon{
@@ -83,8 +95,4 @@
 
 .filter-opacity{
   background: url(sample-opacity.png);
-}
-
-#background-light-contrast{
-
 }
