@@ -15,7 +15,7 @@
       toolbarVisibleWithoutSelection: true
   }) }); </script> -->
 
-<!-- make elements draggable -->
+ <!-- make elements draggable -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 
@@ -24,6 +24,12 @@
     <div class="gallery-header">Images</div>
     <div class="gallery-search"></div>
     <ul class="gallery-list">
+      <li class="gallery-item blank-image image-white"><img class="background-white"></li>
+      <li class="gallery-item blank-image image-blue"><img class="background-blue"></li>
+      <li class="gallery-item blank-image image-red"><img class="background-red"></li>
+      <li class="gallery-item blank-image image-black"><img class="background-black"></li>
+      <li class="gallery-item blank-image image-yellow"><img class="background-yellow"></li>
+
       <% 5.times do |n| %>
         <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-thumbnail/#{@images[:batch_2_thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
         <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/#{@images[:thumbnail][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
@@ -34,8 +40,8 @@
   <div class="canvas-center">
     <div class="result">
       <div id="toolbar" onselectstart="return false">
-        <div id="change-font">
-          <div class="font-name"></div>
+        <div class="change-font change-font-bar">
+          <div class="font-name">Change Font</div>
           <div class="change-font-arrow"></div>
         </div>
         <div id="change-size" title="Change font-size"><i class="fa fa-font" aria-hidden="true"></i></div>
@@ -47,11 +53,20 @@
           <div class="color-white"></div>
           <div class="color-black"></div>
         </div>
-        
+
         <div class="font-menu">
-          <div id="font-1">Font-1</div>
-          <div id="font-2">Font-2</div>
+          <div class="change-font font-Vibur">Vibur</div>
+          <div class="change-font font-Satisfy">Satisfy</div>
+          <div class="change-font font-PermanentMarker">Permanent Marker</div>
+          <div class="change-font font-Pacifico">Pacifico</div>
+          <div class="change-font font-Oswald">Oswald</div>
+          <div class="change-font font-Mogra">Mogra</div>
+          <div class="change-font font-MarckScript">Marck Script</div>
+          <div class="change-font font-Lobster">Lobster</div>
+          <div class="change-font font-Lato">Lato</div>
+          <div class="change-font font-DancingScript">Dancing Script</div>
         </div>
+
       </div>
       <div id="header" class="editable">
         <% @header.each do |header| %>

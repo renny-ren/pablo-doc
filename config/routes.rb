@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'home#index', as: 'root'
 
   resources :home
+
+  get '/download', to: 'home#download'
+ 
 end

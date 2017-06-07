@@ -8,6 +8,12 @@ $commonBorder: solid 1px #ced7df;
   margin: 20px 0;
 }
 
+@mixin blank_background{
+  position: relative;
+  float: left; 
+  display: none;
+}
+
 .doc-container{
   margin: 20px 150px;
 }
@@ -43,6 +49,60 @@ $commonBorder: solid 1px #ced7df;
   z-index: 2;
 }
 
+.blank-image{
+  border: solid 1px darkgray;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 20px 2px 0 2px !important;
+  border-radius: 4px;
+}
+
+.image-white{
+  background: white;
+}
+
+.background-white{
+  background: white;
+  @include blank_background;
+}
+
+.image-blue{
+  background: blue;
+}
+
+.background-blue{
+  background: blue;
+  @include blank_background;
+}
+
+.image-red{
+  background: red;
+}
+
+.background-red{
+  background: red;
+  @include blank_background;
+}
+
+.image-black{
+  background: black;
+}
+
+.background-black{
+  background: black;
+  @include blank_background;
+}
+
+.image-yellow{
+  background: yellow;
+}
+
+.background-yellow{
+  background: yellow;
+  @include blank_background;
+}
+
 .image-options, .gallery{
   float: left;
 }
@@ -76,7 +136,7 @@ $commonBorder: solid 1px #ced7df;
   display: none;
   position: absolute;
   z-index: 2;
-  width: 280px;
+  width: 320px;
   height: 35px;
   border-radius: 5px;
   border-top: solid 5px #222222;
@@ -118,7 +178,7 @@ $commonBorder: solid 1px #ced7df;
   height: 200px;
   width: 120px;
   position: relative;
-  background: #242A30;
+  background: #FFFFFF;
   z-index: 5;
   padding: 0 10px;
   overflow: scroll;
@@ -145,19 +205,71 @@ $commonBorder: solid 1px #ced7df;
   background: black;
 }
 
-#change-font{
+.change-font{
   cursor: pointer;
+}
+
+.change-font-bar{
   position: relative;
   float: left;
-  width: 20px;
-  top: 6px;
-  margin-left: 100px;
+  width: 140px;
+  height: 20px;
+  margin: 0 6px;
+}
+
+.font-name{
+  left: 2px;
+  top: -2px;
+  position: absolute;
+}
+
+.font-Vibur{
+  font-family: 'Vibur';
+}
+
+.font-Satisfy{
+  font-family: 'Satisfy', cursive;
+}
+
+.font-DancingScript{
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-Lato{
+  font-family: 'Lato', sans-serif;
+}
+
+.font-MarckScript{
+  font-family: 'Marck Script', cursive;
+}
+
+.font-Oswald{
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-Mogra{
+  font-family: 'Mogra', cursive;
+}
+
+.font-Lobster{
+  font-family: 'Lobster', cursive;
+}
+
+.font-PermanentMarker{
+  font-family: 'Permanent Marker', cursive;
+}
+
+.font-Pacifico{
+  font-family: 'Pacifico', cursive;
 }
 
 .change-font-arrow{
   width: 16px;
   height: 8px;
   background: url(https://static.buffer.com/images/pablo/filters-arrow.png) no-repeat;
+  float: right;
+  top: 6px;
+  position: relative;
 }
 
 #change-weight{
@@ -308,5 +420,6 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .download-button button{
+  cursor: pointer;
   border-radius: 20px;
 }

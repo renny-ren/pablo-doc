@@ -18,6 +18,10 @@ class HomeController < ApplicationController
     @images = { batch_2_thumbnail: (1..74).to_a.sample(5), thumbnail: (1..33).to_a.sample(5) }
   end
 
+  def download
+    render layout: false
+  end
+
   private
 
   def read_content

@@ -7,10 +7,10 @@
     <span class="text-toggle text-toggle-selected">Bold</span>
   </div>
 
-  <div class="share-button"><%= social_share_button_tag("test", image: "https:&#x2F;&#x2F;d3ijcis4e2ziok.cloudfront.net&#x2F;engaging-images-backgrounds&#x2F;batch-2-thumbnail&#x2F;11.jpg") %></div>
+  <div class="share-button"><%= social_share_button_tag("test") %></div>
 
   <div class="download-button">
-    <%= button_tag "Download", class: "btn btn-primary" %>
+    <%= button_to "Download", download_path, method: :get %>
   </div> 
   <!-- <div id="trash"></div> -->
   <div class="type-box">

@@ -56,18 +56,60 @@ $(function(){
   });
 
   var deg = 0;
-  $('#change-font').click(function(){
+  $('.change-font').click(function(){
     $('.font-menu').toggle();
     deg = (deg+180)%360;
     $('.change-font-arrow').css('transform', 'rotate(' + deg + 'deg)');
   });
 
+  $('.font-Vibur').click(function(){
+    changeFont('Vibur');
+  });
 
-  $('.font-1').click(function(){
-    $('.font-menu').hide();
+  $('.font-Satisfy').click(function(){
+    changeFont('Satisfy');
+  });
 
+  $('.font-PermanentMarker').click(function(){
+    changeFont('Permanent Marker');
+  });
+
+  $('.font-Pacifico').click(function(){
+    changeFont('Pacifico');
+  });
+
+  $('.font-Oswald').click(function(){
+    changeFont('Oswald');
+  });
+
+  $('.font-Mogra').click(function(){
+    changeFont('Mogra');
+  });
+
+  $('.font-MarckScript').click(function(){
+    changeFont('Marck Script');
+  });
+
+  $('.font-DancingScript').click(function(){
+    changeFont('Dancing Script');
+  });
+
+  $('.font-Lobster').click(function(){
+    changeFont('Lobster');
+  });
+
+  $('.font-Lato').click(function(){
+    changeFont('Lato');
   });
 }); 
+
+function changeFont(obj){
+  var text = $('#item-selected').children().get(0);
+    $(text).css('font-family', obj);
+    $($('.font-name'))
+      .html($(this).html())
+      .css('font-family', obj);
+}
 
 function select_element(obj){
   $('#item-selected').removeAttr('id');

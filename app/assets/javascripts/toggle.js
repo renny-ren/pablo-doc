@@ -55,15 +55,18 @@ $(function(){
       else{
         resetPosition();
       }
-
     amendHeight();
     }
     else{
       for (var i = 0; i < image_num; i++) {
-        background.append($($(this).children().get(0)).clone());   //add images to canvas-center
+        var bg_img = $($(this).children().get(0)).clone();
+        if ($(this).hasClass('blank-image')) {
+          bg_img.css('display', 'block');
+        }
+        background.append(bg_img);   //add images to canvas-center
         $(background).children().last()
-        .addClass('background-selected')  // apply css
-        .removeAttr('height').removeAttr('width');        
+          .addClass('background-selected')  // apply css
+          .removeAttr('height').removeAttr('width');        
       }
 
       rearrange();
@@ -85,6 +88,9 @@ $(function(){
 
 function amendHeight(){
   $(result).css('height', background.height() - 10 + "px");
+  if (parseInt($(result).css('height')) < 100) {
+    $(result).css('height', background.children().last().offset().top + 235 + 'px');
+  }
 }
 
 function resetPosition(){
