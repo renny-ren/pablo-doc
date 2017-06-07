@@ -303,8 +303,10 @@ $commonBorder: solid 1px #ced7df;
   @include bg-setting;
 }
 
-.share-download button{
-  cursor: pointer;
-  border-radius: 20px;
+.share-button{
   margin-top: 20px;
+}
+
+.download-button button{
+  border-radius: 20px;
 }
