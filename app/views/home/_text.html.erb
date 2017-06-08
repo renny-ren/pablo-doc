@@ -20,7 +20,7 @@
         <%= kindeditor_tag :doc, @content, langType: 'en' %>
         <%= submit_tag "Generate Content", class: "btn btn-info", data: { disable_with: "Generating..." }, style: "margin-top: 8px;" %>
         <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 73 %> <br />
-        <%= submit_tag "Submit URL", class: "btn btn-info", data: { disable_with: "Loading..." } %> 
+        <%= submit_tag "Submit URL", class: "btn btn-info", data: { disable_with: "Loading..." }, style: "margin-top: 5px;" %> 
         <!-- <%= file_field_tag :uploaded_file, onchange:"form.submit();" %> -->
       </div>
     <% end %>

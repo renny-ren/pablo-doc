@@ -38,22 +38,25 @@ $(function(){
   });
 
   $('#change-italic').click(function(){
-    if ($('#item-selected').css('font-style') != 'italic') {
-      $('#item-selected').css('font-style', 'italic');
-    }
-    else{
-      $('#item-selected').css('font-style', 'normal');
-    }
+    getText();
+    $(text).toggleClass('font-italic');
+    // if ($(text).css('font-style') != 'italic') {
+    //   $(text).css('font-style', 'italic');
+    // }
+    // else{
+    //   $(text).css('font-style', 'normal');
+    // }
   });
 
   $('#change-weight').click(function(){
-    var text = $('#item-selected').children().get(0);
-    if ($(text).css('font-weight') == 700) {
-      $(text).css('font-weight', 'normal');
-    }
-    else{
-      $(text).css('font-weight', 'bold');
-    }
+    getText();
+    $(text).toggleClass('font-bold');
+    // if ($(text).css('font-weight') == 700) {
+    //   $(text).css('font-weight', 'normal');
+    // }
+    // else{
+    //   $(text).css('font-weight', 'bold');
+    // }
   });
 
   $('#change-color').click(function(){
@@ -105,7 +108,7 @@ $(function(){
     $('.font-menu').toggle();
     deg = (deg+180)%360;
     $('.change-font-arrow').css('transform', 'rotate(' + deg + 'deg)');
-  });
+  })
 
   $('.font-Vibur').click(function(){
     changeFont('Vibur');
@@ -148,25 +151,34 @@ $(function(){
   });
 }); 
 
+function getText(){
+  if ($('#item-selected').is(':has(*)') == true) {
+    text = $('#item-selected').children().get(0);
+  }
+  else{
+    text = $('#item-selected');
+  }
+}
+
 function changeSize(size){
-  var text = $('#item-selected').children().get(0);
+  getText();
   $(text).css('font-size', size);
   $('.size-menu').hide();
 }
 
 function changeColor(color){
-  var text = $('#item-selected');
+  getText();
   $(text).css('color', color);
   $('#change-color').css('background', color);
   $('.color-menu').hide();
 }
 
 function changeFont(obj){
-  var text = $('#item-selected').children().get(0);
-    $(text).css('font-family', obj);
-    $($('.font-name'))
-      .html(obj)
-      .css('font-family', obj);
+  getText();
+  $(text).css('font-family', obj);
+  $($('.font-name'))
+    .html(obj)
+    .css('font-family', obj);
 }
 
 function select_element(obj){
@@ -175,7 +187,7 @@ function select_element(obj){
   // toolbar.style.top = getComputedStyle(obj, null).top;
   toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
   // toolbar.style.left = parseInt(getComputedStyle(obj, null).left.replace(/[^0-9]/ig,"")) + 15 + "px";
-  toolbar.style.left = obj.offsetLeft + 40 + "px";
+  toolbar.style.left = obj.offsetLeft + 20 + "px";
   obj.id = 'item-selected';
   obj.style.border = 'dotted 2px #168EEA';
 

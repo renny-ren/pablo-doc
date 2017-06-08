@@ -179,6 +179,14 @@ $commonBorder: solid 1px #ced7df;
   display: inline-block;
 }
 
+.font-bold{
+  font-weight: bold !important;
+}
+
+.font-italic{
+  font-style: italic !important;
+}
+
 #change-color{
   cursor: pointer;
   background: black;

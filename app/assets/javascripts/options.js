@@ -17,8 +17,7 @@ $(function(){
     $($('.image-filters-selector').children().get(1)).html('None');
   })
 
-  $('.image-filters-option')
-    .hover(
+  $('.image-filters-option, .size-option, .change-font').hover(
       function(){
         $(this).css('background', 'aliceblue');
       },
@@ -27,7 +26,7 @@ $(function(){
       }
     )
 
-    .click(function(){
+  $('.image-filters-option').click(function(){
       $('.image-filters-list').hide();
       $('.image-filters-selector').children().get(0).className = $(this).children().get(0).className;
       $($('.image-filters-selector').children().get(1)).html($($(this).children().get(1)).html());
