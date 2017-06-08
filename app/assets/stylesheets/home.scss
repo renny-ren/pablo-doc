@@ -14,6 +14,16 @@ $commonBorder: solid 1px #ced7df;
   display: none;
 }
 
+@mixin color_option{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
 .doc-container{
   margin: 20px 150px;
 }
@@ -107,9 +117,29 @@ $commonBorder: solid 1px #ced7df;
   float: left;
 }
 
+#search_image{
+  position: absolute;
+  margin: 10px;
+  width: 210px;
+}
+
+.fa-search{
+  position: relative;
+  float: right;
+  top: 16px;
+  left: -15px;
+  cursor: pointer;
+}
+
+.shuffle{
+  font-size: 12px;
+  margin-left: 90px;
+}
+
 .gallery-list{
-  padding: 20px 10px;
-  height: 670px;
+  padding: 0 10px;
+  margin-top: 40px;
+  height: 630px;
   overflow: scroll;
 }
 
@@ -156,21 +186,21 @@ $commonBorder: solid 1px #ced7df;
   margin-right: 15px;
   margin-top: 2px;
   border-radius: 5px;
-  border: solid 1px gray;
+  border: solid 1px darkgray;
   width: 20px;
   height: 20px;
 }
 
 .color-menu{
   display: none;
-  height: 60px;
-  width: 100px;
-  top: 26px;
-  left: 160px;
+  float: left;
+  height: 70px;
+  width: 170px;
+  left: 142px;
   position: relative;
   background: #242A30;
   z-index: 5;
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .font-menu{
@@ -185,24 +215,53 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .color-white{
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  border: solid 1px gray;
-  border-radius: 5px;
-  float: left;
+  @include color_option;
   background: white;
-  margin-right: 10px;
 }
 
 .color-black{
-  cursor: pointer;
-  float: left;
-  width: 20px;
-  height: 20px;
-  border: solid 1px gray;
-  border-radius: 5px;
+  @include color_option;
   background: black;
+}
+
+.color-blue{
+  @include color_option;
+  background: #3498DB;
+}
+
+.color-gray{
+  @include color_option;
+  background: #808080;
+}
+
+.color-green{
+  @include color_option;
+  background: #2ECC71;
+}
+
+.color-yellow{
+  @include color_option;
+  background: #F1C40F;
+}
+
+.color-red{
+  @include color_option;
+  background: #E74C3C;
+}
+
+.color-purple{
+  @include color_option;
+  background: #9B59B6;
+}
+
+.color-aqua{
+  @include color_option;
+  background: #00ffff;
+}
+
+.color-darkorange{
+  @include color_option;
+  background: #ff8c00;
 }
 
 .change-font{

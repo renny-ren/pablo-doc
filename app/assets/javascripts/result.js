@@ -42,18 +42,44 @@ $(function(){
   });
 
   $('.color-white').click(function(){
-    var text = $('#item-selected');
-    $(text).css('color', 'white');
-    $('#change-color').css('background', 'white');
-    $('.color-menu').hide();
+    changeColor('white');
   });
 
   $('.color-black').click(function(){
-    var text = $('#item-selected');
-    $(text).css('color', 'black');
-    $('#change-color').css('background', 'black');
-    $('.color-menu').hide();
+    changeColor('black');
   });
+
+  $('.color-blue').click(function(){
+    changeColor('#3498DB');
+  }); 
+
+  $('.color-green').click(function(){
+    changeColor('#2ECC71');
+  }); 
+
+  $('.color-gray').click(function(){
+    changeColor('#808080');
+  }); 
+
+  $('.color-purple').click(function(){
+    changeColor('#9B59B6');
+  }); 
+
+  $('.color-red').click(function(){
+    changeColor('#E74C3C');
+  }); 
+
+  $('.color-yellow').click(function(){
+    changeColor('#F1C40F');
+  }); 
+
+  $('.color-aqua').click(function(){
+    changeColor('#00ffff');
+  }); 
+
+  $('.color-darkorange').click(function(){
+    changeColor('#ff8c00');
+  }); 
 
   var deg = 0;
   $('.change-font').click(function(){
@@ -103,6 +129,13 @@ $(function(){
   });
 }); 
 
+function changeColor(color){
+  var text = $('#item-selected');
+  $(text).css('color', color);
+  $('#change-color').css('background', color);
+  $('.color-menu').hide();
+}
+
 function changeFont(obj){
   var text = $('#item-selected').children().get(0);
     $(text).css('font-family', obj);
@@ -117,7 +150,7 @@ function select_element(obj){
   // toolbar.style.top = getComputedStyle(obj, null).top;
   toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
   // toolbar.style.left = parseInt(getComputedStyle(obj, null).left.replace(/[^0-9]/ig,"")) + 15 + "px";
-  toolbar.style.left = obj.offsetLeft + 130 + "px";
+  toolbar.style.left = obj.offsetLeft + 40 + "px";
   obj.id = 'item-selected';
   obj.style.border = 'dotted 2px #168EEA';
 

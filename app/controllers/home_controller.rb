@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :initialize_options, only: [:index, :create]
+  before_action :initialize_options, only: [:index, :create, :search_image]
 
   def index
   end
@@ -15,7 +15,25 @@ class HomeController < ApplicationController
     @quotation = [""]
     @bullet = [""]
     @bold = [""]
-    @images = { batch_2_thumbnail: (1..74).to_a.sample(5), thumbnail: (1..33).to_a.sample(5) }
+    @images = { batch_2_full_size: (1..52).to_a.sample(10), full_size: (1..33).to_a.sample(10) }
+    @img_link = []
+  end
+
+  def search_image
+    unless params[:search_image].empty?
+      page = Mechanize.new.get("https://www.pexels.com/search/#{params[:search_image]}")
+      10.times do |i|
+        page = page.links_with(href: /\/photo.*\d\/$/)[i].click unless page.links_with(href: /\/photo.*\d\/$/)[i].nil?
+        page.links.each do |link|  
+          @img_link << link.href.to_s if link.href.to_s.match(/https:\/\/static\..*\..*g$/)
+        end
+      end
+    end
+    @img_link.each do |link|
+      (link << "?h=650").gsub!('static', 'images') 
+    end
+    @img_link.uniq!
+    render :index
   end
 
   def download

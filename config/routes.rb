@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :home
 
   get '/download', to: 'home#download'
+  post '/search', to: 'home#search_image'
+  get '/search', to: 'home#index'
  
 end
