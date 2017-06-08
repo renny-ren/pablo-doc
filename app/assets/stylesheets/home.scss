@@ -73,17 +73,17 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .background-white{
-  background: white;
   @include blank_background;
+  background: white;
 }
 
 .image-blue{
-  background: blue;
+  background: #3498DB;
 }
 
 .background-blue{
-  background: blue;
   @include blank_background;
+  background: #3498DB;
 }
 
 .image-red{
@@ -91,8 +91,8 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .background-red{
-  background: red;
   @include blank_background;
+  background: red;
 }
 
 .image-black{
@@ -100,8 +100,8 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .background-black{
-  background: black;
   @include blank_background;
+  background: black;
 }
 
 .image-yellow{
@@ -109,8 +109,8 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .background-yellow{
-  background: yellow;
   @include blank_background;
+  background: yellow;
 }
 
 .image-options, .gallery{
@@ -203,6 +203,23 @@ $commonBorder: solid 1px #ced7df;
   padding: 10px;
 }
 
+.size-menu{
+  display: none;
+  float: left;
+  height: 180px;
+  width: 70px;
+  left: 130px;
+  position: relative;
+  background: #FFFFFF;
+  z-index: 5;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.size-12, .size-16, .size-20, .size-24, .size-28, .size-32, .size-36{
+  cursor: pointer;
+}
+
 .font-menu{
   display: none;
   height: 200px;
@@ -279,6 +296,8 @@ $commonBorder: solid 1px #ced7df;
 .font-name{
   left: 2px;
   top: -2px;
+  height: 25px;
+  overflow: hidden;
   position: absolute;
 }
 

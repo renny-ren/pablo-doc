@@ -6,16 +6,35 @@ $(function(){
   });
 
   $('#change-size').click(function(){
-    var text = $('#item-selected').children().get(0);
-    var fontSize = parseInt($(text).css('font-size'));
-    var unit = $(text).css('font-size').slice(-2);
+    $('.size-menu').toggle();
+  });
 
-    if (fontSize < 36 && unit == 'px') {
-      $(text).css('font-size', fontSize + 4 + unit);
-    }
-    else {
-      $(text).css('font-size', '12px');
-    }
+  $('.size-12').click(function(){
+    changeSize('12px');
+  });
+
+  $('.size-16').click(function(){
+    changeSize('16px');
+  });
+
+  $('.size-20').click(function(){
+    changeSize('20px');
+  });
+
+  $('.size-24').click(function(){
+    changeSize('24px');
+  });
+
+  $('.size-28').click(function(){
+    changeSize('28px');
+  });
+
+  $('.size-32').click(function(){
+    changeSize('32px');
+  });
+
+  $('.size-36').click(function(){
+    changeSize('36px');
   });
 
   $('#change-italic').click(function(){
@@ -129,6 +148,12 @@ $(function(){
   });
 }); 
 
+function changeSize(size){
+  var text = $('#item-selected').children().get(0);
+  $(text).css('font-size', size);
+  $('.size-menu').hide();
+}
+
 function changeColor(color){
   var text = $('#item-selected');
   $(text).css('color', color);
@@ -140,7 +165,7 @@ function changeFont(obj){
   var text = $('#item-selected').children().get(0);
     $(text).css('font-family', obj);
     $($('.font-name'))
-      .html($(this).html())
+      .html(obj)
       .css('font-family', obj);
 }
 
