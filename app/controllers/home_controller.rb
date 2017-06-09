@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :initialize_options, only: [:index, :create, :search_image]
+  before_action :initialize_options, only: [:index, :create, :search_image, :refresh_part]
 
   def index
   end
@@ -17,6 +17,12 @@ class HomeController < ApplicationController
     @bold = [""]
     @images = { batch_2_full_size: (1..52).to_a.sample(10), full_size: (1..33).to_a.sample(10) }
     @img_link = []
+  end
+
+  def refresh_part 
+    respond_to do |format|
+      format.js 
+    end
   end
 
   def search_image

@@ -38,7 +38,7 @@ $(function(){
     $(text).toggle();
   });
 
-  $('.gallery-item').click(function(){
+  $('body').on('click', '.gallery-item', function(){
     if ($(this).hasClass('gallery-item-selected')) {
       for (var i = 0; i < image_num; i++) {
         background.children().last().remove();           // remove images from canvas-center

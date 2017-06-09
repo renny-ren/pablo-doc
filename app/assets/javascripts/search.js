@@ -4,4 +4,4 @@ $(function(){
         $(".fa-search").click();
     }
   });
-})
+});
