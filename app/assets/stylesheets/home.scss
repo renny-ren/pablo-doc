@@ -24,6 +24,12 @@ $commonBorder: solid 1px #ced7df;
   display: inline-block;
 }
 
+@mixin toolbar_btn{
+  cursor: pointer;
+  float: left;
+  margin-right: 15px;
+}
+
 .doc-container{
   margin: 20px 150px;
 }
@@ -167,7 +173,7 @@ $commonBorder: solid 1px #ced7df;
   display: none;
   position: absolute;
   z-index: 2;
-  width: 320px;
+  width: 340px;
   height: 35px;
   border-radius: 5px;
   border-top: solid 5px #222222;
@@ -189,15 +195,17 @@ $commonBorder: solid 1px #ced7df;
 }
 
 #change-color{
-  cursor: pointer;
+  @include toolbar_btn;
   background: black;
-  float: left;
-  margin-right: 15px;
   margin-top: 2px;
   border-radius: 5px;
   border: solid 1px darkgray;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+}
+
+#change-align{
+  @include toolbar_btn;
 }
 
 .color-menu{
@@ -225,7 +233,7 @@ $commonBorder: solid 1px #ced7df;
   overflow: scroll;
 }
 
-.size-12, .size-16, .size-20, .size-24, .size-28, .size-32, .size-36{
+.size-option{
   cursor: pointer;
 }
 
@@ -360,16 +368,14 @@ $commonBorder: solid 1px #ced7df;
 }
 
 #change-weight{
-  cursor: pointer;
-  float: left;
-  margin-right: 15px;
+  @include toolbar_btn;
   font-weight: bold;
 }
 
+
+
 #change-italic, #change-size{
-  cursor: pointer;
-  float: left;
-  margin-right: 15px;
+  @include toolbar_btn;
 }
 
 #delete{

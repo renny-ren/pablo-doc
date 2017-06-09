@@ -37,27 +37,45 @@ $(function(){
     changeSize('36px');
   });
 
+  $('.size-40').click(function(){
+    changeSize('40px');
+  });
+
+  $('.size-45').click(function(){
+    changeSize('45px');
+  });
+
   $('#change-italic').click(function(){
     getText();
     $(text).toggleClass('font-italic');
-    // if ($(text).css('font-style') != 'italic') {
-    //   $(text).css('font-style', 'italic');
-    // }
-    // else{
-    //   $(text).css('font-style', 'normal');
-    // }
   });
 
   $('#change-weight').click(function(){
     getText();
     $(text).toggleClass('font-bold');
-    // if ($(text).css('font-weight') == 700) {
-    //   $(text).css('font-weight', 'normal');
-    // }
-    // else{
-    //   $(text).css('font-weight', 'bold');
-    // }
   });
+
+  $('#change-align').click(function(){
+    getText();
+    var data = $(this).data('data') || 1 
+    switch(data){
+      case 1:
+        $(text).css('text-align', 'center');
+        $(this).html('<i class="fa fa-align-center"></i>');
+        break;
+      case 2:
+        $(text).css('text-align', 'right');
+        $(this).html('<i class="fa fa-align-right"></i>');
+        break;
+      case 3:
+        $(text).css('text-align', 'left');
+        $(this).html('<i class="fa fa-align-left"></i>');
+        break;
+    }
+    data++;
+    if (data > 3) data = 1;
+    $(this).data('data', data);
+  })
 
   $('#change-color').click(function(){
     $('.color-menu').toggle();
@@ -187,7 +205,7 @@ function select_element(obj){
   // toolbar.style.top = getComputedStyle(obj, null).top;
   toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
   // toolbar.style.left = parseInt(getComputedStyle(obj, null).left.replace(/[^0-9]/ig,"")) + 15 + "px";
-  toolbar.style.left = obj.offsetLeft + 20 + "px";
+  toolbar.style.left = obj.offsetLeft + 10 + "px";
   obj.id = 'item-selected';
   obj.style.border = 'dotted 2px #168EEA';
 
