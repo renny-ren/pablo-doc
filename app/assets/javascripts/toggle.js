@@ -10,7 +10,8 @@ $(function(){
   bullet_num = bullet.children().length;
   bold_num = bold.children().length;
   image_num =  header_num + quotation_num + bullet_num + bold_num;
-
+  // arr = [];
+    
   $('.text-toggle').click(function(){
     var text = document.getElementById(this.innerHTML.toLowerCase());
     var type = $(this).text().toLowerCase();
@@ -60,14 +61,22 @@ $(function(){
     else{
       for (var i = 0; i < image_num; i++) {
         var bg_img = $($(this).children().get(0)).clone();
+        var horizontal_line = document.createElement('div');
+
         if ($(this).hasClass('blank-image')) {
           bg_img.css('display', 'block');
         }
         background.append(bg_img);   //add images to canvas-center
         $(background).children().last()
-          .addClass('background-selected')  // apply css
-          .removeAttr('height').removeAttr('width');        
-      }
+          .addClass('background-selected')   // apply css
+          .removeAttr('height').removeAttr('width'); 
+
+        // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
+        // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
+        // $('#hor_line').children().addClass('horizontal_line');
+
+        // arr[i] = background.children().get(i).offsetTop +75 - $(header.children().get(i)).height()/2 + 'px';  // get array of where horizontal line shoud show
+    }
 
       rearrange();
 

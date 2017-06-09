@@ -5,9 +5,16 @@ $(function(){
 function draggable_editable(){
   $(".draggable")
     .draggable({
+      // drag: function(){
+      //   $('#hor_line').hide();
+      //   if ($.inArray(this.style.top, arr) != -1){
+      //     $('#hor_line').show();
+      //   }
+      // },
       cursor: "move",
       containment: '.result'
     })
+
 
     .click(function(){
       if ( $(this).is('.ui-draggable-dragging') ) {
