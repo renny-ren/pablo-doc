@@ -22,17 +22,18 @@ class HomeController < ApplicationController
   def search_image
     unless params[:search_image].empty?
       page = Mechanize.new.get("https://www.pexels.com/search/#{params[:search_image]}")
-      10.times do |i|
-        page = page.links_with(href: /\/photo.*\d\/$/)[i].click unless page.links_with(href: /\/photo.*\d\/$/)[i].nil?
-        page.links.each do |link|  
-          @img_link << link.href.to_s if link.href.to_s.match(/https:\/\/static\..*\..*g$/)
+      page.links.each do |link|
+        if link.uri.to_s.match(/\/photo.*\d\/$/)
+          page = link.click
+          page.links.each do |img_link|
+            @img_link << (img_link.uri.to_s + "?h=650").gsub!('static', 'images') if img_link.uri.to_s.match(/https:\/\/static\..*\..*g$/)
+          end
+        else
+          next
         end
       end
+      @img_link.uniq!
     end
-    @img_link.each do |link|
-      (link << "?h=650").gsub!('static', 'images') 
-    end
-    @img_link.uniq!
     render :index
   end
 
