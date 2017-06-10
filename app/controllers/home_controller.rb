@@ -26,6 +26,11 @@ class HomeController < ApplicationController
   end
 
   def search_image
+     respond_to do |format|
+      format.js 
+      format.html
+    end
+
     unless params[:search_image].empty?
       page = Mechanize.new.get("https://www.pexels.com/search/#{params[:search_image]}")
       page.links.each do |link|
@@ -40,7 +45,7 @@ class HomeController < ApplicationController
       end
       @img_link.uniq!
     end
-    render :index
+    p @img_link
   end
 
   def download

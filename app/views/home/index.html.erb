@@ -21,7 +21,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 
 <div class="doc-container">
-  <div class="reload-gallery"><%= render 'gallery' %></div>
+  <div class="reload-gallery"><%= render partial: 'gallery', locals: { img_link: @img_link } %></div>
 
   <div class="canvas-center">
     <div class="result">

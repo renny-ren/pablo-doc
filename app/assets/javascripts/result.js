@@ -171,7 +171,7 @@ $(function(){
 
 function getText(){
   if ($('#item-selected').is(':has(*)') == true) {
-    text = $('#item-selected').children().get(0);
+    text = $('#item-selected').children();
   }
   else{
     text = $('#item-selected');
@@ -205,7 +205,7 @@ function select_element(obj){
   // toolbar.style.top = getComputedStyle(obj, null).top;
   toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
   // toolbar.style.left = parseInt(getComputedStyle(obj, null).left.replace(/[^0-9]/ig,"")) + 15 + "px";
-  toolbar.style.left = obj.offsetLeft + 10 + "px";
+  toolbar.style.left = obj.offsetLeft + "px";
   obj.id = 'item-selected';
   obj.style.border = 'dotted 2px #168EEA';
 
