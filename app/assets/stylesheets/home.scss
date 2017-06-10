@@ -148,6 +148,14 @@ $commonBorder: solid 1px #ced7df;
   border: solid 2px #59B4EA;
 }
 
+.vertical_line{
+  position: absolute;
+  border: solid 2px #59B4EA;
+  right: 250px;
+  height: 500px;
+  display: none;
+}
+
 .gallery-list{
   padding: 0 10px;
   margin-top: 40px;

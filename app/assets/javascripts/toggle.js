@@ -100,6 +100,7 @@ function amendHeight(){
   if (parseInt($(result).css('height')) < 100) {
     $(result).css('height', background.children().last().offset().top + 235 + 'px');
   }
+  $('.vertical_line').css('height', $(result).css('height'));
 }
 
 function resetPosition(){
