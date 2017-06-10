@@ -3,9 +3,9 @@
     <span class="shuffle"><%= fa_icon("random", text: "Shuffle") %></span></div>
 
     <div class="gallery-search">
-      <%= form_tag(search_path) do %>
+      <%= form_tag(search_path, method: :post, remote: true) do %>
         <%= text_field_tag "search_image", params[:search_image], placeholder: "Search images" %>
-        <%= link_to fa_icon("search") %>
+        <%= fa_icon("search") %>
       <% end %>
     </div>
 

@@ -3,9 +3,9 @@
     <span class="shuffle"><%= fa_icon("random", text: "Shuffle") %></span></div>
 
     <div class="gallery-search">
-      <%= form_tag("/search_image", method: :post, remote: true) do %>
+      <%= form_tag(search_path, method: :post) do %>
         <%= text_field_tag "search_image", params[:search_image], placeholder: "Search images" %>
-        <%= link_to fa_icon("search"), remote: true %>
+        <%= fa_icon("search"), remote: true %>
       <% end %>
     </div>
 
@@ -15,17 +15,16 @@
       <li class="gallery-item blank-image image-red"><img class="background-red"></li>
       <li class="gallery-item blank-image image-black"><img class="background-black"></li>
       <li class="gallery-item blank-image image-yellow"><img class="background-yellow"></li>
-      <!-- <% if @img_link.length > 0 %> -->
-        <!-- <% @img_link.length.times do |i| %> -->
-        <div id="search-images">
-          <%= @img_link %>
-        </div>
-        <!-- <% end %> -->
-      <!-- <% else %> -->
+
+      <% if @img_link.length > 0 %>
+        <% @img_link.length.times do |i| %>
+          <li class="gallery-item"><%= image_tag @img_link[i], alt: "background", width: '200px', height: '136px' %></li>
+        <% end %>
+      <% else %>
         <% 10.times do |n| %>
           <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-full-size/#{@images[:batch_2_full_size][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
           <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/full-size/#{@images[:full_size][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
         <% end %>
-      <!-- <% end %> -->
+      <% end %>
     </ul>  
   </div>

@@ -5,14 +5,10 @@ $(function(){
     })
   });
 
-  // $('body').on("click", ".fa-search", function(){  
+  // $('body').on("click", ".fa-search", function(e){  
   //   $.ajax({
-  //     url: "/search",
-  //     success: function(data) {
-  //       $('#search-images').html(data);
-  //       alert("hh");
-  //     }
+  //     // url: "/search"
   //   });
-
+  //   // e.preventDefault();
   // });
 });
