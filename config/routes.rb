@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   get '/download', to: 'home#download'
   post '/search', to: 'home#search_image'
-  # get '/search', to: 'home#search_image'
   get '/home/refresh_part', to: 'home#refresh_part'
  
 end
