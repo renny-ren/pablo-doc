@@ -68,8 +68,10 @@ $(function(){
         }
         background.append(bg_img);   //add images to canvas-center
         $(background).children().last()
-          .addClass('background-selected')   // apply css
+          .addClass('background-selected draggable')   // apply css
           .removeAttr('height').removeAttr('width'); 
+
+          draggable_editable();
 
         // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
         // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       

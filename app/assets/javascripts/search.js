@@ -7,9 +7,11 @@ $(function(){
     $('.shuffle').click();
   });
 
-  $('#search_image').keyup(function(e){
-    if (e.keyCode == 13) {
-
+  $('body').on('keyup', '#search_image', function(event){
+    if (event.keyCode == 13) {
+      $('#search_image')
+        .val('Searching ' + $('#search_image').val() + '...')
+        .prop('disabled', true);
     }
   });
 });
