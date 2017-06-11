@@ -35,17 +35,17 @@ $(function(){
     });
 
   $('.tall').click(function(){
-    $('.background-selected').css('height', '650px');
+    $('.background-selected').css('height', '725px');
     rearrange();
   });
 
   $('.square').click(function(){
-    $('.background-selected').css('height', '280px');
+    $('.background-selected').css('height', '484px');
     rearrange();
   });
 
   $('.wide').click(function(){
-    $('.background-selected').css('height', '220px');
+    $('.background-selected').css('height', '242px');
     rearrange();
   });
 

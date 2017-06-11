@@ -68,7 +68,7 @@ $(function(){
         }
         background.append(bg_img);   //add images to canvas-center
         $(background).children().last()
-          .addClass('background-selected draggable')   // apply css
+          .addClass('background-selected draggable-image')   // apply css
           .removeAttr('height').removeAttr('width'); 
 
           draggable_editable();

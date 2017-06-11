@@ -156,6 +156,22 @@ $commonBorder: solid 1px #ced7df;
   display: none;
 }
 
+.reposition{
+  cursor: pointer;
+  position: absolute;
+  top: -10px;
+  right: -125px;
+  color: #98A0A6;
+}
+
+.done{
+  cursor: pointer;
+  position: absolute;
+  top: -20px;
+  right: -135px;
+  color: blue;
+}
+
 .gallery-list{
   padding: 0 10px;
   margin-top: 40px;
@@ -176,8 +192,8 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .background-selected{
-  width: 500px;
-  height: 280px;
+  width: 484px;
+  height: 484px;
   position: relative;
   margin-bottom: 30px;
 }
@@ -445,6 +461,15 @@ $commonBorder: solid 1px #ced7df;
 
 #background-images{
   z-index: 1;
+  overflow: hidden;
+}
+
+.crop-frame{
+  width: 484px;
+  height: 484px;
+  border: solid 3px #168EEA;
+  position: absolute;
+  z-index: 2;
 }
 
 #header{
