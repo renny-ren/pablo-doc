@@ -55,7 +55,7 @@ $commonBorder: solid 1px #ced7df;
   width: 550px;
   height: 800px;
   margin: 0 20px;
-  padding: 0 28px;
+  padding: 0 28px 0 31px;
 }
 
 .result{
@@ -156,19 +156,11 @@ $commonBorder: solid 1px #ced7df;
   display: none;
 }
 
-.reposition{
-  cursor: pointer;
-  position: absolute;
-  top: -10px;
-  right: -125px;
-  color: #98A0A6;
-}
-
 .done{
   cursor: pointer;
   position: absolute;
-  top: -20px;
-  right: -135px;
+  /* top: -20px; */
+  /* right: -135px; */
   color: blue;
 }
 
@@ -192,8 +184,6 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .background-selected{
-  width: 484px;
-  height: 484px;
   position: relative;
   margin-bottom: 30px;
 }
@@ -429,6 +419,11 @@ $commonBorder: solid 1px #ced7df;
   height: 140px;
 }
 
+.image-tool{
+  @include basic-config;
+  height: 100px;
+}
+
 .image-sizes{
   @include basic-config;
   height: 110px;
@@ -448,7 +443,7 @@ $commonBorder: solid 1px #ced7df;
   margin: 20px 0;
 }
 
-.image-extra-options-header, .gallery-header, .image-sizes-header, .image-filters-header, .type-box-header{
+.image-extra-options-header, .gallery-header, .image-tool-header, .image-sizes-header, .image-filters-header, .type-box-header{
   color: #98A0A6;
   border-bottom: dashed 1.2px #f2f2f2;
   padding: 10px 10px 3px 10px;
@@ -469,7 +464,8 @@ $commonBorder: solid 1px #ced7df;
   height: 484px;
   border: solid 3px #168EEA;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
+  display: none;
 }
 
 #header{
@@ -546,11 +542,60 @@ $commonBorder: solid 1px #ced7df;
   @include bg-setting;
 }
 
+.size-tall{
+  width: 1024px !important;
+  height: 725px !important;
+  left: -250px !important;
+}
+
+.size-square{
+  width: 760px !important;
+  height: 484px !important;
+  left: -130px !important;
+}
+
+.size-wide{
+  width: 524px !important;
+  height: 242px !important;
+
+}
+
 .share-button{
   margin-top: 20px;
 }
 
+@mixin button_basic{
+  cursor: pointer;
+  height: 30px;
+  font-size: 14px !important;
+  padding: 0 10px !important;
+}
+
+.select-button{
+  @include button_basic;
+}
+
+.reposition{
+  @include button_basic;
+  margin: 15px 5px;
+}
+/* 
+.resize-button{
+  @include button_basic;
+  position: absolute;
+} */
+
 .download-button button{
   cursor: pointer;
   border-radius: 20px;
+}
+
+.selectable{
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.selected{
+  opacity: 1;
 }

@@ -35,17 +35,20 @@ $(function(){
     });
 
   $('.tall').click(function(){
-    $('.background-selected').css('height', '725px');
+    $('.background-selected').removeClass('size-tall size-square size-wide');
+    $('.background-selected').addClass('size-tall');
     rearrange();
   });
 
   $('.square').click(function(){
-    $('.background-selected').css('height', '484px');
+    $('.background-selected').removeClass('size-tall size-square size-wide');
+    $('.background-selected').addClass('size-square');
     rearrange();
   });
 
   $('.wide').click(function(){
-    $('.background-selected').css('height', '242px');
+    $('.background-selected').removeClass('size-tall size-square size-wide');
+    $('.background-selected').addClass('size-wide');
     rearrange();
   });
 

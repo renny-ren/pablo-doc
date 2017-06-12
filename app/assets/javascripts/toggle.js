@@ -10,6 +10,7 @@ $(function(){
   bullet_num = bullet.children().length;
   bold_num = bold.children().length;
   image_num =  header_num + quotation_num + bullet_num + bold_num;
+  flag = 0;
   // arr = [];
     
   $('.text-toggle').click(function(){
@@ -68,10 +69,11 @@ $(function(){
         }
         background.append(bg_img);   //add images to canvas-center
         $(background).children().last()
-          .addClass('background-selected draggable-image')   // apply css
+          .addClass('background-selected size-square')   // apply css
           .removeAttr('height').removeAttr('width'); 
 
-          draggable_editable();
+          draggable();
+          editable();
 
         // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
         // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
@@ -88,13 +90,35 @@ $(function(){
         appendText(bullet.clone());
         appendText(bold.clone());
 
-        draggable_editable();
+        draggable();
+        editable();
       }
 
       $(this).addClass('gallery-item-selected');   // select the image
       amendHeight();
     }
   });
+
+  $('.select-button').click(function(){
+    if (flag == 0) {
+      alert("Now you can click on image to select it");
+      flag = 1;
+    }
+    if ($(this).text() == "Select Image") {
+      $(this).text("Cancel Select");
+    }
+    else {
+      $(this).text("Select Image");
+    }
+    $('.background-selected').toggleClass('selectable');
+    $('.ui-wrapper').toggleClass('selectable');
+    $('.selected').removeClass('selected');
+  });
+
+  $('body').on('click', '.ui-wrapper, .background-selected ', function(){
+    $(this).toggleClass('selected');
+  });
+
 });
 
 function amendHeight(){

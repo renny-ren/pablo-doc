@@ -1,20 +1,36 @@
 .result-reposition{
-  width: 0;  
+  display: none;
 }
 
-.canvas-center-reposition{
+.canvas-center-reposition-tall{
+  width: 1625px;
+  margin-left: -240px;
+  opacity: 0.9;
+}
+
+.canvas-center-reposition-square{
   width: 1100px;
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
-.background-selected-reposition{
-  width: 800px;
-  height: 484px;
-  left: 150px;
+.canvas-center-reposition-wide{
+  width: 630px;
+  margin-left: 255px;
+  opacity: 0.9;
 }
+
+.doc-container-reposition{
+  overflow: hidden;
+}
+
+/* .background-selected-reposition{
+  left: 150px;
+} */
 
 .crop-frame-reposition{
-  left: 500px;
+  left: 480px;
   background: black;
   opacity: 0.4;
+  pointer-events: none;
+  display: block;
 }

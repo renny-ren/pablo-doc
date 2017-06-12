@@ -17,16 +17,8 @@ $(function(){
     changeSize('16px');
   });
 
-  $('.size-20').click(function(){
-    changeSize('20px');
-  });
-
   $('.size-24').click(function(){
     changeSize('24px');
-  });
-
-  $('.size-28').click(function(){
-    changeSize('28px');
   });
 
   $('.size-32').click(function(){

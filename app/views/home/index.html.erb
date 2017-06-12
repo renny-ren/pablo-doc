@@ -20,6 +20,9 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
+<link rel="stylesheet" href="/resources/demos/style.css">
+
 <div class="doc-container">
   <div class="reload-gallery"><%= render 'gallery' %></div>
 
@@ -65,9 +68,7 @@
         <div class="size-menu">
           <div class="size-option size-12">12px</div>
           <div class="size-option size-16">16px</div>
-          <div class="size-option size-20">20px</div>
           <div class="size-option size-24">24px</div>
-          <div class="size-option size-28">28px</div>
           <div class="size-option size-32">32px</div>
           <div class="size-option size-36">36px</div>
           <div class="size-option size-40">40px</div>
@@ -101,16 +102,20 @@
           <p class="draggable" id="bold-item"><%== bold %></p>
         <% end %>
       </div>
-      <div class="reposition">Reposition</div>
-      <div class="done">Done</div>
+    
     </div>
     <div class="crop-frame"></div>   
     <div id="background-images"></div>
   </div>
 
+  <div class="done">Done</div>
+  <!-- <button class="btn btn-primary resize-button">Resize Image</button> -->
+  
   <div class="image-options">
+    <%= render 'tool' %>
     <%= render 'size' %>
     <%= render 'filter' %>
     <%= render 'text' %>
   </div>
+
 </div>

@@ -127,7 +127,8 @@ function select_template(obj, description){
       bold_copy.style.position = 'relative';
       bold_copy.style.top = result.style.height;  // rearrange bold-text
 
-      draggable_editable();
+      draggable();
+      editable();
     }
     
     for (var i = 0; i < header_num; i++) {
