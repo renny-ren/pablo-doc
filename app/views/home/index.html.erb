@@ -20,9 +20,6 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
-<link rel="stylesheet" href="/resources/demos/style.css">
-
 <div class="doc-container">
   <div class="reload-gallery"><%= render 'gallery' %></div>
 
@@ -108,9 +105,15 @@
     <div id="background-images"></div>
   </div>
 
-  <div class="done">Done</div>
+  <div class="reposition-bar">
+    <div class="btn btn-success done">Done</div>
+    <div class="btn btn-info reposition-reset">Reset</div>
+    <div class="notice">You can resize the image by dragging on the lower right of the image</div>
+  </div>
+
+  <div class="msg">This is your last revision</div>
   <!-- <button class="btn btn-primary resize-button">Resize Image</button> -->
-  
+
   <div class="image-options">
     <%= render 'tool' %>
     <%= render 'size' %>

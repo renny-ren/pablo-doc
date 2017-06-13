@@ -139,8 +139,17 @@ $commonBorder: solid 1px #ced7df;
 
 .shuffle{
   font-size: 12px;
-  margin-left: 90px;
   cursor: pointer;
+  margin-left: 10px;
+}
+
+.clear-image{
+  cursor: pointer;
+  font-size: 14px !important;
+  height: 30px;
+  padding: 0 10px !important;
+  margin-top: -10px;
+  margin-left: 5px;
 }
 
 .horizontal_line{
@@ -158,10 +167,20 @@ $commonBorder: solid 1px #ced7df;
 
 .done{
   cursor: pointer;
+}
+
+.reposition-reset{
+  cursor: pointer;
+  left: -78px;
+  top: 50px;
+  position: relative;
+}
+
+.reposition-bar{
+  display: none;
   position: absolute;
-  /* top: -20px; */
-  /* right: -135px; */
-  color: blue;
+  top: 50px;
+  left: 50px;
 }
 
 .gallery-list{
@@ -421,7 +440,7 @@ $commonBorder: solid 1px #ced7df;
 
 .image-tool{
   @include basic-config;
-  height: 100px;
+  height: 130px;
 }
 
 .image-sizes{
@@ -543,25 +562,44 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .size-tall{
-  width: 1024px !important;
-  height: 725px !important;
-  left: -250px !important;
+  width: 1024px;
+  height: 725px;
+  left: -250px;
 }
 
 .size-square{
-  width: 760px !important;
-  height: 484px !important;
-  left: -130px !important;
+  width: 760px;
+  height: 484px;
+  left: -130px;
 }
 
 .size-wide{
-  width: 524px !important;
-  height: 242px !important;
+  width: 524px;
+  height: 242px;
 
 }
 
 .share-button{
   margin-top: 20px;
+}
+
+.msg{
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 600px;
+  color: skyblue;
+  border: solid 2px yellow;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.notice{
+  top: -45px;
+  left: 450px;
+  position: relative;
+  font-size: 14px;
+  color: orange;
 }
 
 @mixin button_basic{

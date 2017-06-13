@@ -48,5 +48,24 @@ function editable(){
 }
 
 function resizable(){
-  $('.resizable').resizable();
+  $('.resizable-tall').resizable({
+    minHeight: 725,
+    minWidth: 1024,
+    maxHeithgt: 800,
+    maxWidth: 1200
+  });
+
+  $('.resizable-square').resizable({
+    minHeight: 484,
+    minWidth: 760,
+    maxHeithgt: 762,
+    maxWidth: 1160
+  });
+
+  $('.resizable-wide').resizable({
+    minHeight: 242,
+    minWidth: 524,
+    maxHeithgt: 600,
+    maxWidth: 1000
+  });
 }

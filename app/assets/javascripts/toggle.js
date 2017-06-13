@@ -11,6 +11,7 @@ $(function(){
   bold_num = bold.children().length;
   image_num =  header_num + quotation_num + bullet_num + bold_num;
   flag = 0;
+  msg_flag = 1;
   // arr = [];
     
   $('.text-toggle').click(function(){
@@ -111,14 +112,27 @@ $(function(){
       $(this).text("Select Image");
     }
     $('.background-selected').toggleClass('selectable');
-    $('.ui-wrapper').toggleClass('selectable');
+    // $('.ui-wrapper').toggleClass('selectable');
     $('.selected').removeClass('selected');
+
+    if ($('.selectable').parent().hasClass('ui-wrapper')) {
+      $('.selectable')
+        .css('position', 'relative')
+        .css('left', $('.selectable').parent().css('left'));
+    }
+
+    msg_flag = -1;
   });
 
-  $('body').on('click', '.ui-wrapper, .background-selected ', function(){
+  $('body').on('click', '.selectable', function(){
     $(this).toggleClass('selected');
   });
 
+  $('.clear-image').click(function(){
+    if(confirm("This operation will delete all the current images, are you sure?")){
+      $('#background-images').empty();
+    };
+  });
 });
 
 function amendHeight(){
