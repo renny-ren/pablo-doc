@@ -94,7 +94,7 @@ function reposition(){
     // decreaseHeight('490px');
     $('.crop-frame-reposition').css('height', '484px');
     $('.ui-wrapper').css('height', '484px');
-    shift = 279;  
+    shift = 270;  
     resize_type = "resizable-square";
   }
   else{

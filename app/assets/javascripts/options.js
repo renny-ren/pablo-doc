@@ -35,21 +35,15 @@ $(function(){
     });
 
   $('.tall').click(function(){
-    $('.background-selected').removeClass('size-tall size-square size-wide');
-    $('.background-selected').addClass('size-tall');
-    rearrange();
+    changeOptionSize('size-tall');
   });
 
   $('.square').click(function(){
-    $('.background-selected').removeClass('size-tall size-square size-wide');
-    $('.background-selected').addClass('size-square');
-    rearrange();
+    changeOptionSize('size-square');
   });
 
   $('.wide').click(function(){
-    $('.background-selected').removeClass('size-tall size-square size-wide');
-    $('.background-selected').addClass('size-wide');
-    rearrange();
+    changeOptionSize('size-wide');
   });
 
   $('.none').click(function(){
@@ -96,5 +90,22 @@ $(function(){
 });
 
 function addFilter(filter){
-  $('.background-selected').css('filter', filter);
+  if ($('.background-selected').hasClass('selected') == false){
+    $('.background-selected').css('filter', filter);
+  }
+  else{
+    $('.selected').css('filter', filter);
+  }
+}
+
+function changeOptionSize(size){
+  if ($('.background-selected').hasClass('selected') == false){
+    $('.background-selected').removeClass('size-tall size-square size-wide');
+    $('.background-selected').addClass(size);
+  }
+  else{
+    $('.selected').removeClass('size-tall size-square size-wide');
+    $('.selected').addClass(size);
+  }
+  rearrange();
 }
