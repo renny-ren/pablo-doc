@@ -131,6 +131,8 @@ $(function(){
   $('.clear-image').click(function(){
     if(confirm("This operation will delete all the current images, are you sure?")){
       $('#background-images').empty();
+      $('.gallery-item-selected').removeClass('gallery-item-selected');
+      resetPosition();
     };
   });
 });
