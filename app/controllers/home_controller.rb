@@ -25,6 +25,10 @@ class HomeController < ApplicationController
     @image = Image.create(image_params)
   end
 
+  def upload_logo
+    
+  end
+
   def refresh_part 
     respond_to do |format|
       format.js 

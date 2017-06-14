@@ -1,0 +1,12 @@
+<div class="image-logo" onselectstart="return false">
+  <div class="logo-header">Logo</div>
+  <div class="logo-container">
+    <% if @upload_logo.nil? %>
+      <%= form_tag({action: 'upload_logo'}, multipart: true) do %>
+        <%= file_field_tag :logo %>
+        <%= button_tag "Insert Logo", class: 'btn btn-info upload-logo' %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

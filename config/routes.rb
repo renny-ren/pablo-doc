@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post '/search', to: 'home#search_image'
   get '/home/refresh_part', to: 'home#refresh_part'
   post '/upload_image', to: 'home#upload_image'
+  post '/upload_logo', to: 'home#upload_logo'
  
 end
