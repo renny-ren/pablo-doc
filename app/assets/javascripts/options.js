@@ -87,6 +87,24 @@ $(function(){
   $('.opacity').click(function(){
     addFilter('opacity(0.6)');
   });
+
+  $('body').on('mouseenter', '.logo-item', function(){
+    $(this).css('margin', 0);
+    draggable();
+    resizable();
+  });
+
+  $('body').on('click', '.logo-remove', function(){
+    $(".logo-item").remove();
+  });
+
+  $('body').on('mouseenter', '.logo-info', function(){
+    $(".logo-notice").show();
+  });
+
+  $('body').on('mouseleave', '.logo-info', function(){
+    $(".logo-notice").hide();
+  });
 });
 
 function addFilter(filter){

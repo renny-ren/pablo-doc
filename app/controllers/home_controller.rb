@@ -9,10 +9,12 @@ class HomeController < ApplicationController
     @images = { batch_2_full_size: (1..52).to_a.sample(10), full_size: (1..33).to_a.sample(10) }
     @img_link = []
     @upload_images = Image.all
+    @upload_logos = Logo.all
   end
 
   def index
     Image.all.destroy_all
+    Logo.all.destroy_all
   end
 
   def create
@@ -22,11 +24,11 @@ class HomeController < ApplicationController
   end
 
   def upload_image
-    @image = Image.create(image_params)
+    Image.create(image_params)
   end
 
   def upload_logo
-    
+    Logo.create(logo_params)
   end
 
   def refresh_part 
@@ -60,6 +62,10 @@ class HomeController < ApplicationController
 
   def image_params
     params.permit(:bg_img)
+  end
+
+  def logo_params
+    params.permit(:logo)
   end
 
   def read_content

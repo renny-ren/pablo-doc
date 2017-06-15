@@ -1,4 +1,8 @@
 $(function(){
+  $.ajax({
+      url: "home/refresh_part"
+  })
+  
   file_uploaded = 0;
   $('body').on("click", ".shuffle", function(){  
     $.ajax({
@@ -6,7 +10,7 @@ $(function(){
     })
   });
 
-  $('body').on('click', '.upload-image', function(){
+  $('body').on('click', '.upload-image, .upload-logo', function(){
     if (file_uploaded == 1){
       alert('Successfully uploaded.');
       setTimeout(function(){
@@ -19,7 +23,7 @@ $(function(){
     }
   });
 
-  $('body').on('change', '#bg_img', function(){
+  $('body').on('change', '#bg_img, #logo', function(){
     file_uploaded = 1;
   });
 

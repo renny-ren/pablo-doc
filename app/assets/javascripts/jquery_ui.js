@@ -27,7 +27,8 @@ function draggable(){
   $('.ui-wrapper').draggable({
     cursor: "move",
     axis: "x",
-    containment: '.canvas-center'
+    containment: '.canvas-center',
+    cancel: '.logo-item'
   })
 };
 
@@ -67,5 +68,12 @@ function resizable(){
     minWidth: 524,
     maxHeithgt: 600,
     maxWidth: 1000
+  });
+
+  $('.resizable-logo').resizable({
+    minHeight: 10,
+    minWidth: 10,
+    maxHeithgt: 760,
+    maxWidth: 500
   });
 }
