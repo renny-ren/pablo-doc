@@ -31,6 +31,11 @@ class HomeController < ApplicationController
     Logo.create(logo_params)
   end
 
+  # def remove_logo
+  #   @upload_logo.logo = nil
+  #   @upload_logo.save
+  # end
+
   def refresh_part 
     respond_to do |format|
       format.js 
