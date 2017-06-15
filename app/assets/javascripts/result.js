@@ -1,6 +1,10 @@
 $(function(){
   toolbar = document.getElementById('toolbar');
 
+  $('body').on('click', '#header-item, #quotation-item, #bullet-item, #bold-item', function(){
+    select_element(this);
+  });
+
   $('.share-download').click(function(){
     // alert("Under developing...");
   });
@@ -192,26 +196,37 @@ function changeFont(obj){
 }
 
 function select_element(obj){
-  $('#item-selected').removeAttr('id');
+  // $('#item-selected').removeAttr('id');
   toolbar.style.display = 'block';
-  // toolbar.style.top = getComputedStyle(obj, null).top;
   toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
-  // toolbar.style.left = parseInt(getComputedStyle(obj, null).left.replace(/[^0-9]/ig,"")) + 15 + "px";
   toolbar.style.left = obj.offsetLeft + "px";
   obj.id = 'item-selected';
-  obj.style.border = 'dotted 2px #168EEA';
+  obj.style.border = 'solid 2px #168EEA';
+  obj.style.outline = "none 0 transparent";
+  obj.style.padding = '10px';
+  blur_flag = 1;
+
+  $('#toolbar').mousedown(function(){
+    blur_flag = 0;
+  });
 
   $("#item-selected").blur(function(){
-    $(this).removeAttr('id');
-    this.style.border = 'none';
-    toolbar.style.display = 'none';
+    if (blur_flag == 1) {
+      $(this).attr('id', 'header-item');
+      this.style.border = 'none';
+      toolbar.style.display = 'none';
+    }
+  });
+
+  $('body').click(function(){
+    blur_flag = 1;
   });
 }
 
 function delete_element(){
-  // document.getElementById('item-selected').id = 'item-deleted';
   $('#toolbar').hide();
   $('#item-selected').hide();
+  // document.getElementById('item-selected').id = 'item-deleted';
   // refresh_trash(); 
 }
 
