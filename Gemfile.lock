@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/Eventshare/screencap.git
+  revision: 0478476c539d753644599f4f679ba0ab546f2f99
+  specs:
+    screencap (0.2.1)
+      phantomjs
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,6 +139,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    phantomjs (2.1.1.0)
     puma (3.8.2)
     puma (3.8.2-java)
     rack (2.0.3)
@@ -243,6 +251,7 @@ DEPENDENCIES
   rails (~> 5.0.1)
   rails_kindeditor
   sass-rails (~> 5.0)
+  screencap!
   social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)

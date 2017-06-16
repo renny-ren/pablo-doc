@@ -1,5 +1,5 @@
 $(function(){
-  draggable();
+  // draggable();
   editable();
 });
 

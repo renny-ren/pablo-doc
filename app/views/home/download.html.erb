@@ -4,15 +4,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>WordDoc</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag     'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <script>
+
+    </script>
     <div class="download-content">
+      <div class="download-image"><%= image_tag @download_src, width: '484px', style: "left: #{@image_left}" %></div>
+      <div class="download-text"></div>
+
+      <%= text_field_tag :email, nil, class: "aemail", id: "wocao" %>
+
     </div>
   </body>
 </html>
-
-

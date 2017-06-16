@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :initialize_options, only: [:index, :create, :search_image, :refresh_part]
+  skip_before_action :verify_authenticity_token
 
   def initialize_options
     @header = []
@@ -60,7 +61,28 @@ class HomeController < ApplicationController
   end
 
   def download
+
     render layout: false
+    p "========#{@download_src}==================="
+  end
+
+  def get_download
+    # require 'open-uri'
+    # download = open('https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/13.jpg')
+    # IO.copy_stream(download, 'screenshots/image.png')
+    
+    # respond_to do |format|
+    #   format.js { render 'download' } #make_a_change.js.erb
+    # end
+
+    # f = Screencap::Fetcher.new('http://localhost:3000/download')
+    # screenshot = f.fetch(
+    #   output: 'screenshots/share_download.png',    # don't forget the extension!
+    #   div: '.download-content',   # selector for a specific element to take screenshot of
+    #   width: 760,
+    #   height: 484,
+    #   # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
+    # )
   end
 
   private
