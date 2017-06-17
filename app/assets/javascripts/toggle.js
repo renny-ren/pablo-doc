@@ -125,6 +125,7 @@ $(function(){
   });
 
   $('body').on('click', '.selectable', function(){
+    // $(this).css('z-index', 'initial');
     $(this).toggleClass('selected');
     $('#download-image').addClass('download-image-ready').attr('title', 'click to cancel select');
     $('.image-status').addClass('image-status-ready').text('Selected!');
@@ -139,6 +140,9 @@ $(function(){
     else{
       $(this).siblings().hide();
     }
+
+    $('.step-notice').text('Great! You can download now, or click on the disc to cancel select');
+
   });
 
   $('.clear-image').click(function(){

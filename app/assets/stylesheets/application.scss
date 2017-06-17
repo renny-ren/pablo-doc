@@ -17,9 +17,19 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "social-share-button";
+$size: 40px;
 
 body{
   background: #F8F8F8;
+}
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    border-radius: 50px;
+  }
 }
 
 .header{

@@ -633,6 +633,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .share-button{
+  width: 300px;
   margin-top: 20px;
 }
 
@@ -702,7 +703,14 @@ $commonBorder: solid 1px #ced7df;
   position: absolute;
 }
 
-.download-text-ready, .download-image-ready{
+#download-logo{
+  cursor: pointer;
+  list-style: circle;
+  position: absolute;
+  margin-top: 25px;
+}
+
+.download-text-ready, .download-image-ready, .download-logo-ready{
   list-style: disc !important;
 }
 
@@ -721,6 +729,13 @@ $commonBorder: solid 1px #ced7df;
   float: left;
 }
 
+.logo-status{
+  color: gray;
+  float: left;
+  margin-left: 45px;
+  margin-top: 2px;
+}
+
 .text-status-ready, .image-status-ready{
   color: green !important;
 }
@@ -732,5 +747,6 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .selected{
+  z-index: initial;
   opacity: 1;
 }

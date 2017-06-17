@@ -12,3 +12,20 @@
   width: 491px;
   overflow: hidden;
 }
+
+.step-notice{
+  display: none;
+  width: 400px;
+  height: 80px;
+  padding: 10px;
+  background: #fff8dc;
+  border: dashed 2px skyblue;
+  font-size: 20px;
+  font-weight: bold;
+  position: fixed;
+  top: 170px;
+}
+
+.download-text-hover{
+  background: #ffd700;
+}

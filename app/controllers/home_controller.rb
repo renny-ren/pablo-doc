@@ -68,12 +68,12 @@ class HomeController < ApplicationController
   end
 
   def start_download
-    unless gon.image_height.nil?
+    # unless gon.image_height.nil?
       send_file(
         "#{Rails.root}/screenshots/share_download.png",
         filename: "engaging-image.png"
       )
-    end
+    # end
   end
 
   def create_image
