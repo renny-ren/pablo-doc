@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :home, only: [:index, :create]
 
   get '/download', to: 'home#download'
-  get 'start_download', to: 'home#start_download'
+  post 'start_download', to: 'home#start_download'
   post 'create_image', to: 'home#create_image'
   post '/search', to: 'home#search_image'
   get '/home/refresh_part'

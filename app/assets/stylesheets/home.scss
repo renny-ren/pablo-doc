@@ -681,6 +681,50 @@ $commonBorder: solid 1px #ced7df;
   border-radius: 20px;
 }
 
+.download-notice{
+  display: none;
+  width: 300px;
+  height: 150px;
+  border: solid 3px orange;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#download-text{
+  cursor: pointer;
+  list-style: circle;
+  float: left;
+}
+
+#download-image{
+  cursor: pointer;
+  list-style: circle;
+  position: absolute;
+}
+
+.download-text-ready, .download-image-ready{
+  list-style: disc !important;
+}
+
+.download-ready{
+  border: solid 3px green !important;
+}
+
+.text-status{
+  color: red;
+  margin-left: 10px;
+}
+
+.image-status{
+  color: red;
+  margin-left: 52px;
+  float: left;
+}
+
+.text-status-ready, .image-status-ready{
+  color: green !important;
+}
+
 .selectable{
   cursor: pointer;
   z-index: 2;

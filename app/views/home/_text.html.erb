@@ -10,8 +10,14 @@
   <div class="share-button"><%= social_share_button_tag("test") %></div>
 
   <div class="download-button">
-    <%= button_to "Download", start_download_path, method: :get %>
+    <%= button_to "Download", start_download_path %>
   </div> 
+  <div class="download-notice">Please Select:
+    <ul>
+      <li id="download-text">Text</li><span class="text-status">waiting for select</span>
+      <li id="download-image">Image</li><span class="image-status">waiting for select</span>
+    </ul>
+  </div>
   <!-- <div id="trash"></div> -->
   <div class="type-box">
     <%= form_tag({action: 'create'}, multipart: true) do %>

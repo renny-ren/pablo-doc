@@ -62,18 +62,18 @@ class HomeController < ApplicationController
 
   def download
     @download_src = params[:download_src]
-    gon.image_height = @@image_height
-    gon.image_width = @@image_width
-    gon.image_left = @@image_left
-    
+    get_variable
+
     render layout: false
   end
 
   def start_download
-    send_file(
-      "#{Rails.root}/screenshots/share_download.png",
-      filename: "engaging-image.png"
-    )
+    unless gon.image_height.nil?
+      send_file(
+        "#{Rails.root}/screenshots/share_download.png",
+        filename: "engaging-image.png"
+      )
+    end
   end
 
   def create_image
@@ -84,9 +84,7 @@ class HomeController < ApplicationController
     # respond_to do |format|
     #   format.js { render 'download' } #make_a_change.js.erb
     # end
-    @@image_height = params[:image_height]
-    @@image_width = params[:image_width]
-    @@image_left = params[:image_left]
+   set_variable
 
     new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}"
     f = Screencap::Fetcher.new(new_uri)
@@ -96,7 +94,35 @@ class HomeController < ApplicationController
       width: 760,
       height: 484,
       # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
-    )    
+    )
+  end
+
+  def set_variable
+    @@image_height = params[:image_height]
+    @@image_width = params[:image_width]
+    @@image_left = params[:image_left]
+    @@image_filter = params[:image_filter]
+    @@download_text = params[:download_text]
+    @@font_size = params[:font_size]
+    @@font_top = params[:font_top]
+    @@font_family = params[:font_family]
+    @@font_weight = params[:font_weight]
+    @@font_style = params[:font_style]
+    @@font_color = params[:font_color]
+  end
+
+  def get_variable
+    gon.image_height = @@image_height
+    gon.image_width = @@image_width
+    gon.image_left = @@image_left
+    gon.image_filter = @@image_filter
+    gon.download_text = @@download_text
+    gon.font_size = @@font_size
+    gon.font_top = @@font_top
+    gon.font_family = @@font_family
+    gon.font_weight = @@font_weight
+    gon.font_style = @@font_style
+    gon.font_color = @@font_color
   end
 
   private

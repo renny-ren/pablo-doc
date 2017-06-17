@@ -126,6 +126,19 @@ $(function(){
 
   $('body').on('click', '.selectable', function(){
     $(this).toggleClass('selected');
+    $('#download-image').addClass('download-image-ready').attr('title', 'click to cancel select');
+    $('.image-status').addClass('image-status-ready').text('Selected!');
+    if ( $('.selected').length > 0 && $('.selected-text').length > 0) {
+      $('.download-notice').addClass('download-ready');
+    }
+
+    // hide other images
+    if ($(this).parent().hasClass('ui-wrapper')) {
+      $(this).parent().siblings().hide();
+    }
+    else{
+      $(this).siblings().hide();
+    }
   });
 
   $('.clear-image').click(function(){
