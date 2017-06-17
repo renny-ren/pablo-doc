@@ -61,12 +61,22 @@ class HomeController < ApplicationController
   end
 
   def download
-
+    @download_src = params[:download_src]
+    gon.image_height = @@image_height
+    gon.image_width = @@image_width
+    gon.image_left = @@image_left
+    
     render layout: false
-    p "========#{@download_src}==================="
   end
 
-  def get_download
+  def start_download
+    send_file(
+      "#{Rails.root}/screenshots/share_download.png",
+      filename: "engaging-image.png"
+    )
+  end
+
+  def create_image
     # require 'open-uri'
     # download = open('https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/13.jpg')
     # IO.copy_stream(download, 'screenshots/image.png')
@@ -74,15 +84,19 @@ class HomeController < ApplicationController
     # respond_to do |format|
     #   format.js { render 'download' } #make_a_change.js.erb
     # end
+    @@image_height = params[:image_height]
+    @@image_width = params[:image_width]
+    @@image_left = params[:image_left]
 
-    # f = Screencap::Fetcher.new('http://localhost:3000/download')
-    # screenshot = f.fetch(
-    #   output: 'screenshots/share_download.png',    # don't forget the extension!
-    #   div: '.download-content',   # selector for a specific element to take screenshot of
-    #   width: 760,
-    #   height: 484,
-    #   # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
-    # )
+    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}"
+    f = Screencap::Fetcher.new(new_uri)
+    screenshot = f.fetch(
+      output: 'screenshots/share_download.png',    # don't forget the extension!
+      div: '.download-content',   # selector for a specific element to take screenshot of
+      width: 760,
+      height: 484,
+      # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
+    )    
   end
 
   private
