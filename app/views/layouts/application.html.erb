@@ -17,8 +17,17 @@
   <body>
     <section class="header">
       <div class="header-container">
-        <span style="float: left;">Word-doc</span>
-        <%= render 'templates' %>
+        <span class="word-doc"><%= link_to "Word-doc", root_path %></span>
+         <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+        <%= render 'home/templates' %>
+        <% if user_signed_in? %>
+          <div class="welcome"><%= "Welcome, #{current_user.email.scan(/(.*)@/).first.join}!" %></div>
+          <%= link_to 'Log out', destroy_user_session_path, class: "btn btn-info logout-button", method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info signup-button" %>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-success login-button" %>
+        <% end %>
       </div>
     </section>      
     <%= yield %>

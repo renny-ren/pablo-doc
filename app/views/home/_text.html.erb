@@ -13,7 +13,7 @@
     <div class="share-button"><%= social_share_button_tag(session[:text], image: "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-full-size/14.jpg") %></div>
 
     <div class="download-button">
-      <%= button_to "Download", start_download_path, class: "download-trigger" %>
+      <%= button_to "Download", start_download_path, class: "download-trigger btn btn-info" %>
     </div> 
   </div>
   <div class="reload-downloadable"><%= render 'downloadable' %></div>

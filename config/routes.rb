@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index', as: 'root'
 
@@ -12,5 +13,7 @@ Rails.application.routes.draw do
   get '/home/create_image'
   post '/upload_image', to: 'home#upload_image'
   post '/upload_logo', to: 'home#upload_logo'
+
+  get 'admin/cac', to: 'home#admin'
  
 end

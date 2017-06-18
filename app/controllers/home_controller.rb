@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  http_basic_authenticate_with name: 'cac', password: 'cac123321', only: :admin
   before_action :initialize_options, only: [:index, :create, :search_image, :refresh_part]
   skip_before_action :verify_authenticity_token
 
@@ -89,6 +90,9 @@ class HomeController < ApplicationController
     )
     # @downloadable = 1
     session[:text] = @@download_text.strip
+  end
+
+  def admin
   end
 
   def set_variable
