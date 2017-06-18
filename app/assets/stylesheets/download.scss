@@ -13,6 +13,12 @@
   overflow: hidden;
 }
 
+.download-logo{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .step-notice{
   display: none;
   width: 400px;
@@ -23,9 +29,102 @@
   font-size: 20px;
   font-weight: bold;
   position: fixed;
-  top: 170px;
+  top: 150px;
 }
 
 .download-text-hover{
   background: #ffd700;
+}
+
+.background-not{
+  filter: contrast(0.2) !important;
+}
+
+.share-download-button{
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.share-button{
+  display: none;
+  width: 300px;
+  margin-top: 20px;
+}
+
+.download-button{
+  display: none;
+}
+
+.download-button button{
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.download-notice{
+  display: none;
+  width: 300px;
+  height: 150px;
+  border: solid 3px orange;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#download-text{
+  cursor: pointer;
+  list-style: circle;
+  float: left;
+}
+
+.selected-text{
+  cursor: initial !important;
+}
+
+#download-image{
+  cursor: pointer;
+  list-style: circle;
+  position: absolute;
+}
+
+#download-logo{
+  cursor: pointer;
+  list-style: circle;
+  position: absolute;
+  margin-top: 25px;
+}
+
+.download-text-ready, .download-image-ready, .download-logo-ready{
+  list-style: disc !important;
+}
+
+.download-ready{
+  border: solid 3px green !important;
+}
+
+.text-status{
+  color: red;
+  margin-left: 10px;
+}
+
+.image-status{
+  color: red;
+  margin-left: 52px;
+  float: left;
+}
+
+.logo-status{
+  color: gray;
+  float: left;
+  margin-left: 45px;
+  margin-top: 2px;
+}
+
+.text-status-ready, .image-status-ready, .logo-status-ready{
+  color: green !important;
+}
+
+.waiting-notice{
+  display: none;
+  font-size: 14px;
+  width: 500px;
+  height: 20px;
 }

@@ -62,39 +62,33 @@ class HomeController < ApplicationController
 
   def download
     @download_src = params[:download_src]
+    @logo_src = params[:logo_src]
     get_variable
 
     render layout: false
   end
 
   def start_download
-    # unless gon.image_height.nil?
-      send_file(
-        "#{Rails.root}/screenshots/share_download.png",
-        filename: "engaging-image.png"
-      )
-    # end
+    send_file(
+      "#{Rails.root}/screenshots/share_download.png",
+      filename: "engaging-image.png"
+    )
   end
 
   def create_image
-    # require 'open-uri'
-    # download = open('https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/thumbnail/13.jpg')
-    # IO.copy_stream(download, 'screenshots/image.png')
-    
-    # respond_to do |format|
-    #   format.js { render 'download' } #make_a_change.js.erb
-    # end
-   set_variable
+    set_variable
 
-    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}"
+    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
-    screenshot = f.fetch(
+    f.fetch(
       output: 'screenshots/share_download.png',    # don't forget the extension!
       div: '.download-content',   # selector for a specific element to take screenshot of
       width: 760,
       height: 484,
       # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
     )
+    # @downloadable = 1
+    session[:text] = @@download_text.strip
   end
 
   def set_variable

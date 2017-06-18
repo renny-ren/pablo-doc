@@ -7,11 +7,16 @@
     <span class="text-toggle text-toggle-selected">Bold</span>
   </div>
 
-  <div class="share-button"><%= social_share_button_tag("test") %></div>
+  <div class="share-download">
+    <%= submit_tag "Share & Download", class: "btn btn-primary share-download-button" %>
+    <div class="waiting-notice">We are preparing your awesome image, this will take 5 to 30 seconds.</div>
+    <div class="share-button"><%= social_share_button_tag(session[:text], image: "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-full-size/14.jpg") %></div>
 
-  <div class="download-button">
-    <%= button_to "Download", start_download_path %>
-  </div> 
+    <div class="download-button">
+      <%= button_to "Download", start_download_path, class: "download-trigger" %>
+    </div> 
+  </div>
+  <div class="reload-downloadable"><%= render 'downloadable' %></div>
   <div class="step-notice">1- Click on the text which you want to share or download to select it</div>
   <div class="download-notice">Please select the following you want to share or download:
     <ul>

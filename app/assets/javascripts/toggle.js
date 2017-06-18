@@ -125,24 +125,26 @@ $(function(){
   });
 
   $('body').on('click', '.selectable', function(){
-    // $(this).css('z-index', 'initial');
     $(this).toggleClass('selected');
     $('#download-image').addClass('download-image-ready').attr('title', 'click to cancel select');
-    $('.image-status').addClass('image-status-ready').text('Selected!');
+    $('.image-status').addClass('image-status-ready').text('selected!');
     if ( $('.selected').length > 0 && $('.selected-text').length > 0) {
       $('.download-notice').addClass('download-ready');
+      $('.step-notice').text('Great! You can share & download now');
+    // Great! You can share & download now, or click on the disc to cancel select
     }
 
-    // hide other images
-    if ($(this).parent().hasClass('ui-wrapper')) {
-      $(this).parent().siblings().hide();
-    }
-    else{
-      $(this).siblings().hide();
+    if (download_flag == 1){
+      // hide other images
+      if ($(this).parent().hasClass('ui-wrapper')) {
+        $(this).parent().siblings().hide();
+      }
+      else{
+        $(this).siblings().hide();
+      } 
     }
 
-    $('.step-notice').text('Great! You can download now, or click on the disc to cancel select');
-
+    download_flag = 0;
   });
 
   $('.clear-image').click(function(){

@@ -23,6 +23,11 @@ $(function(){
     }
   });
 
+  $('body').on('click', '.upload-logo', function(){
+    $('#download-logo').addClass('download-logo-ready');
+    $('.logo-status').addClass('logo-status-ready').text('selected!');
+  });
+
   $('body').on('change', '#bg_img, #logo', function(){
     file_uploaded = 1;
   });
