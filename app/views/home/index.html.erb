@@ -115,6 +115,10 @@
   <!-- <button class="btn btn-primary resize-button">Resize Image</button> -->
 
   <div class="image-options">
+    <%= form_tag({action: 'generate_url'}, method: :post, multipart: true, style: "position: absolute;") do %>
+      <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 70 %> <br />
+      <%= submit_tag "Submit URL", class: "btn btn-info submit-url", data: { disable_with: "Loading..." } %>
+    <% end %> 
     <%= render 'tool' %>
     <%= render 'size' %>
     <%= render 'filter' %>

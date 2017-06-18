@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   post '/upload_logo', to: 'home#upload_logo'
 
   get 'admin/cac', to: 'home#admin'
+  post 'generate_url', to: 'home#generate_url'
  
 end

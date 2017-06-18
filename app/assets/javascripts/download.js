@@ -86,6 +86,8 @@ $(function(){
     // }
     // else{
       // e.preventDefault();  // stop trigger download
+    // }
+    if ($(this).hasClass('expanded') == false){
       if ( $('.selected').length > 0 && $('.selected-text').length > 0) {
         $('.step-notice').hide();
         $('.share-download-button').prop('disabled', true).val('Please wait...');
@@ -111,6 +113,7 @@ $(function(){
             'font_color=' + $($('.selected-text').children().get(0)).css('color')
           )
         })
+        $('.share-download').addClass('expanded');
       }
       else{
         download_flag = 1;
@@ -125,7 +128,7 @@ $(function(){
           $(this).fadeOut();
         })
       } 
-    // }
+    }
   });
 
   $('#download-logo').click(function(){

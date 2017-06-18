@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   http_basic_authenticate_with name: 'cac', password: 'cac123321', only: :admin
-  before_action :initialize_options, only: [:index, :create, :search_image, :refresh_part]
+  before_action :initialize_options, only: [:index, :create, :generate_url, :search_image, :refresh_part]
   skip_before_action :verify_authenticity_token
 
   def initialize_options
@@ -20,8 +20,13 @@ class HomeController < ApplicationController
   end
 
   def create
-    @content = read_content
+    @content = params[:doc]
     separate
+    render :index
+  end
+
+  def generate_url
+    @content = read_content
     render :index
   end
 
@@ -79,7 +84,8 @@ class HomeController < ApplicationController
   def create_image
     set_variable
 
-    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    # new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
       output: 'screenshots/share_download.png',    # don't forget the extension!
@@ -90,10 +96,10 @@ class HomeController < ApplicationController
     )
     # @downloadable = 1
     session[:text] = @@download_text.strip
+    session[:image] = params[:download_src]
   end
 
-  def admin
-  end
+  def admin; end
 
   def set_variable
     @@image_height = params[:image_height]

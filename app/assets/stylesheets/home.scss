@@ -488,6 +488,7 @@ $commonBorder: solid 1px #ced7df;
 
 .image-tool{
   @include basic-config;
+  margin-top: 100px !important;
   height: 130px;
 }
 
@@ -680,4 +681,12 @@ $commonBorder: solid 1px #ced7df;
 .selected{
   z-index: initial;
   opacity: 1;
+}
+
+.submit-url{
+  margin-top: 10px;
+  width: 100px;
+  height: 35px;
+  font-size: 14px !important;
+  padding: 2px !important;
 }
