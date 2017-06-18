@@ -114,9 +114,15 @@ body{
   right: 10px;
 }
 
-.alert, .validate-notice{
+.alert{
   position: absolute;
   right: -10px;
+}
+
+.validate-notice{
+  position: absolute;
+  top: 40px;
+  right: -130px;
 }
 
 .word-doc{
