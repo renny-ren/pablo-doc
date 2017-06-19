@@ -97,6 +97,7 @@ class HomeController < ApplicationController
     # @downloadable = 1
     session[:text] = @@download_text.strip
     session[:image] = params[:download_src]
+    session[:url] = new_uri
   end
 
   def admin; end
