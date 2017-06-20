@@ -83,9 +83,12 @@ class HomeController < ApplicationController
 
   def create_image
     set_variable
+    session[:text] = params[:download_text].strip
+    session[:image] = params[:download_src]
+    session[:url] = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
 
-    # new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
-    new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    # new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
       output: 'screenshots/share_download.png',    # don't forget the extension!
@@ -95,9 +98,6 @@ class HomeController < ApplicationController
       # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
     )
     # @downloadable = 1
-    session[:text] = @@download_text.strip
-    session[:image] = params[:download_src]
-    session[:url] = new_uri
   end
 
   def admin; end

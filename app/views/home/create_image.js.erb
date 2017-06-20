@@ -4,3 +4,6 @@ $('.share-download-button').prop('disabled', false).val('Share & Download');
 $('.waiting-notice').hide();
 $('.share-button').show();
 $('.download-button').show();
+$('.social-share-button').attr('data-url', "https://word-doc.herokuapp.com/");
+$('.social-share-button').attr('data-title', "<%= params[:download_text].strip %>");
+$('.social-share-button').attr('data-img', "<%= params[:download_src] %>");
