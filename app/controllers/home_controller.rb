@@ -85,10 +85,10 @@ class HomeController < ApplicationController
     set_variable
     session[:text] = params[:download_text].strip
     session[:image] = params[:download_src]
-    session[:url] = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    # session[:url] = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
 
-    # new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
-    new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    # new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
       output: 'screenshots/share_download.png',    # don't forget the extension!
@@ -146,6 +146,7 @@ class HomeController < ApplicationController
     # else
     #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     # end
+    session[:url] = params[:url]
     if params[:url].empty?  
       params[:doc] 
     else
