@@ -18,32 +18,32 @@ function set_template(description){
   switch(description)
   {
   case "templates-item-blank":
-    image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/2c0e0f6fb8ed76ef9432d8d82e1aaf13.jpg";
+    // image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/2c0e0f6fb8ed76ef9432d8d82e1aaf13.jpg";
     posY = 1;
     font = 'Lato';
     break;
   case "templates-item-quote":
-    image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/8cd544c0e2bde65231fd36b05f5b4ed2.jpg";
+    // image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/8cd544c0e2bde65231fd36b05f5b4ed2.jpg";
     posY = 1;
     font = "Satisfy";
     break;
   case "templates-item-announcement":
-    image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/c5d960ec4632db3244e9fa54b049eb16.jpg";
+    // image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/c5d960ec4632db3244e9fa54b049eb16.jpg";
     posY = 1;
     font = "Permanent Marker";
     break;
   case "templates-item-promotion":
-    image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/a8dfd2e1de84e8f5202f5c9723f0d318.jpg";
+    // image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/a8dfd2e1de84e8f5202f5c9723f0d318.jpg";
     posY = 1;
     font = "Arial Black";
     break;
   case "templates-item-love":
-    image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/4337433d7fb54b0b7498e6806f373b4e.jpg";
+    // image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/4337433d7fb54b0b7498e6806f373b4e.jpg";
     posY = 1;
     font = "Lobster";
     break;
   case "templates-item-outreach":
-    image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/399de537115c29aaa5261a3f8d9a0c18.jpg";
+    // image_src = "https://buffer-uploads.s3.amazonaws.com/543fa321d1a3122967f7c525/399de537115c29aaa5261a3f8d9a0c18.jpg";
     posY = 50;
     font = "Mogra";
     break;
@@ -114,13 +114,10 @@ function select_template(obj, description){
   }
   else{
     if (background.hasClass('templated') == false) {
-      background.children().attr('src', image_src)   // change all the background images
-      changeTextFont();      
+      // background.children().attr('src', image_src)   // change all the background images
+      changeTextFont();
       background.addClass('templated');
     }
-
-
-
 
 
     // for (var i = 0; i < image_num; i++) {
@@ -131,9 +128,9 @@ function select_template(obj, description){
     //   img.classList.add('background-selected');  // apply css
     // }
 
-    if ($(".template-item-selected").length > 0) {   // if selection not the first one
+    if ($(".template-item-selected").length > 0) {        // if selection not the first one
       var template_content = $('#background-images').clone();
-      template_content.children().attr('src', image_src);
+      // template_content.children().attr('src', image_src);
       $('.canvas-center').append(template_content);     // add template image
 
       var content_copy = $('.result').last().clone();
@@ -207,4 +204,3 @@ function changeTextFont(){
   // }
   // content.css('font-family', font);
 }
-

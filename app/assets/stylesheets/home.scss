@@ -477,6 +477,13 @@ $commonBorder: solid 1px #ced7df;
   font-size: 10px;
 } */
 
+#goTopBtn{
+  position: fixed;
+  cursor: pointer;
+  display: none;
+  bottom: 30px;
+}
+
 #item-selected{
   cursor: text;
   border: solid 2px #168EEA !important;

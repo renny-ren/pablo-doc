@@ -9,6 +9,23 @@ $(function(){
   flag = 0;
   msg_flag = 1;
   // arr = [];
+
+  $(window).scroll(function(){
+    var sc = $(window).scrollTop();
+    var rwidth = $(window).width();
+    if (sc > 1000){
+      $("#goTopBtn").show();
+      $("#goTopBtn").css("left", (rwidth - 56) + "px")
+     }
+    else{
+      $("#goTopBtn").hide();
+     }
+   })
+
+  $("#goTopBtn").click(function(){
+    var sc = $(window).scrollTop();
+    $('body,html').animate({ scrollTop: 0 }, 50);
+   })
     
   $('.text-toggle').click(function(){
     var text = document.getElementById(this.innerHTML.toLowerCase());

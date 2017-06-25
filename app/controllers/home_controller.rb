@@ -27,7 +27,6 @@ class HomeController < ApplicationController
 
   def generate_url
     @content = read_content
-    # session[:url] = url.nil? ? params[:url] : url
     render :index
   end
 
@@ -77,7 +76,7 @@ class HomeController < ApplicationController
 
   def start_download
     send_file(
-      "#{Rails.root}/screenshots/share_download.png",
+      "#{Rails.root}/assets/share_download.png",
       filename: "engaging-image.png"
     )
   end
@@ -92,7 +91,7 @@ class HomeController < ApplicationController
     new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
-      output: 'screenshots/share_download.png',    # don't forget the extension!
+      output: 'assets/share_download.png',    # don't forget the extension!
       div: '.download-content',   # selector for a specific element to take screenshot of
       width: 760,
       height: 484,
@@ -147,17 +146,20 @@ class HomeController < ApplicationController
     # else
     #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     # end
+    session[:url] = params[:url]
     if params[:url].empty?  
       params[:doc] 
     else
       if params[:url].match(/.*\..*/)
-        url = "http://" + params[:url] unless params[:url].match(/^http.*/)
+        unless params[:url].match(/^http.*/)
+          url = "http://" + params[:url] 
+          session[:url] = url
+        end
         url.nil? ? Nokogiri::HTML(open(params[:url])) : Nokogiri::HTML(open(url))
       else
         ""
       end
     end
-    p Nokogiri::HTML(open(params[:url]))
   end
 
   def separate
