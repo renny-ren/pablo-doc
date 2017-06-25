@@ -5,11 +5,7 @@ $(function(){
   bullet = $('#bullet');
   bold = $('#bold');
   result = $('.result').get(0);
-  header_num = header.children().length;
-  quotation_num = quotation.children().length;
-  bullet_num = bullet.children().length;
-  bold_num = bold.children().length;
-  image_num =  header_num + quotation_num + bullet_num + bold_num;
+  getQuantity();
   flag = 0;
   msg_flag = 1;
   // arr = [];
@@ -219,4 +215,12 @@ function rearrange(){
   for (var i = 0; i < bold_num; i++, j++) {
     bold.children().get(i).style.top = background.children().get(j).offsetTop - 60 + 'px';
   }
+}
+
+function getQuantity(){
+  header_num = header.children().length;
+  quotation_num = quotation.children().length;
+  bullet_num = bullet.children().length;
+  bold_num = bold.children().length;
+  image_num =  header_num + quotation_num + bullet_num + bold_num;
 }

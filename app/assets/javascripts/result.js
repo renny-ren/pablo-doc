@@ -226,7 +226,8 @@ function select_element(obj){
 
 function delete_element(){
   $('#toolbar').hide();
-  $('#item-selected').hide();
+  $('#item-selected').remove();
+  getQuantity();
   // document.getElementById('item-selected').id = 'item-deleted';
   // refresh_trash(); 
 }
