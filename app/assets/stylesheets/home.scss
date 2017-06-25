@@ -479,6 +479,9 @@ $commonBorder: solid 1px #ced7df;
 
 #item-selected{
   cursor: text;
+  border: solid 2px #168EEA !important;
+  outline: none 0 transparent;
+  padding: 10px;
 }
 
 .image-extra-options{

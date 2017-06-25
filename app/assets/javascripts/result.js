@@ -196,14 +196,15 @@ function changeFont(obj){
 }
 
 function select_element(obj){
-  // $('#item-selected').removeAttr('id');
+  if ( $('#item-selected').length > 0 ) {
+    $('#item-selected').attr('id', localStorage.getItem("original_id"));
+  }
+  localStorage.setItem("original_id", obj.id);
+  obj.id = 'item-selected';
+
   toolbar.style.display = 'block';
   toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
   toolbar.style.left = obj.offsetLeft + "px";
-  obj.id = 'item-selected';
-  obj.style.border = 'solid 2px #168EEA';
-  obj.style.outline = "none 0 transparent";
-  obj.style.padding = '10px';
   blur_flag = 1;
 
   $('#toolbar').mousedown(function(){
@@ -212,7 +213,7 @@ function select_element(obj){
 
   $("#item-selected").blur(function(){
     if (blur_flag == 1) {
-      $(this).attr('id', 'header-item');
+      $(this).attr('id', localStorage.getItem("original_id"));
       this.style.border = 'none';
       toolbar.style.display = 'none';
     }
