@@ -10,7 +10,10 @@
   <div class="share-download">
     <%= submit_tag "Share & Download", class: "btn btn-primary share-download-button" %>
     <div class="waiting-notice">We are preparing your awesome image, this will take 5 to 30 seconds.</div>
-    <div class="share-button"><%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %></div>
+    <div class="share-button"><%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %>
+      <a class="facebook-btn" target="_blank" href=<%= "https://www.facebook.com/sharer/sharer.php?u=#{session[:url]}&picture=https%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download.png&title=#{session[:text]}&caption=&quote=&description=" %>></a>
+    </div>
+
 
     <div class="download-button">
       <%= button_to "Download", start_download_path, class: "download-trigger btn btn-info" %>
