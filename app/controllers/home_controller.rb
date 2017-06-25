@@ -76,7 +76,7 @@ class HomeController < ApplicationController
 
   def start_download
     send_file(
-      "#{Rails.root}/assets/share_download.png",
+      "#{Rails.root}/app/assets/images/share_download.png",
       filename: "engaging-image.png"
     )
   end
@@ -91,7 +91,7 @@ class HomeController < ApplicationController
     new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
-      output: 'assets/share_download.png',    # don't forget the extension!
+      output: 'app/assets/images/share_download.png',    # don't forget the extension!
       div: '.download-content',   # selector for a specific element to take screenshot of
       width: 760,
       height: 484,
