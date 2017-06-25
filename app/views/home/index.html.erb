@@ -90,7 +90,7 @@
 
       <div id="bullet" class="editable">
         <% @bullet.each do |bullet| %>
-          <div class="draggable" id="bullet-item"><%== bullet %><br /></div>
+          <div class="draggable" id="bullet-item"><%== bullet if bullet !~ /<img src=.*>/ %><br /></div>
         <% end %>
       </div>
 

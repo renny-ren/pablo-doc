@@ -27,6 +27,7 @@ class HomeController < ApplicationController
 
   def generate_url
     @content = read_content
+    # session[:url] = url.nil? ? params[:url] : url
     render :index
   end
 
@@ -146,7 +147,6 @@ class HomeController < ApplicationController
     # else
     #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
     # end
-    session[:url] = params[:url]
     if params[:url].empty?  
       params[:doc] 
     else
@@ -157,6 +157,7 @@ class HomeController < ApplicationController
         ""
       end
     end
+    p Nokogiri::HTML(open(params[:url]))
   end
 
   def separate
