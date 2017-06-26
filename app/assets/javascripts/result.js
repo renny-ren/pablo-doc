@@ -203,7 +203,8 @@ function select_element(obj){
   obj.id = 'item-selected';
 
   toolbar.style.display = 'block';
-  toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
+  // toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
+  toolbar.style.top = obj.offsetTop - 40 + 'px';
   toolbar.style.left = obj.offsetLeft + "px";
   blur_flag = 1;
 

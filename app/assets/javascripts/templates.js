@@ -196,6 +196,7 @@ function select_template(obj, description){
 
 function changeTextFont(){
   $(".draggable").find('*').css('font-family', font).css('color', 'white');
+  $(".draggable").css('font-family', font).css('color', 'white');  // change style of quotation 
   // if (header.is(':has(*)') == true) {
   //   content = header.children();
   // }
