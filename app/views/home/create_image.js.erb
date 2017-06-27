@@ -9,14 +9,3 @@ $('.buffer-button').show();
 $('.social-share-button').attr('data-title', "<%= params[:download_text].strip %>");
 $('.social-share-button').attr('data-img', "<%= params[:download_src] %>");
 $('.facebook-btn').attr('href', "https://www.facebook.com/sharer/sharer.php?u=<%= session[:url] %>&picture=http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download.png&title=<%= session[:text] %>");
-
-$.post(
-    'https://graph.facebook.com',
-    {
-        id: 'http://word-doc.herokuapp.com/share_download.png',
-        scrape: true
-    },
-    function(response){
-        console.log(response);
-    }
-);
