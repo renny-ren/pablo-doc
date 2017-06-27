@@ -114,7 +114,19 @@ $(function(){
           )
         })
         $('.share-download').addClass('expanded');
+
       }
+      
+        $.post(
+    'https://graph.facebook.com',
+    {
+        id: 'http://word-doc.herokuapp.com/share_download.png',
+        scrape: true
+    },
+    function(response){
+        console.log(response);
+    }
+);
       else{
         download_flag = 1;
         $('.download-notice').show();
