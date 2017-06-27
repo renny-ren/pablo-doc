@@ -115,8 +115,6 @@ $(function(){
         })
         $('.share-download').addClass('expanded');
 
-      }
-      
         $.post(
     'https://graph.facebook.com',
     {
@@ -127,6 +125,7 @@ $(function(){
         console.log(response);
     }
 );
+      }
       else{
         download_flag = 1;
         $('.download-notice').show();
