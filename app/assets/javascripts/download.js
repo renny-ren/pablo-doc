@@ -82,11 +82,6 @@ $(function(){
   });
 
   $('body').on('click', '.share-download', function(){
-    // if ( $('#downloadable').val() == 1 ){
-    // }
-    // else{
-      // e.preventDefault();  // stop trigger download
-    // }
     if ($(this).hasClass('expanded') == false){
       if ( $('.selected').length > 0 && $('.selected-text').length > 0) {
         $('.step-notice').hide();
@@ -129,6 +124,53 @@ $(function(){
         })
       } 
     }
+  });
+
+  $('body').on('click', '.each-share-button', function(){
+    single_share = true;
+    $('.waiting-notice').css('top', $(this).css('top')).css('left', parseInt($(this).css('left')) + 50 + 'px').css('width', '280px').show();
+    $('.selected-text').removeClass('selected-text');
+    var text_top_min = parseInt($(this).css('top')) - 100;
+    var text_top_max = parseInt($(this).css('top')) + parseInt($(this).prev().css('height')) - 100;
+    for (var i = 0; i < $('#header').children().length; i++) {
+      if (parseInt($($('#header').children().get(i)).css('top')) > text_top_min && parseInt($($('#header').children().get(i)).css('top')) < text_top_max) {
+        $($('#header').children().get(i)).addClass('selected-text');
+        break;
+      }
+    }
+
+    if ( $(this).prev().parent().hasClass('ui-wrapper') ){
+      image_left = $(this).prev().parent().css('left'); 
+    }
+    else{
+      image_left = $(this).prev().css('left');
+    }
+
+    text_top = parseInt($('selected-text').css('top'));
+    while (  text_top > 515 ) {
+      // $(this).css('top', parseInt($('selected-text').css('top')) - 515 + 'px');
+      text_top -= 515;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: '/create_image', 
+      data:(
+        'download_src=' + $(this).prev().attr('src') + '&' +
+        'logo_src=' + $('.resizable-logo').attr('src') + '&' +
+        'image_height=' + $(this).prev().height() + '&' +
+        'image_width=' + $(this).prev().width() + '&' +
+        'image_left=' + image_left + '&' +
+        'image_filter=' + $(this).prev().css('filter') + '&' +
+        'download_text=' + $('.selected-text').text().trim() + '&' +
+        'font_size=' + $($('.selected-text').children().get(0)).css('font-size') + '&' +
+        'font_top=' + text_top + '&' +
+        'font_family=' + $($('.selected-text').children().get(0)).css('font-family') + '&' +
+        'font_weight=' + $($('.selected-text').children().get(0)).css('font-weight') + '&' +
+        'font_style=' + $($('.selected-text').children().get(0)).css('font-style') + '&' +
+        'font_color=' + $($('.selected-text').children().get(0)).css('color')
+      )
+    })
   });
 
   $('#download-logo').click(function(){

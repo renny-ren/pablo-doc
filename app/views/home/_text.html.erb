@@ -1,3 +1,41 @@
+<%= form_tag({action: 'generate_url'}, method: :post, multipart: true, style: "position: absolute;") do %>
+    <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 20 %> 
+    <%= submit_tag "Submit URL", class: "btn btn-info submit-url", data: { disable_with: "Loading..." } %>
+<% end %> 
+
+<div class="share-download">
+  <%= submit_tag "Share & Download", class: "btn btn-primary share-download-button" %>
+  <div class="waiting-notice">We are preparing your awesome image, this will take 5 to 30 seconds.</div>
+  <div class="share-button">
+    <a class="facebook-btn" target="_blank" href=""></a>
+    <%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %>
+  </div>
+
+  <div class="download-button">
+    <%= button_to "Download", start_download_path, class: "download-trigger btn btn-info" %>
+  </div> 
+  <a href="http://bufferapp.com/add" class="buffer-add-button" data-text=<%= session[:text] %> data-url="https:&#x2F;&#x2F;word-doc.herokuapp.com" data-count="none" data-picture=<%= session[:image] %> ></a><script type="text/javascript" src="https://static.buffer.com/js/button.js"></script>
+</div>
+
+<div class="step-notice">1- Click on the text which you want to share or download to select it</div>
+<div class="download-notice">Please select the following you want to share or download:
+  <ul>
+    <li id="download-text">Text</li><span class="text-status">waiting for select</span>
+    <li id="download-image">Image</li><span class="image-status">waiting for select</span>
+    <li id="download-logo">Logo</li><span class="logo-status">waiting for select</span>
+  </ul>
+</div>
+
+<div class="type-box">
+  <%= form_tag({ action: 'create' }, multipart: true) do %>
+    <div class="type-box-header">Put your awesome text or generate from URL</div>
+    <div class="type-box-content">
+      <%= kindeditor_tag :doc, @content, langType: 'en', height: 100 %>
+      <%= submit_tag "Generate Content", class: "btn btn-info generate-btn", data: { disable_with: "Generating..." } %>
+    </div>
+  <% end %>
+</div>
+
 <div class="image-extra-options">
   <div class="image-extra-options-header">Text</div>
   <div class="text-toggles" onselectstart="return false">
@@ -6,38 +44,5 @@
     <span class="text-toggle text-toggle-selected">Bullet</span>
     <span class="text-toggle text-toggle-selected">Bold</span>
   </div>
-
-  <div class="share-download">
-    <%= submit_tag "Share & Download", class: "btn btn-primary share-download-button" %>
-    <div class="waiting-notice">We are preparing your awesome image, this will take 5 to 30 seconds.</div>
-    <div class="share-button">
-      <a class="facebook-btn" target="_blank" href=""></a>
-      <%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %>
-    </div>
-
-
-    <div class="download-button">
-      <%= button_to "Download", start_download_path, class: "download-trigger btn btn-info" %>
-    </div> 
-    <a href="http://bufferapp.com/add" class="buffer-add-button" data-text=<%= session[:text] %> data-url="https:&#x2F;&#x2F;word-doc.herokuapp.com" data-count="none" data-picture=<%= session[:image] %> ></a><script type="text/javascript" src="https://static.buffer.com/js/button.js"></script>
-  </div>
-  <div class="reload-downloadable"><%= render 'downloadable' %></div>
-  <div class="step-notice">1- Click on the text which you want to share or download to select it</div>
-  <div class="download-notice">Please select the following you want to share or download:
-    <ul>
-      <li id="download-text">Text</li><span class="text-status">waiting for select</span>
-      <li id="download-image">Image</li><span class="image-status">waiting for select</span>
-      <li id="download-logo">Logo</li><span class="logo-status">waiting for select</span>
-    </ul>
-  </div>
   <!-- <div id="trash"></div> -->
-  <div class="type-box">
-    <%= form_tag({action: 'create'}, multipart: true) do %>
-      <div class="type-box-header">Put your awesome text or generate from URL</div>
-      <div class="type-box-content">
-        <%= kindeditor_tag :doc, @content, langType: 'en' %>
-        <%= submit_tag "Generate Content", class: "btn btn-info", data: { disable_with: "Generating..." }, style: "margin-top: 8px;" %>
-      </div>
-    <% end %>
-  </div>
 </div>

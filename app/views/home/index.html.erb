@@ -1,129 +1,31 @@
-<!-- make elements editable by using FroalaEditor -->
-<!-- Include external JS libs. -->
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
- -->
-<!-- Include Editor JS files. -->
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/js/froala_editor.pkgd.min.js"></script> -->
-
-<!-- Initialize the editor. -->
-<!-- <script> $(function() { $('.editable').froalaEditor({
-      toolbarInline: true,
-      charCounterCount: false,
-      toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', 'insertImage', 'insertLink', 'insertFile', 'insertVideo', 'undo', 'redo'],
-      toolbarVisibleWithoutSelection: true
-  }) }); </script> -->
-
- <!-- make elements draggable -->
-
+<!-- make elements draggable -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 
 <div class="doc-container">
-  <div class="reload-gallery"><%= render 'gallery' %></div>
-
-  <div class="canvas-center">
-    <div class="result">
-      <div id="toolbar" onselectstart="return false">
-        <div class="change-font change-font-bar">
-          <div class="font-name">Change Font</div>
-          <div class="change-font-arrow"></div>
-        </div>
-        <div id="change-size" title="Change font-size"><%= fa_icon("font") %></div>
-        <div id="change-weight" title="Bold text"><%= fa_icon("bold") %></i></div>
-        <div id="change-italic" title="Italic"><%= fa_icon("italic") %></div>
-        <div id="change-align" title="Change align"><%= fa_icon("align-left") %></div>
-        <div id="change-color" title="Change font-color"></div>
-        <div id="delete" onclick="delete_element();" title="Delete"><%= fa_icon("times") %></div>
-        <div class="color-menu">
-          <div class="color-white"></div>
-          <div class="color-black"></div>
-          <div class="color-blue"></div>  
-          <div class="color-green"></div>  
-          <div class="color-gray"></div>  
-          <div class="color-purple"></div>  
-          <div class="color-red"></div>  
-          <div class="color-yellow"></div>  
-          <div class="color-aqua"></div>  
-          <div class="color-darkorange"></div>  
-        </div>
-
-        <div class="font-menu">
-          <div class="change-font font-Vibur">Vibur</div>
-          <div class="change-font font-Satisfy">Satisfy</div>
-          <div class="change-font font-PermanentMarker">Permanent Marker</div>
-          <div class="change-font font-Pacifico">Pacifico</div>
-          <div class="change-font font-Oswald">Oswald</div>
-          <div class="change-font font-Mogra">Mogra</div>
-          <div class="change-font font-MarckScript">Marck Script</div>
-          <div class="change-font font-Lobster">Lobster</div>
-          <div class="change-font font-Lato">Lato</div>
-          <div class="change-font font-DancingScript">Dancing Script</div>
-        </div>
-
-        <div class="size-menu">
-          <div class="size-option size-12">12px</div>
-          <div class="size-option size-16">16px</div>
-          <div class="size-option size-24">24px</div>
-          <div class="size-option size-32">32px</div>
-          <div class="size-option size-36">36px</div>
-          <div class="size-option size-40">40px</div>
-          <div class="size-option size-45">45px</div>
-        </div>
-
-      </div>
-      <div id="hor_line"></div>
-      <div class="vertical_line"></div>
-
-      <div id="header" class="editable">
-        <% @header.each do |header| %>
-          <div class="draggable" id="header-item"><%== header %></div>
-        <% end %>
-      </div>
-
-      <div id="quotation" class="editable">
-        <% @quotation.each do |quotation| %>
-          <div class="draggable" id="quotation-item"><%== quotation %></div>
-        <% end %>
-      </div>
-
-      <div id="bullet" class="editable">
-        <% @bullet.each do |bullet| %>
-          <div class="draggable" id="bullet-item"><%== bullet if bullet !~ /<img src=.*>/ %><br /></div>
-        <% end %>
-      </div>
-
-      <div id="bold" class="editable">
-        <% @bold.each do |bold| %>
-          <p class="draggable" id="bold-item"><%== bold %></p>
-        <% end %>
-      </div>
-    
-    </div>
-    <div class="crop-frame"></div>   
-    <div id="background-images"></div>
-  </div>
-
+  
   <div class="reposition-bar">
     <div class="btn btn-success done">Done</div>
     <div class="btn btn-info reposition-reset">Reset</div>
     <div class="notice">You can resize the image by dragging on the lower right of the image</div>
   </div>
-
   <div class="msg">This is your last revision</div>
-  <!-- <button class="btn btn-primary resize-button">Resize Image</button> -->
 
   <div class="image-options">
-    <%= form_tag({action: 'generate_url'}, method: :post, multipart: true, style: "position: absolute;") do %>
-      <%= text_field_tag :url, nil, placeholder: "Put URL here...", size: 70 %> <br />
-      <%= submit_tag "Submit URL", class: "btn btn-info submit-url", data: { disable_with: "Loading..." } %>
-    <% end %> 
+    <%= render 'text' %>
     <%= render 'tool' %>
     <%= render 'size' %>
     <%= render 'filter' %>
     <div class="reload-logo"><%= render 'logo' %></div>
-    <%= render 'text' %>
+  </div>
+
+  <div class="reload-gallery"><%= render 'gallery' %></div>
+
+  <div class="canvas-center">
+    <%= render 'result' %>
+
+    <div class="crop-frame"></div>   
+    <div id="background-images"></div>
   </div>
 
   <div id="goTopBtn"><%= fa_icon "arrow-circle-up 3x" %></div>

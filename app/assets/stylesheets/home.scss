@@ -31,22 +31,27 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .doc-container{
-  margin: 20px 150px;
+  margin: 15px 30px;
 }
 
 .type-box{
   @include basic-config;
-  float: left;
-  width: 550px;
+  margin-top: 40px;
+  width: 460px;
+}
+
+.generate-btn{
+  position: absolute;
+  margin-top: -295px;
+  margin-left: 240px;
+  width: 100px;
+  height: 28px;
+  font-size: 12px !important;
+  padding: 2px !important;
 }
 
 .type-box-content{
   padding: 10px;
-}
-
-#url{
-  box-shadow: 1px 3px 3px #888888;
-  margin-top: 10px;
 }
 
 .canvas-center{
@@ -54,7 +59,7 @@ $commonBorder: solid 1px #ced7df;
   float: left;
   width: 550px;
   height: 800px;
-  margin: 0 20px;
+  margin: 40px 20px;
   padding: 0 28px 0 31px;
 }
 
@@ -193,11 +198,10 @@ $commonBorder: solid 1px #ced7df;
 
 .clear-image{
   cursor: pointer;
-  font-size: 14px !important;
-  height: 30px;
-  padding: 0 10px !important;
-  margin-top: -10px;
-  margin-left: 5px;
+  font-size: 12px !important;
+  height: 28px;
+  padding: 0 5px !important;
+  margin-left: 11px;
 }
 
 .horizontal_line{
@@ -493,13 +497,14 @@ $commonBorder: solid 1px #ced7df;
 
 .image-extra-options{
   @include basic-config;
-  height: 140px;
+  width: 200px;
+  height: 130px;
 }
 
 .image-tool{
   @include basic-config;
-  margin-top: 100px !important;
-  height: 130px;
+  width: 150px;
+  height: 140px;
 }
 
 .image-sizes{
@@ -523,7 +528,8 @@ $commonBorder: solid 1px #ced7df;
   border-radius: 6px;
   width: 230px;
   height: 720px;
-  margin: 20px 0;
+  margin-top: 328px;
+  margin-left: -230px;
 }
 
 .image-extra-options-header, .gallery-header, .image-tool-header, .image-sizes-header, .image-filters-header, .logo-header, .type-box-header{
@@ -661,20 +667,21 @@ $commonBorder: solid 1px #ced7df;
   color: orange;
 }
 
-@mixin button_basic{
+.select-button{
   cursor: pointer;
-  height: 30px;
+  height: 28px;
   font-size: 14px !important;
   padding: 0 10px !important;
-}
-
-.select-button{
-  @include button_basic;
+  margin-left: 10px;
+  margin-top: 1px;
 }
 
 .reposition{
-  @include button_basic;
-  margin: 15px 5px;
+  cursor: pointer;
+  height: 28px;
+  font-size: 14px !important;
+  padding: 0 10px !important;
+  margin: 5px 10px;
 }
 /* 
 .resize-button{
@@ -694,9 +701,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .submit-url{
-  margin-top: 10px;
-  width: 100px;
-  height: 35px;
-  font-size: 14px !important;
+  height: 28px;
+  font-size: 12px !important;
   padding: 2px !important;
 }

@@ -31,24 +31,30 @@ $(function(){
     var text = document.getElementById(this.innerHTML.toLowerCase());
     var type = $(this).text().toLowerCase();
 
-    if ($(this).hasClass('text-toggle-selected')) {
-      eval(type + "_num" + '=' + 0);
-    }
-    else{
-      eval(type + "_num" + '=' + type + '.children().length');
-    }
+    if ($('.background-selected').length > 0){
+      if ($(this).hasClass('text-toggle-selected')) {
+        eval(type + "_num" + '=' + 0);
+      }
+      else{
+        eval(type + "_num" + '=' + type + '.children().length');
+      }
 
-    image_num =  header_num + quotation_num + bullet_num + bold_num;
-    background.children().remove();     // remove all images from canvas-center
+      image_num =  header_num + quotation_num + bullet_num + bold_num;
+      background.children().remove();     // remove all images from canvas-center
 
-    for (var i = 0; i < image_num; i++) {
-       background.append($($('.gallery-item-selected').children().get(0)).clone());   //add images to canvas-center
-       $(background).children().last()
-         .addClass('background-selected')  // apply css
-         .removeAttr('height').removeAttr('width');        
-     }
-    rearrange();
-    amendHeight();
+      for (var i = 0; i < image_num; i++) {
+         background.append($($('.gallery-item-selected').children().get(0)).clone());   //add images to canvas-center
+         $(background).children().last()
+           .addClass('background-selected')  // apply css
+           .removeAttr('height').removeAttr('width');        
+       }
+      rearrange();
+      amendHeight();
+
+      var share_button = document.createElement('i');       // add share button
+      $(share_button).addClass('fa fa-share-alt-square fa-3x each-share-button');
+      $('.background-selected').after(share_button);
+    }
 
     $(this).toggleClass('text-toggle-selected');
     $(text).toggle();
@@ -76,27 +82,28 @@ $(function(){
     else{
       for (var i = 0; i < image_num; i++) {
         var bg_img = $($(this).children().get(0)).clone();
-        var horizontal_line = document.createElement('div');
-
+        // var horizontal_line = document.createElement('div');
         if ($(this).hasClass('blank-image')) {
           bg_img.css('display', 'block');
         }
+
         background.append(bg_img);   //add images to canvas-center
         $(background).children().last()
           .addClass('background-selected size-square')   // apply css
           .removeAttr('height').removeAttr('width'); 
-
-          draggable();
-          editable();
 
         // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
         // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
         // $('#hor_line').children().addClass('horizontal_line');
 
         // arr[i] = background.children().get(i).offsetTop +75 - $(header.children().get(i)).height()/2 + 'px';  // get array of where horizontal line shoud show
-    }
-
+      }
+      draggable();
+      editable();
       rearrange();
+      var share_button = document.createElement('i');
+      $(share_button).addClass('fa fa-share-alt-square fa-3x each-share-button');
+      $('.background-selected').after(share_button);
 
       if ($(".gallery-item-selected").length > 0 || $(".template-item-selected").length > 0) {     // if select multiple images
         appendText(header.clone());
@@ -218,19 +225,19 @@ function rearrange(){
   j = 0;
 
   for (var i = 0; i < header_num; j = i + 1, i++) {
-    header.children().get(i).style.top = background.children().get(i).offsetTop - 60 + 'px';
+    header.children().get(i).style.top = background.children().get(i).offsetTop - 90 + 'px';
   }
 
   for (var i = 0; i < quotation_num; i++, j++) {
-    quotation.children().get(i).style.top = background.children().get(j).offsetTop - 60 + 'px';
+    quotation.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
   }
 
   for (var i = 0; i < bullet_num; i++, j++) {
-    bullet.children().get(i).style.top = background.children().get(j).offsetTop - 60 + 'px';
+    bullet.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
   }
 
   for (var i = 0; i < bold_num; i++, j++) {
-    bold.children().get(i).style.top = background.children().get(j).offsetTop - 60 + 'px';
+    bold.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
   }
 }
 
