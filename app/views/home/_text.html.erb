@@ -10,8 +10,9 @@
   <div class="share-download">
     <%= submit_tag "Share & Download", class: "btn btn-primary share-download-button" %>
     <div class="waiting-notice">We are preparing your awesome image, this will take 5 to 30 seconds.</div>
-    <div class="share-button"><%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %>
+    <div class="share-button">
       <a class="facebook-btn" target="_blank" href=""></a>
+      <%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %>
     </div>
 
 

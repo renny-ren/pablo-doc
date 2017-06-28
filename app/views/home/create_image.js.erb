@@ -9,5 +9,3 @@ $('.buffer-button').show();
 $('.social-share-button').attr('data-title', "<%= params[:download_text].strip %>");
 $('.social-share-button').attr('data-img', "<%= params[:download_src] %>");
 $('.facebook-btn').attr('href', "https://www.facebook.com/sharer/sharer.php?u=<%= session[:url] %>&picture=http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&title=<%= session[:text] %>");
-
-"<%= p @salt %>"
