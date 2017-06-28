@@ -76,7 +76,7 @@ class HomeController < ApplicationController
 
   def start_download
     send_file(
-      "#{Rails.root}/public/share_download.png",
+      "#{Rails.root}/public/share_download_#{@@salt}.png",
       filename: "engaging-image.png"
     )
   end
@@ -85,13 +85,15 @@ class HomeController < ApplicationController
     set_variable
     session[:text] = params[:download_text].strip
     session[:image] = params[:download_src]
+    @@salt = Array.new(10) { rand(1024).to_s(36) }.join
+    @salt = @@salt
     # session[:url] = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
 
     # new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
-      output: 'public/share_download.png',    # don't forget the extension!
+      output: "public/share_download_#{@@salt}.png",    # don't forget the extension!
       div: '.download-content',   # selector for a specific element to take screenshot of
       width: 760,
       height: 484,
