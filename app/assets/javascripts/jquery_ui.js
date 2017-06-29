@@ -21,7 +21,7 @@ function draggable(){
       $('.vertical_line').hide();
     },
     cursor: "move",
-    containment: '.result'
+    containment: '.canvas-center'
   })
 
   $('.ui-wrapper').draggable({

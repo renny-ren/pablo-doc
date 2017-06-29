@@ -1,4 +1,52 @@
 $(function(){
+  if (localStorage.getItem("content_generated") == 1){
+    $('.options-bar').show();
+    $('.type-box').hide();
+    $('.url-bar').hide();
+    $('.option-item-images').addClass('option-item-selected');
+    $('.reload-gallery').show();
+    localStorage.removeItem("content_generated");
+  }
+
+  $('.option-item').hover(function(){
+    $(this).toggleClass('option-item-hover');
+  });
+
+  $('.generate-btn').click(function(){
+    localStorage.setItem("content_generated", 1);
+  });
+
+  $('.option-item-content').click(function(){
+    $(this).toggleClass('option-item-selected');
+    $('.type-box').toggle();
+    $('.url-bar').toggle();
+  });
+
+  $('.option-item-text').click(function(){
+    $(this).toggleClass('option-item-selected');
+    $('.image-extra-options').toggle();
+  });
+
+  $('.option-item-images').click(function(){
+    $(this).toggleClass('option-item-selected');
+    $('.reload-gallery').toggle();
+  });
+
+  $('.option-item-sizes').click(function(){
+    $(this).toggleClass('option-item-selected');
+    $('.image-sizes').toggle();
+  });
+
+  $('.option-item-filters').click(function(){
+    $(this).toggleClass('option-item-selected');
+    $('.image-filters').toggle();
+  });
+
+  $('.option-item-logo').click(function(){
+    $(this).toggleClass('option-item-selected');
+    $('.image-logo').toggle();
+  });
+
   $('.image-sizes-item').click(function(){
     $('.image-sizes-item-selected').removeClass('image-sizes-item-selected');
     $(this).addClass('image-sizes-item-selected');
@@ -18,13 +66,13 @@ $(function(){
   })
 
   $('.image-filters-option, .size-option, .change-font').hover(
-      function(){
-        $(this).css('background', 'aliceblue');
-      },
-      function(){
-        $(this).css('background', 'none');
-      }
-    )
+    function(){
+      $(this).css('background', 'aliceblue');
+    },
+    function(){
+      $(this).css('background', 'none');
+    }
+  )
 
   $('.image-filters-option').click(function(){
       $('.image-filters-list').hide();

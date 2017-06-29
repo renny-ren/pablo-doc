@@ -166,7 +166,7 @@ class HomeController < ApplicationController
   def separate
     unless params[:doc].empty?
       doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
-      @header = get_header(doc)    
+      @header = get_header(doc)
       @quotation = get_quotation(doc)
       @bold = get_bold(doc)
       @bullet = get_bullet(doc)

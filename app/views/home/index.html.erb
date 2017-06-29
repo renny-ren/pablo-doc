@@ -11,6 +11,30 @@
   </div>
   <div class="msg">This is your last revision</div>
 
+  <div class="options-bar">
+    <div class="option-item option-item-content" onselectstart="return false">
+      <%= fa_icon "pencil-square-o" %><span class="option-description">Content</span>
+    </div>
+    <div class="option-item option-item-text" onselectstart="return false">
+      <%= fa_icon "header" %><span class="option-description">Text</span>
+    </div>
+    <div class="option-item option-item-images" onselectstart="return false">
+      <%= fa_icon "image" %><span class="option-description">Images</span>
+    </div>
+    <div class="option-item option-item-select" onselectstart="return false">
+      <%= fa_icon "check-square-o" %><span class="option-description">Select</span>
+    </div>
+    <div class="option-item option-item-sizes" onselectstart="return false">
+      <%= fa_icon "th-large" %><span class="option-description">Sizes</span>
+    </div>
+    <div class="option-item option-item-filters" onselectstart="return false">
+      <%= fa_icon "adjust" %><span class="option-description">Filters</span>
+    </div>
+    <div class="option-item option-item-logo" onselectstart="return false">
+      <%= fa_icon "grav" %><span class="option-description">Logo</span>
+    </div>
+  </div>
+  
   <div class="image-options">
     <%= render 'text' %>
     <%= render 'tool' %>

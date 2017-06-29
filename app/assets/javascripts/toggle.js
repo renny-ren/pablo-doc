@@ -80,17 +80,15 @@ $(function(){
     amendHeight();
     }
     else{
+      $('.option-item-images').trigger('click');
       for (var i = 0; i < image_num; i++) {
-        var bg_img = $($(this).children().get(0)).clone();
+        var image_canvas = document.createElement('div');
+        $(image_canvas).attr('class', 'image-canvas');
         // var horizontal_line = document.createElement('div');
         if ($(this).hasClass('blank-image')) {
           bg_img.css('display', 'block');
         }
-
-        background.append(bg_img);   //add images to canvas-center
-        $(background).children().last()
-          .addClass('background-selected size-square')   // apply css
-          .removeAttr('height').removeAttr('width'); 
+        background.append(image_canvas);
 
         // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
         // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
@@ -98,12 +96,19 @@ $(function(){
 
         // arr[i] = background.children().get(i).offsetTop +75 - $(header.children().get(i)).height()/2 + 'px';  // get array of where horizontal line shoud show
       }
+      var bg_img = $($(this).children().get(0)).clone();
+      $('.image-canvas').append(bg_img);   //add images
+      $('.image-canvas').children()
+        .addClass('background-selected size-square')   // apply css
+        .removeAttr('height').removeAttr('width'); 
+
       draggable();
       editable();
       rearrange();
+
       var share_button = document.createElement('i');
       $(share_button).addClass('fa fa-share-alt-square fa-3x each-share-button');
-      $('.background-selected').after(share_button);
+      $('.image-canvas').after(share_button);
 
       if ($(".gallery-item-selected").length > 0 || $(".template-item-selected").length > 0) {     // if select multiple images
         appendText(header.clone());
