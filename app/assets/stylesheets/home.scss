@@ -50,9 +50,18 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .type-box{
-  margin-top: 30px;
-  margin-left: -10px;
+  margin-top: -38px;
+  margin-left: 40px;
   width: 620px;
+}
+
+.type-box-header{
+  margin-bottom: 30px;
+}
+
+.url-bar{
+  margin-left: 50px;
+  padding-top: 20px;
 }
 
 .generate-btn{
@@ -67,16 +76,15 @@ $commonBorder: solid 1px #ced7df;
 .canvas-center{
   background: #FCFCFC;
   float: left;
-  width: 1050px;
+  width: 500px;
+  /* width: 1290px; */
   height: 800px;
-  margin-top: 40px;
   margin-left: 15px;
   /* padding: 0 28px 0 31px; */
 }
 
 .result{
-  width: 500px;
-  /* overflow: scroll; */
+  width: 300px;
   position: absolute;
   z-index: 2;
 }
@@ -315,6 +323,7 @@ $commonBorder: solid 1px #ced7df;
 
 #header-item, #quotation-item, #bullet-item, #bold-item{
   display: inline-block;
+  width: 300px;
 }
 
 .font-bold{
@@ -589,7 +598,7 @@ $commonBorder: solid 1px #ced7df;
 #background-images{
   /* z-index: 1; */
   /* overflow: hidden; */
-  width: 1400px;
+  width: 1320px;
 }
 
 .crop-frame{

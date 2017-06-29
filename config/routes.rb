@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   get 'admin/cac', to: 'home#admin'
   post 'generate_url', to: 'home#generate_url'
-  # get 'generate_url', to: 'home#index'
+  get 'generate_url', to: 'home#index'
 end

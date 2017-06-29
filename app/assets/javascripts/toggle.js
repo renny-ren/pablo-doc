@@ -227,23 +227,52 @@ function rearrange(){
   quotation.children().css('position', 'absolute');
   bullet.children().css('position', 'absolute');
   bold.children().css('position', 'absolute');
-  j = 0;
+  // j = 0;
+  
+  // header.children().first().css('left', 0);
+  // header.children().first().css('top', 0);
+  for (var i = 1, left_now = 330, top_now = 0; i < header_num; i++, left_now += 330) {
+    // if (i % 4 == 0){
+    //   top_now = parseInt(header.children().get(i-4).style.top) + 520 + 'px';
+    //   header.children().get(i).style.left = 0;
+    // }
+    // else{
+    //   header.children().get(i).style.left = parseInt(header.children().get(i - 1).style.left) + 330 + 'px';
+    // }
+    // header.children().get(i).style.top = top_now;
+    header.children().get(i).style.left = left_now + 'px';
+    header.children().get(i).style.top = top_now + 'px';
+    if (left_now == 990) {
+      left_now = -330;
+      top_now += 520;
+    }
+  }
+  change_left_top(quotation, quotation_num);
+  change_left_top(bullet, bullet_num);
+  change_left_top(bold, bold_num);
 
-  for (var i = 0; i < header_num; j = i + 1, i++) {
-    header.children().get(i).style.top = background.children().get(i).offsetTop - 90 + 'px';
+  function change_left_top(item, num){
+    for (var i = 0; i < num; i++, left_now += 330) {
+      item.children().get(i).style.left = left_now + 'px';
+      item.children().get(i).style.top = top_now + 'px';
+      if (left_now == 990) {
+        left_now = -330;
+        top_now += 520;
+      }
+    }
   }
 
-  for (var i = 0; i < quotation_num; i++, j++) {
-    quotation.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
-  }
+  // for (var i = 0; i < quotation_num; i++, j++) {
+  //   quotation.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
+  // }
 
-  for (var i = 0; i < bullet_num; i++, j++) {
-    bullet.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
-  }
+  // for (var i = 0; i < bullet_num; i++, j++) {
+  //   bullet.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
+  // }
 
-  for (var i = 0; i < bold_num; i++, j++) {
-    bold.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
-  }
+  // for (var i = 0; i < bold_num; i++, j++) {
+  //   bold.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';
+  // }
 }
 
 function getQuantity(){
