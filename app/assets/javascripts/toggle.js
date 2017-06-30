@@ -99,7 +99,7 @@ $(function(){
       var bg_img = $($(this).children().get(0)).clone();
       $('.image-canvas').append(bg_img);   //add images
       $('.image-canvas').children()
-        .addClass('background-selected size-square')   // apply css
+        .addClass('background-selected size-wide')   // apply css
         .removeAttr('height').removeAttr('width'); 
 
       draggable();
