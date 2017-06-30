@@ -1,6 +1,6 @@
 $(function(){
   $('.facebook-btn').click(function(){
-    window.open(this.href, 'mywin', 'left=200,top=200,width=500,height=600,toolbar=1,resizable=0');
+    window.open(this.href, 'mywin', 'left=400,top=200,width=500,height=500,toolbar=1,resizable=0');
     return false;
   });
 

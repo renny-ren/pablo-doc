@@ -88,15 +88,15 @@ $(function(){
     });
 
   $('.tall').click(function(){
-    changeOptionSize('size-tall');
+    changeOptionSize('size-tall', 'canvas-tall');
   });
 
   $('.square').click(function(){
-    changeOptionSize('size-square');
+    changeOptionSize('size-square', 'canvas-square');
   });
 
   $('.wide').click(function(){
-    changeOptionSize('size-wide');
+    changeOptionSize('size-wide', 'canvas-wide');
   });
 
   $('.none').click(function(){
@@ -169,10 +169,12 @@ function addFilter(filter){
   }
 }
 
-function changeOptionSize(size){
+function changeOptionSize(size, canvasSize){
   if ($('.background-selected').hasClass('selected') == false){
     $('.background-selected').removeClass('size-tall size-square size-wide');
     $('.background-selected').addClass(size);
+    $('.image-canvas').removeClass('canvas-tall canvas-square canvas-wide');
+    $('.image-canvas').addClass(canvasSize);
   }
   else{
     $('.selected').removeClass('size-tall size-square size-wide');

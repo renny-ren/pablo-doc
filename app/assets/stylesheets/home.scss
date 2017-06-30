@@ -704,8 +704,20 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .size-wide{
-  width: 524px;
-  height: 242px;
+  width: 488px;
+  height: 249px;
+}
+
+.canvas-tall{
+  height: 500px !important;
+}
+
+.canvas-square{
+  height: 400px !important;
+}
+
+.canvas-wide{
+  height: 249px !important;
 }
 
 .msg{

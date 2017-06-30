@@ -231,9 +231,8 @@ function rearrange(){
   bullet.children().css('position', 'absolute');
   bold.children().css('position', 'absolute');
   // j = 0;
-  
-  // header.children().first().css('left', 0);
-  // header.children().first().css('top', 0);
+
+  // rearrange text
   for (var i = 1, left_now = 330, top_now = 0; i < header_num; i++, left_now += 330) {
     // if (i % 4 == 0){
     //   top_now = parseInt(header.children().get(i-4).style.top) + 520 + 'px';
@@ -247,7 +246,7 @@ function rearrange(){
     header.children().get(i).style.top = top_now + 'px';
     if (left_now == 990) {
       left_now = -330;
-      top_now += 450;
+      top_now += $('.image-canvas').height() + 50;
     }
   }
   change_left_top(quotation, quotation_num);
@@ -260,20 +259,21 @@ function rearrange(){
       item.children().get(i).style.top = top_now + 'px';
       if (left_now == 990) {
         left_now = -330;
-        top_now += 450;
+        top_now += $('.image-canvas').height() + 50;
       }
     }
   }
 
   // rearrange share button
-  for (var i = 1, left_now = 330, top_now = 400, shift = 0; i < image_num; i++, left_now += 330) {  
+  $('.each-share-button').get(0).style.top = $('.image-canvas').height() + 'px';
+  for (var i = 1, left_now = 330, top_now = $('.image-canvas').height(), shift = 0; i < image_num; i++, left_now += 330) {  
     $('.each-share-button').get(i).style.left = left_now + 'px';
     $('.each-share-button').get(i).style.top = top_now - shift + 'px';
     // $('.each-download-button').get(i).style.left = left_now + 270 + 'px';
     // $('.each-download-button').get(i).style.top = top_now - shift + 'px';
     if (left_now == 990) {
       left_now = -330;
-      top_now += 450;
+      top_now += $('.image-canvas').height() + 50;
       shift += 4;
     }
   }
