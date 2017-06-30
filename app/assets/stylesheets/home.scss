@@ -79,11 +79,14 @@ $commonBorder: solid 1px #ced7df;
 .canvas-center{
   background: #FCFCFC;
   float: left;
-  width: 500px;
-  /* width: 1290px; */
+  width: 1290px;
   height: 800px;
   margin-left: 15px;
   /* padding: 0 28px 0 31px; */
+}
+
+.canvas-center-leftbar{
+  width: 500px;
 }
 
 .result{
@@ -602,6 +605,7 @@ $commonBorder: solid 1px #ced7df;
   /* z-index: 1; */
   /* overflow: hidden; */
   width: 1320px;
+  position: relative;
 }
 
 .crop-frame{
@@ -764,7 +768,9 @@ $commonBorder: solid 1px #ced7df;
 
 .image-canvas{
   width: 300px;
+  height: 400px;
   overflow: hidden;
   display: inline-block;
+  margin-bottom: 40px;
   margin-right: 30px;
 }

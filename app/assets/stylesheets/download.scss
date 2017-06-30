@@ -138,12 +138,16 @@
 }
 
 .waiting-notice{
+  width: 300px;
+  background: #FFFFFF;
   display: none;
   font-size: 14px;
-  width: 500px;
-  height: 20px;
-  top: 40px;
   position: absolute;
+  z-index: 5;
+  color: black;
+  padding: 10px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px gray;
 }
 
 .download-trigger{
@@ -185,7 +189,18 @@
 
 .each-share-button{
   position: absolute;
-  right: 339px;
+  z-index: 3;
   color: #3569CF;
   cursor: pointer;
+  left: 0px;
+  top: 400px;
+}
+
+.each-download-button{
+  position: absolute;
+  z-index: 3;
+  color: #5CB85C;
+  cursor: pointer;
+  left: 270px;
+  top: 402px;
 }

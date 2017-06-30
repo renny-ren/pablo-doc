@@ -4,13 +4,18 @@ $(function(){
     $('.type-box').css('left', 0).hide();
     $('.url-bar').css('left', 0).css('margin-left', '10px').hide();
     $('.option-item-images').addClass('option-item-selected');
+    $('.canvas-center').addClass('canvas-center-leftbar');
     $('.reload-gallery').show();
     localStorage.removeItem("content_generated");
   }
 
-  $('.option-item').hover(function(){
-    $(this).toggleClass('option-item-hover');
-  });
+  $('.option-item')
+    .hover(function(){
+      $(this).toggleClass('option-item-hover');
+    })
+    .click(function(){
+      $('.canvas-center').toggleClass('canvas-center-leftbar');
+    });
 
   $('.generate-btn').click(function(){
     localStorage.setItem("content_generated", 1);

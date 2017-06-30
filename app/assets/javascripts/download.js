@@ -127,24 +127,29 @@ $(function(){
   });
 
   $('body').on('click', '.each-share-button', function(){
-    single_share = true;
-    $('.waiting-notice').css('top', $(this).css('top')).css('left', parseInt($(this).css('left')) + 50 + 'px').css('width', '280px').show();
+    // single_share = true;
+    $('.waiting-notice').css('top', parseInt($(this).css('top')) - 10 + 'px').css('left', parseInt($('this').css('left')) + 115 + 'px').show();
     $('.selected-text').removeClass('selected-text');
-    var text_top_min = parseInt($(this).css('top')) - 100;
-    var text_top_max = parseInt($(this).css('top')) + parseInt($(this).prev().css('height')) - 100;
-    for (var i = 0; i < $('#header').children().length; i++) {
-      if (parseInt($($('#header').children().get(i)).css('top')) > text_top_min && parseInt($($('#header').children().get(i)).css('top')) < text_top_max) {
-        $($('#header').children().get(i)).addClass('selected-text');
+
+    // find the text which should be selected
+    var text_top_min = parseInt($(this).css('top')) - 400;
+    var text_top_max = parseInt($(this).css('top'));
+    var text_left_min = parseInt($(this).css('left'));
+    var text_left_max = parseInt($(this).css('left')) + 300;
+    for (var i = 0; i < $('.text-item').length; i++) {
+      if (parseInt($($('.text-item').get(i)).css('top')) >= text_top_min && parseInt($($('.text-item').get(i)).css('top')) < text_top_max && parseInt($($('.text-item').get(i)).css('left')) < text_left_max && parseInt($($('.text-item').get(i)).css('left')) >= text_left_min) {
+        $($('.text-item').get(i)).addClass('selected-text');
         break;
       }
     }
 
-    if ( $(this).prev().parent().hasClass('ui-wrapper') ){
-      image_left = $(this).prev().parent().css('left'); 
-    }
-    else{
-      image_left = $(this).prev().css('left');
-    }
+    // if ( $(this).prev().parent().hasClass('ui-wrapper') ){
+    //   image_left = $(this).prev().parent().css('left'); 
+    // }
+    // else{
+    //   image_left = $(this).prev().css('left');
+    // }
+    image_left = '0px';
 
     text_top = parseInt($('selected-text').css('top'));
     while (  text_top > 515 ) {
@@ -156,7 +161,7 @@ $(function(){
       type: "POST",
       url: '/create_image', 
       data:(
-        'download_src=' + $(this).prev().attr('src') + '&' +
+        'download_src=' + $(this).prev().children().attr('src') + '&' +
         'logo_src=' + $('.resizable-logo').attr('src') + '&' +
         'image_height=' + $(this).prev().height() + '&' +
         'image_width=' + $(this).prev().width() + '&' +
