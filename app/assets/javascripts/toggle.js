@@ -106,10 +106,10 @@ $(function(){
       editable();
 
       var share_button = document.createElement('i');
-      var downlaod_button = document.createElement('i');
+      // var downlaod_button = document.createElement('i');
       $(share_button).addClass('fa fa-share-alt-square fa-2x each-share-button');
-      $(downlaod_button).addClass('fa fa-download fa-2x each-download-button');
-      $('.image-canvas').after(downlaod_button);
+      // $(downlaod_button).addClass('fa fa-download fa-2x each-download-button');
+      // $('.image-canvas').after(downlaod_button);
       $('.image-canvas').after(share_button);
       rearrange();    
 
@@ -269,8 +269,8 @@ function rearrange(){
   for (var i = 1, left_now = 330, top_now = 400, shift = 0; i < image_num; i++, left_now += 330) {  
     $('.each-share-button').get(i).style.left = left_now + 'px';
     $('.each-share-button').get(i).style.top = top_now - shift + 'px';
-    $('.each-download-button').get(i).style.left = left_now + 270 + 'px';
-    $('.each-download-button').get(i).style.top = top_now - shift + 'px';
+    // $('.each-download-button').get(i).style.left = left_now + 270 + 'px';
+    // $('.each-download-button').get(i).style.top = top_now - shift + 'px';
     if (left_now == 990) {
       left_now = -330;
       top_now += 450;

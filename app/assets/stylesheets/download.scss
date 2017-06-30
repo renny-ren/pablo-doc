@@ -44,10 +44,10 @@
 }
 
 .share-download{
-  display: none;
+  /* display: none; */
 }
 
-.share-download-button{
+/* .share-download-button{
   cursor: pointer;
   margin-top: 2px;
   margin-left: 356px;
@@ -56,22 +56,26 @@
   height: 28px;
   font-size: 12px !important;
   padding: 2px !important;
-}
+} */
 
 .share-button{
   display: none;
   /* width: 300px; */
   position: absolute;
+  z-index: 2;
 }
 
 .download-button{
+  position: absolute;
   display: none;
+  color: #5CB85C;
+  z-index: 2;
 }
-
+/* 
 .download-button button{
   cursor: pointer;
   border-radius: 20px;
-}
+} */
 
 .download-notice{
   display: none;
@@ -163,28 +167,20 @@
 
 .buffer-button{
   display: none;
-  margin-top: 10px;
   position: absolute;
-  top: 50px;
-  left: 850px;
+  z-index: 2;
 }
 
 .social-share-button{
-  position: relative;
-  left: 528px;
-  top: -8px;
+  margin-left: 35px;
 }
 
 .facebook-btn{
   position: absolute;
-  width: 40px;
-  height: 40px;
-  left: 480px;
-  top: -8px;
+  width: 30px;  
+  height: 30px;
+  background-size: 30px;
   background-image: url(/assets/social-share-button/facebook-03210e1663ee772e93ed5d344cdb36657b68342821aaebe982f2f984915990b3.svg);
-  background-size: 40px;
-  float: left;
-  border-radius: 50px;
 }
 
 .each-share-button{
@@ -196,11 +192,12 @@
   top: 400px;
 }
 
-.each-download-button{
+/* .each-download-button{
+  display: none;
   position: absolute;
   z-index: 3;
   color: #5CB85C;
   cursor: pointer;
   left: 270px;
   top: 402px;
-}
+} */

@@ -1,4 +1,9 @@
 $(function(){
+  $('.facebook-btn').click(function(){
+    window.open(this.href, 'mywin', 'left=200,top=200,width=500,height=600,toolbar=1,resizable=0');
+    return false;
+  });
+
   download_flag = 0;  // 0 --- edit mode,  1 --- download mode
   if ($('.download-content').length > 0){    
     $('.cav-img').css({
@@ -81,54 +86,54 @@ $(function(){
     }
   });
 
-  $('body').on('click', '.share-download', function(){
-    if ($(this).hasClass('expanded') == false){
-      if ( $('.selected').length > 0 && $('.selected-text').length > 0) {
-        $('.step-notice').hide();
-        $('.share-download-button').prop('disabled', true).val('Please wait...');
-        $('.waiting-notice').show();
+  // $('body').on('click', '.share-download', function(){
+  //   if ($(this).hasClass('expanded') == false){
+  //     if ( $('.selected').length > 0 && $('.selected-text').length > 0) {
+  //       $('.step-notice').hide();
+  //       $('.share-download-button').prop('disabled', true).val('Please wait...');
+  //       $('.waiting-notice').show();
 
-        get_left();
-        $.ajax({
-          type: "POST",
-          url: '/create_image', 
-          data:(
-            'download_src=' + $('.selected').attr('src') + '&' +
-            'logo_src=' + $('.resizable-logo').attr('src') + '&' +
-            'image_height=' + $('.selected').height() + '&' +
-            'image_width=' + $('.selected').width() + '&' +
-            'image_left=' + image_left + '&' +
-            'image_filter=' + $('.selected').css('filter') + '&' +
-            'download_text=' + $('.selected-text').text().trim() + '&' +
-            'font_size=' + $($('.selected-text').children().get(0)).css('font-size') + '&' +
-            'font_top=' + $('.selected-text').css('top') + '&' +
-            'font_family=' + $($('.selected-text').children().get(0)).css('font-family') + '&' +
-            'font_weight=' + $($('.selected-text').children().get(0)).css('font-weight') + '&' +
-            'font_style=' + $($('.selected-text').children().get(0)).css('font-style') + '&' +
-            'font_color=' + $($('.selected-text').children().get(0)).css('color')
-          )
-        })
-        $('.share-download').addClass('expanded');
-      }
-      else{
-        download_flag = 1;
-        $('.download-notice').show();
-        $('.draggable').css('cursor', 'pointer');    // make text clickable;
-        $('.draggable').hover(function(){
-          $(this).toggleClass('download-text-hover');
-        });
-        $('.background-selected').addClass('background-not');
-        $('.step-notice').show();
-        $('.step-notice').click(function(){
-          $(this).fadeOut();
-        })
-      } 
-    }
-  });
+  //       get_left();
+  //       $.ajax({
+  //         type: "POST",
+  //         url: '/create_image', 
+  //         data:(
+  //           'download_src=' + $('.selected').attr('src') + '&' +
+  //           'logo_src=' + $('.resizable-logo').attr('src') + '&' +
+  //           'image_height=' + $('.selected').height() + '&' +
+  //           'image_width=' + $('.selected').width() + '&' +
+  //           'image_left=' + image_left + '&' +
+  //           'image_filter=' + $('.selected').css('filter') + '&' +
+  //           'download_text=' + $('.selected-text').text().trim() + '&' +
+  //           'font_size=' + $($('.selected-text').children().get(0)).css('font-size') + '&' +
+  //           'font_top=' + $('.selected-text').css('top') + '&' +
+  //           'font_family=' + $($('.selected-text').children().get(0)).css('font-family') + '&' +
+  //           'font_weight=' + $($('.selected-text').children().get(0)).css('font-weight') + '&' +
+  //           'font_style=' + $($('.selected-text').children().get(0)).css('font-style') + '&' +
+  //           'font_color=' + $($('.selected-text').children().get(0)).css('color')
+  //         )
+  //       })
+  //       $('.share-download').addClass('expanded');
+  //     }
+  //     else{
+  //       download_flag = 1;
+  //       $('.download-notice').show();
+  //       $('.draggable').css('cursor', 'pointer');    // make text clickable;
+  //       $('.draggable').hover(function(){
+  //         $(this).toggleClass('download-text-hover');
+  //       });
+  //       $('.background-selected').addClass('background-not');
+  //       $('.step-notice').show();
+  //       $('.step-notice').click(function(){
+  //         $(this).fadeOut();
+  //       })
+  //     } 
+  //   }
+  // });
 
   $('body').on('click', '.each-share-button', function(){
     // single_share = true;
-    $('.waiting-notice').css('top', parseInt($(this).css('top')) - 10 + 'px').css('left', parseInt($('this').css('left')) + 115 + 'px').show();
+    $('.waiting-notice').css('top', parseInt($(this).css('top')) - 10 + 'px').css('left', parseInt($(this).css('left')) + 115 + 'px').show();
     $('.selected-text').removeClass('selected-text');
 
     // find the text which should be selected
@@ -157,16 +162,23 @@ $(function(){
       text_top -= 515;
     }
 
+    $('.share-button').css('top', parseInt($(this).css('top')) + 62 + 'px');
+    $('.share-button').css('left', parseInt($(this).css('left')) + 150 + 'px');
+    $('.download-button').css('top', parseInt($(this).css('top')) + 62 + 'px');
+    $('.download-button').css('left', parseInt($(this).css('left')) + 380 + 'px');
+    $('.buffer-button').css('top', parseInt($(this).css('top')) + 70 + 'px');
+    $('.buffer-button').css('left', parseInt($(this).css('left')) + 320 + 'px');
+
     $.ajax({
       type: "POST",
       url: '/create_image', 
       data:(
         'download_src=' + $(this).prev().children().attr('src') + '&' +
         'logo_src=' + $('.resizable-logo').attr('src') + '&' +
-        'image_height=' + $(this).prev().height() + '&' +
-        'image_width=' + $(this).prev().width() + '&' +
+        'image_height=' + $(this).prev().children().height() + '&' +
+        'image_width=' + $(this).prev().children().width() + '&' +
         'image_left=' + image_left + '&' +
-        'image_filter=' + $(this).prev().css('filter') + '&' +
+        'image_filter=' + $(this).prev().children().css('filter') + '&' +
         'download_text=' + $('.selected-text').text().trim() + '&' +
         'font_size=' + $($('.selected-text').children().get(0)).css('font-size') + '&' +
         'font_top=' + text_top + '&' +

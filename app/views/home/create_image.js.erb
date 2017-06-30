@@ -1,5 +1,5 @@
-$('.share-download-button').prop('disabled', false).val('Share & Download');
-$('.waiting-notice').css({'top': '40px', 'width': '500px', 'left': '30px'});
+// $('.share-download-button').prop('disabled', false).val('Share & Download');
+// $('.waiting-notice').css({'top': '40px', 'width': '500px', 'left': '30px'});
 $('.waiting-notice').hide();
 $('.share-button').show();
 $('.download-button').show();
@@ -7,7 +7,7 @@ $('.buffer-button').show();
 // $('.social-share-button').attr('data-url', "<%= params[:download_src] %>");
 $('.social-share-button').attr('data-title', "<%= params[:download_text].strip %>");
 $('.social-share-button').attr('data-img', "<%= params[:download_src] %>");
-var fb_href = "https://www.facebook.com/sharer/sharer.php?u=<%= session[:url] %>&picture=http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&title=<%= session[:text] %>";
+var fb_href = "https://www.facebook.com/dialog/feed?app_id=311606015958230&picture=http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&caption=<%= session[:text] %>";
 $('.facebook-btn').attr('href', fb_href);
 
 // if (single_share) {
