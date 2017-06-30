@@ -3,10 +3,11 @@ $commonBorder: solid 1px #ced7df;
 @mixin basic-config{
   background: #FFFFFF;
   border: $commonBorder;
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   width: 220px;
-  margin: 20px 0;
   display: none;
+  position: relative;
+  z-index: 1;
 }
 
 @mixin blank_background{
@@ -161,6 +162,8 @@ $commonBorder: solid 1px #ced7df;
   background: #FFFFFF;
   padding-top: 20px;
   box-shadow: 2px 1px 5px #b0c3ea;
+  position: relative;
+  z-index: 2;
 }
 
 .option-item{
@@ -218,7 +221,7 @@ $commonBorder: solid 1px #ced7df;
   font-size: 14px;
   position: absolute;
   padding: 5px;
-  margin-top: -60px;
+  margin-top: -80px;
   margin-left: 20px;
 }
 
@@ -555,6 +558,7 @@ $commonBorder: solid 1px #ced7df;
   @include basic-config;
   width: 200px;
   height: 130px;
+  margin-top: 30px;
 }
 
 .image-tool{
@@ -565,28 +569,38 @@ $commonBorder: solid 1px #ced7df;
 
 .image-sizes{
   @include basic-config;
+  margin-top: 180px;
   height: 110px;
-}
-
-.image-logo{
-  @include basic-config;
-  height: 120px;
 }
 
 .image-filters{
   @include basic-config;
+  margin-top: 240px;
   height: 100px;
 }
 
-.gallery{
+.image-logo{
   background: #FFFFFF;
   border: $commonBorder;
-  border-radius: 6px;
+  border-radius: 0 8px 8px 0;
+  width: 220px;
+  position: relative;
+  z-index: 1;
+  margin-top: 280px;
+  height: 120px;
+}
+
+.gallery{
+  position: relative;
+  z-index: -1;
+  background: #FFFFFF;
+  border: $commonBorder;
+  border-radius: 0 6px 6px 0;
   width: 230px;
   height: 720px;
 }
 
-.reload-gallery{
+.reload-gallery, .reload-logo{
   display: none;
 }
 

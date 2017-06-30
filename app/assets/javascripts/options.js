@@ -9,6 +9,12 @@ $(function(){
     localStorage.removeItem("content_generated");
   }
 
+  $('.image-extra-options, .image-sizes, .image-filters').mouseleave(function(){
+    $(this).hide();
+    $('.option-item-selected').removeClass('option-item-selected');
+    $('.canvas-center-leftbar').removeClass('canvas-center-leftbar');
+  });
+
   $('.option-item')
     .hover(function(){
       $(this).toggleClass('option-item-hover');
@@ -49,7 +55,7 @@ $(function(){
 
   $('.option-item-logo').click(function(){
     $(this).toggleClass('option-item-selected');
-    $('.image-logo').toggle();
+    $('.reload-logo').toggle();
   });
 
   $('.image-sizes-item').click(function(){
