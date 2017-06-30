@@ -23,6 +23,7 @@ $(function(){
       $('.canvas-center').toggleClass('canvas-center-leftbar');
       $('.share-button').hide();
       $('.buffer-button').hide();
+      $('.download-button').hide();
     });
 
   $('.generate-btn').click(function(){
