@@ -43,7 +43,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .word-doc a{
-  font-family: 'satisfy';
+  font-family: initial;
   font-size: 29px;
   margin-top: -10px;
   position: absolute;
@@ -51,8 +51,9 @@ $commonBorder: solid 1px #ced7df;
 
 .type-box{
   margin-top: -38px;
-  margin-left: 40px;
   width: 620px;
+  position: relative;
+  left: 55%;
 }
 
 .type-box-header{
@@ -60,8 +61,10 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .url-bar{
-  margin-left: 50px;
   padding-top: 20px;
+  position: relative;
+  left: 57%;
+  z-index: 3;
 }
 
 .generate-btn{
@@ -160,9 +163,9 @@ $commonBorder: solid 1px #ced7df;
 .option-item{
   cursor: pointer;
   height: 50px;
-  padding: 12px 0 10px 10px;
+  padding: 12px 0 10px 8px;
   font-size: 18px;
-  font-family: Lobster;
+  font-family: 'Lato';
 }
 
 .option-item-hover{

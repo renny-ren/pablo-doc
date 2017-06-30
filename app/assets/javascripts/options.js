@@ -1,8 +1,8 @@
 $(function(){
   if (localStorage.getItem("content_generated") == 1){
     $('.options-bar').show();
-    $('.type-box').hide();
-    $('.url-bar').hide();
+    $('.type-box').css('left', 0).hide();
+    $('.url-bar').css('left', 0).css('margin-left', '10px').hide();
     $('.option-item-images').addClass('option-item-selected');
     $('.reload-gallery').show();
     localStorage.removeItem("content_generated");
