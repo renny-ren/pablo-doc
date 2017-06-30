@@ -21,6 +21,8 @@ $(function(){
     })
     .click(function(){
       $('.canvas-center').toggleClass('canvas-center-leftbar');
+      $('.share-button').hide();
+      $('.buffer-button').hide();
     });
 
   $('.generate-btn').click(function(){
