@@ -3,7 +3,7 @@
 $('.waiting-notice').hide();
 $('.share-button').show();
 $('.download-button').show();
-var buffer_href = $('.buffer-button').attr('src').replace(/(picture=)(.*?)&/, "$1 http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&");
+var buffer_href = $('.buffer-button').attr('src').replace(/(text=)(.*?)&/, "$1<%= params[:download_text] %>&").replace(/(picture=)(.*?)&/, "$1http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&");
 $('.buffer-button').attr('src', buffer_href);
 $('.buffer-button').show();
 // $('.social-share-button').attr('data-url', "<%= params[:download_src] %>");
