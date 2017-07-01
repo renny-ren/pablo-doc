@@ -196,6 +196,9 @@ function changeFont(obj){
 }
 
 function select_element(obj){
+  $(obj).css('position', 'relative');
+  $(obj).addClass('resizable-text');
+  resizable();
   if ( $('#item-selected').length > 0 ) {
     $('#item-selected').attr('id', localStorage.getItem("original_id"));
   }
@@ -217,6 +220,10 @@ function select_element(obj){
       $(this).attr('id', localStorage.getItem("original_id"));
       this.style.border = 'none';
       toolbar.style.display = 'none';
+      $('.ui-resizable-e').removeClass('ui-resizable-e');
+      $('.ui-resizable-w').removeClass('ui-resizable-w');
+      $(this).removeClass('resizable-text');
+      $(this).css('position', 'absolute');
     }
   });
 

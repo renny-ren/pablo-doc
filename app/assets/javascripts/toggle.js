@@ -186,6 +186,7 @@ $(function(){
 
 function amendHeight(){
   $(result).css('height', background.height() - 10 + "px");
+  $('.canvas-center').css('height', background.height() - 45 + "px");
   if (parseInt($(result).css('height')) < 100) {
     $(result).css('height', background.children().last().offset().top + 235 + 'px');
   }

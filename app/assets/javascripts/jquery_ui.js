@@ -1,6 +1,6 @@
 $(function(){
   // draggable();
-  editable();
+  // editable();
 });
 
 function draggable(){
@@ -75,5 +75,9 @@ function resizable(){
     minWidth: 10,
     maxHeithgt: 760,
     maxWidth: 500
+  });
+
+  $('.resizable-text').resizable({
+    handles: "w, e"
   });
 }
