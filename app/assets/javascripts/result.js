@@ -1,4 +1,10 @@
 $(function(){
+  setInterval(function(){
+    if ($('#header').children().length > 1 && background.children().length == 0){
+      rearrange();
+      clearInterval();
+    }
+   }, 1000);
   toolbar = document.getElementById('toolbar');
 
   $('body').on('click', '#header-item, #quotation-item, #bullet-item, #bold-item', function(){

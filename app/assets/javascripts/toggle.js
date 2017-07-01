@@ -106,10 +106,10 @@ $(function(){
       editable();
 
       var share_button = document.createElement('i');
-      // var downlaod_button = document.createElement('i');
+      var delete_button = document.createElement('i');
       $(share_button).addClass('fa fa-share-alt-square fa-2x each-share-button');
-      // $(downlaod_button).addClass('fa fa-download fa-2x each-download-button');
-      // $('.image-canvas').after(downlaod_button);
+      $(delete_button).addClass('fa fa-trash fa-2x each-delete-button');
+      $('.image-canvas').after(delete_button);
       $('.image-canvas').after(share_button);
       rearrange();    
 
@@ -182,6 +182,29 @@ $(function(){
       resetPosition();
     };
   });
+
+  $('body').on('click', '.each-delete-button', function(){
+    if(confirm("Are you sure want to delete this image?")){
+      var text_top_min = parseInt($(this).prev().css('top')) - 400;
+      var text_top_max = parseInt($(this).prev().css('top'));
+      var text_left_min = parseInt($(this).prev().css('left'));
+      var text_left_max = parseInt($(this).prev().css('left')) + 300;
+      for (var i = 0; i < $('.text-item').length; i++) {
+        if (parseInt($($('.text-item').get(i)).css('top')) >= text_top_min && parseInt($($('.text-item').get(i)).css('top')) < text_top_max && parseInt($($('.text-item').get(i)).css('left')) < text_left_max && parseInt($($('.text-item').get(i)).css('left')) >= text_left_min) {
+          $($('.text-item').get(i)).addClass('selected-text');
+          break;
+        }
+      }
+      $('.selected-text').remove();  // remove text
+      $(this).prev().prev().remove();   // remove iamge
+      $(this).prev().remove();   // remove share button
+      $(this).remove();   // remove delete button
+      $('.selected-text').removeClass('selected-text');
+      getQuantity();
+      rearrange();
+      amendHeight();
+    };
+  });
 });
 
 function amendHeight(){
@@ -231,10 +254,15 @@ function rearrange(){
   quotation.children().css('position', 'absolute');
   bullet.children().css('position', 'absolute');
   bold.children().css('position', 'absolute');
-  // j = 0;
 
   // rearrange text
   $('#header-item').get(0).style.left = '0px';
+  if ($('.image-canvas').height() == null){
+    image_height = 249;
+  }
+  else{
+    image_height = $('.image-canvas').height();
+  }
   for (var i = 1, left_now = 330, top_now = 0; i < header_num; i++, left_now += 330) {
     // if (i % 4 == 0){
     //   top_now = parseInt(header.children().get(i-4).style.top) + 520 + 'px';
@@ -248,7 +276,7 @@ function rearrange(){
     header.children().get(i).style.top = top_now + 'px';
     if (left_now == 990) {
       left_now = -330;
-      top_now += $('.image-canvas').height() + 50;
+      top_now += image_height + 50;
     }
   }
   change_left_top(quotation, quotation_num);
@@ -261,24 +289,29 @@ function rearrange(){
       item.children().get(i).style.top = top_now + 'px';
       if (left_now == 990) {
         left_now = -330;
-        top_now += $('.image-canvas').height() + 50;
+        top_now += image_height + 50;
       }
     }
   }
 
-  // rearrange share button
-  $('.each-share-button').get(0).style.top = $('.image-canvas').height() + 'px';
-  for (var i = 1, left_now = 330, top_now = $('.image-canvas').height(), shift = 0; i < image_num; i++, left_now += 330) {  
-    $('.each-share-button').get(i).style.left = left_now + 'px';
-    $('.each-share-button').get(i).style.top = top_now - shift + 'px';
-    // $('.each-download-button').get(i).style.left = left_now + 270 + 'px';
-    // $('.each-download-button').get(i).style.top = top_now - shift + 'px';
-    if (left_now == 990) {
-      left_now = -330;
-      top_now += $('.image-canvas').height() + 50;
-      shift += 4;
+  // rearrange share and delete button
+  if ($('.each-share-button').length > 0){
+    $('.each-share-button').get(0).style.top = image_height + 'px';
+    $('.each-share-button').get(0).style.left = '0px';
+    $('.each-delete-button').get(0).style.top = image_height + 'px';
+    $('.each-delete-button').get(0).style.left = '270px';
+    for (var i = 1, left_now = 330, top_now = image_height, shift = 0; i < image_num; i++, left_now += 330) {  
+      $('.each-share-button').get(i).style.left = left_now + 'px';
+      $('.each-share-button').get(i).style.top = top_now - shift + 'px';
+      $('.each-delete-button').get(i).style.left = left_now + 270 + 'px';
+      $('.each-delete-button').get(i).style.top = top_now - shift + 'px';
+      if (left_now == 990) {
+        left_now = -330;
+        top_now += image_height + 50;
+        shift += 4;
+      }
     }
-  }
+  } 
 
   // for (var i = 0; i < quotation_num; i++, j++) {
   //   quotation.children().get(i).style.top = background.children().get(j).offsetTop - 90 + 'px';

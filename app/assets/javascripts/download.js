@@ -165,12 +165,14 @@ $(function(){
     $('.share-button').hide();
     $('.download-button').hide();
     $('.buffer-button').hide();
+    $('.each-delete-button-expand').removeClass('each-delete-button-expand');
     $('.share-button').css('top', parseInt($(this).css('top')) + 62 + 'px');
     $('.share-button').css('left', parseInt($(this).css('left')) + 150 + 'px');
     $('.download-button').css('top', parseInt($(this).css('top')) + 62 + 'px');
     $('.download-button').css('left', parseInt($(this).css('left')) + 380 + 'px');
     $('.buffer-button').css('top', parseInt($(this).css('top')) + 70 + 'px');
     $('.buffer-button').css('left', parseInt($(this).css('left')) + 320 + 'px');
+    $(this).next().addClass('each-delete-button-expand');
 
     $.ajax({
       type: "POST",

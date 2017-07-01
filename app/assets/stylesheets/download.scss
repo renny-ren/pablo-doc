@@ -191,12 +191,16 @@
   left: 0px;
 }
 
-/* .each-download-button{
+.each-delete-button{
   display: none;
   position: absolute;
   z-index: 3;
-  color: #5CB85C;
+  color: red;
   cursor: pointer;
-  left: 270px;
-  top: 402px;
-} */
+  /* left: 270px; */
+  /* top: 402px; */
+}
+
+.each-delete-button-expand{
+  margin-left: 30px;
+}
