@@ -12,7 +12,7 @@ $(function(){
   $('.image-extra-options, .image-sizes, .image-filters').mouseleave(function(){
     $(this).hide();
     $('.option-item-selected').removeClass('option-item-selected');
-    if ($('.selected').length > 0){
+    if ($('.selected').length > 0 && $($('.option-item-select').children().last()).text() == "Cancel"){
       $('.option-item-select').addClass('option-item-selected');
     }
     $('.canvas-center-leftbar').removeClass('canvas-center-leftbar');
