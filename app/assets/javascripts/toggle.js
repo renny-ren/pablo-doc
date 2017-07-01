@@ -233,6 +233,7 @@ function rearrange(){
   // j = 0;
 
   // rearrange text
+  $('#header-item').get(0).style.left = '0px';
   for (var i = 1, left_now = 330, top_now = 0; i < header_num; i++, left_now += 330) {
     // if (i % 4 == 0){
     //   top_now = parseInt(header.children().get(i-4).style.top) + 520 + 'px';
