@@ -1,13 +1,14 @@
 $(function(){
-  $('.reposition').click(function(){
+  $('.option-item-crop').click(function(){
+    $('.canvas-center').removeClass('canvas-center-leftbar');
     if ($('.selected').length > 1) {
-      alert("Hi, you've selected more than one image, you can only reposition one image at one time.");
+      alert("Hi, you've selected more than one image, you can only modify one image at one time.");
       return;
     }
     else{
       if ($('.selected').length == 0) { 
-        if(confirm("You didn't select any images, reposition will apply to the first image, do you want to continue?")){
-          var first_image = $('#background-images').children().get(0);
+        if(confirm("You haven't select any images, crop will apply to the first image, do you want to continue?")){
+          var first_image = $('.image-canvas').children().first();
           $(first_image).addClass('selected');
           msg_flag = 0;
         }
@@ -21,10 +22,14 @@ $(function(){
         }
       }
     }
+    $('.options-bar').hide();
+    $('.image-options').hide();
+    $('.reload-gallery').hide();
+    $('.selected').parent().siblings().hide();
     reposition();
 
-    var left_now = $('.selected').css('left');
-    $('.selected').css('left', parseInt(left_now) + shift + 'px');
+    var current_left = $('.selected').css('left');
+    $('.selected').css('left', parseInt(current_left) + left_shift + 'px');
     $('.background-selected').removeClass('selectable');
     
     if ($('.selected').hasClass('ui-wrapper') == false) {
@@ -39,7 +44,6 @@ $(function(){
     }
     $('.resizable').removeClass('selected');
     draggable();
-    $('.selected').siblings().hide();
     
     if (msg_flag == 1){
       $(".msg").fadeIn().delay(2000).fadeOut(); 
@@ -47,17 +51,23 @@ $(function(){
   });
 
   $('.done').click(function(){
+    $('.options-bar').show();
+    $('.image-options').show();
+    $('.option-item-select').removeClass('option-item-selected');
+    $('.option-item-select').children().last().text("Select");
+    $('.canvas-center').removeClass('canvas-center-leftbar');
+
     reposition();
-    var left_now = $('.selected').css('left');
-    $('.selected').css('left', parseInt(left_now) - shift + 'px');
+    var current_left = $('.selected').css('left');
+    $('.selected').css('left', parseInt(current_left) - left_shift + 'px');
     $('.ui-wrapper').css('overflow', 'hidden');
-    $('.select-button').text("Select Image");
+    // $('.select-button').text("Select Image");
     $('#background-images').children().show();
     msg_flag = 0;
   });
 
   $('.reposition-reset').click(function(){
-    $('.selected').css('left', shift);
+    $('.selected').css('left', left_shift);
     switch(resize_type){
       case "resizable-tall":
         $('.resizable').css('height', 725).css('width', 1024);
@@ -66,19 +76,17 @@ $(function(){
         $('.resizable').css('height', 484).css('width', 760);
         break;
       case "resizable-wide":
-        $('.resizable').css('height', 242).css('width', 524);
+        $('.resizable').css('height', 249).css('width', 488);
         break;
      }
   });
 });
 
 function reposition(){
-  $('.image-options').toggle();
-  $('.gallery').toggle();
   $('.result').toggleClass('result-reposition');
   $('.crop-frame').toggleClass('crop-frame-reposition');
-  $('.doc-container').toggleClass('doc-container-reposition');
-  $('#background-images').toggleClass('background-images-reposition');
+  // $('.doc-container').toggleClass('doc-container-reposition');
+  $('.image-canvas').toggleClass('image-canvas-reposition');
   $('.reposition-bar').toggle();
 
   if ($('.image-sizes-item-selected').hasClass('tall')) {
@@ -86,7 +94,7 @@ function reposition(){
     // decreaseHeight('730px');
     $('.crop-frame-reposition').css('height', '725px');
     $('.ui-wrapper').css('height', '725px');
-    shift = 542;
+    left_shift = 542;
     resize_type = "resizable-tall";
   }
   else if ($('.image-sizes-item-selected').hasClass('square')) {
@@ -94,15 +102,15 @@ function reposition(){
     // decreaseHeight('490px');
     $('.crop-frame-reposition').css('height', '484px');
     $('.ui-wrapper').css('height', '484px');
-    shift = 270;  
+    left_shift = 270;  
     resize_type = "resizable-square";
   }
   else{
     $('.canvas-center').toggleClass('canvas-center-reposition-wide');
     // decreaseHeight('250px');
-    $('.crop-frame-reposition').css('height', '242px');
+    $('.crop-frame-reposition').css('height', '249px');
     $('.ui-wrapper').css('height', '242px');
-    shift = 43;
+    left_shift = 73;
     resize_type = "resizable-wide";
   }
 }

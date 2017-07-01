@@ -12,6 +12,9 @@ $(function(){
   $('.image-extra-options, .image-sizes, .image-filters').mouseleave(function(){
     $(this).hide();
     $('.option-item-selected').removeClass('option-item-selected');
+    if ($('.selected').length > 0){
+      $('.option-item-select').addClass('option-item-selected');
+    }
     $('.canvas-center-leftbar').removeClass('canvas-center-leftbar');
   });
 
@@ -46,6 +49,32 @@ $(function(){
     $('.reload-gallery').toggle();
   });
 
+  $('.option-item-select').click(function(){
+    $('.canvas-center').removeClass('canvas-center-leftbar');
+    $(this).toggleClass('option-item-selected');
+    if ($($(this).children().last()).text() == "Select"){
+      $(this).children().last().text("Cancel");
+    }
+    else{
+      $(this).children().last().text("Select");
+    }
+    if (flag == 0) {
+      alert("Now you can click on the image to select it");
+      flag = 1;
+    }
+    $('.background-selected').toggleClass('selectable');
+    // $('.ui-wrapper').toggleClass('selectable');
+    $('.selected').removeClass('selected');
+
+    if ($('.selectable').parent().hasClass('ui-wrapper')) {
+      $('.selectable')
+        .css('position', 'relative')
+        .css('left', $('.selectable').parent().css('left'));
+    }
+
+    msg_flag = -1;
+  });
+
   $('.option-item-sizes').click(function(){
     $(this).toggleClass('option-item-selected');
     $('.image-sizes').toggle();
@@ -59,6 +88,14 @@ $(function(){
   $('.option-item-logo').click(function(){
     $(this).toggleClass('option-item-selected');
     $('.reload-logo').toggle();
+  });
+
+  $('.option-item-clear').click(function(){
+    $('.canvas-center').removeClass('canvas-center-leftbar');
+    if(confirm("This operation will delete all the current images, are you sure?")){
+      background.empty();
+      $('.gallery-item-selected').removeClass('gallery-item-selected');
+    };
   });
 
   $('.image-sizes-item').click(function(){

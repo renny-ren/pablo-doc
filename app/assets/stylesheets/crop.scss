@@ -2,7 +2,7 @@
   display: none;
 }
 
-.background-images-reposition{
+.image-canvas-reposition{
   overflow: initial !important;
 }
 
@@ -18,15 +18,15 @@
 }
 
 .canvas-center-reposition-wide{
-  width: 630px;
-  margin-left: 255px;
+  width: 800px !important;
+  margin-left: 407px !important;
   opacity: 0.9;
 }
-
+/* 
 .doc-container-reposition{
   overflow: hidden;
 }
-
+ */
 /* .background-selected-reposition{
   left: 150px;
 } */
@@ -36,5 +36,5 @@
   background: black;
   opacity: 0.4;
   pointer-events: none;
-  display: block;
+  display: block !important;
 }

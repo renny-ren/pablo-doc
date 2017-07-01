@@ -65,7 +65,7 @@ function resizable(){
 
   $('.resizable-wide').resizable({
     minHeight: 242,
-    minWidth: 524,
+    minWidth: 488,
     maxHeithgt: 600,
     maxWidth: 1000
   });

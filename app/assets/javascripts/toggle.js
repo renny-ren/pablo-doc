@@ -31,29 +31,37 @@ $(function(){
     var text = document.getElementById(this.innerHTML.toLowerCase());
     var type = $(this).text().toLowerCase();
 
+    if ($(this).hasClass('text-toggle-selected')) {
+      eval(type + "_num" + '=' + 0);
+    }
+    else{
+      eval(type + "_num" + '=' + type + '.children().length');
+    }
+    image_num =  header_num + quotation_num + bullet_num + bold_num;  // change text quantity
+    
     if ($('.background-selected').length > 0){
-      if ($(this).hasClass('text-toggle-selected')) {
-        eval(type + "_num" + '=' + 0);
-      }
-      else{
-        eval(type + "_num" + '=' + type + '.children().length');
-      }
-
-      image_num =  header_num + quotation_num + bullet_num + bold_num;
-      background.children().remove();     // remove all images from canvas-center
+      background.empty();     // remove all images from canvas-center
 
       for (var i = 0; i < image_num; i++) {
-         background.append($($('.gallery-item-selected').children().get(0)).clone());   //add images to canvas-center
-         $(background).children().last()
-           .addClass('background-selected')  // apply css
-           .removeAttr('height').removeAttr('width');        
-       }
-      rearrange();
+        var image_canvas = document.createElement('div');
+        $(image_canvas).attr('class', 'image-canvas');
+        background.append(image_canvas);
+      }
       amendHeight();
 
-      var share_button = document.createElement('i');       // add share button
-      $(share_button).addClass('fa fa-share-alt-square fa-3x each-share-button');
-      $('.background-selected').after(share_button);
+      var bg_img = $($('.gallery-item-selected').children().get(0)).clone();
+      $('.image-canvas').append(bg_img);   //add images
+      $('.image-canvas').children()
+        .addClass('background-selected size-wide')   // apply css
+        .removeAttr('height').removeAttr('width'); 
+
+      var share_button = document.createElement('i');
+      var delete_button = document.createElement('i');
+      $(share_button).addClass('fa fa-share-alt-square fa-2x each-share-button');
+      $(delete_button).addClass('fa fa-trash fa-2x each-delete-button');
+      $('.image-canvas').after(delete_button);
+      $('.image-canvas').after(share_button);
+      rearrange();
     }
 
     $(this).toggleClass('text-toggle-selected');
@@ -128,30 +136,6 @@ $(function(){
     }
   });
 
-  $('.select-button').click(function(){
-    if (flag == 0) {
-      alert("Now you can click on image to select it");
-      flag = 1;
-    }
-    if ($(this).text() == "Select Image") {
-      $(this).text("Cancel Select");
-    }
-    else {
-      $(this).text("Select Image");
-    }
-    $('.background-selected').toggleClass('selectable');
-    // $('.ui-wrapper').toggleClass('selectable');
-    $('.selected').removeClass('selected');
-
-    if ($('.selectable').parent().hasClass('ui-wrapper')) {
-      $('.selectable')
-        .css('position', 'relative')
-        .css('left', $('.selectable').parent().css('left'));
-    }
-
-    msg_flag = -1;
-  });
-
   $('body').on('click', '.selectable', function(){
     $(this).toggleClass('selected');
     $('#download-image').addClass('download-image-ready').attr('title', 'click to cancel select');
@@ -173,14 +157,6 @@ $(function(){
     }
 
     download_flag = 0;
-  });
-
-  $('.clear-image').click(function(){
-    if(confirm("This operation will delete all the current images, are you sure?")){
-      $('#background-images').empty();
-      $('.gallery-item-selected').removeClass('gallery-item-selected');
-      resetPosition();
-    };
   });
 
   $('body').on('click', '.each-delete-button', function(){

@@ -6,7 +6,7 @@
   <div class="reposition-bar">
     <div class="btn btn-success done">Done</div>
     <div class="btn btn-info reposition-reset">Reset</div>
-    <div class="notice">You can resize the image by dragging on the lower right of the image</div>
+    <div class="notice">You can resize the image by dragging on the border or corner of the image</div>
   </div>
   <div class="msg">This is your last revision</div>
 
@@ -23,6 +23,9 @@
     <div class="option-item option-item-select" onselectstart="return false">
       <%= fa_icon "check-square-o" %><span class="option-description">Select</span>
     </div>
+    <div class="option-item option-item-crop" onselectstart="return false">
+      <%= fa_icon "crop" %><span class="option-description">Crop</span>
+    </div> <!--crop alias: reposition -->
     <div class="option-item option-item-sizes" onselectstart="return false">
       <%= fa_icon "th-large" %><span class="option-description">Sizes</span>
     </div>
@@ -31,6 +34,9 @@
     </div>
     <div class="option-item option-item-logo" onselectstart="return false">
       <%= fa_icon "grav" %><span class="option-description">Logo</span>
+    </div>
+    <div class="option-item option-item-clear" onselectstart="return false">
+      <%= fa_icon "trash" %><span class="option-description">Clear</span>
     </div>
   </div>
   

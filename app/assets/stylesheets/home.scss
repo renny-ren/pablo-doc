@@ -156,7 +156,7 @@ $commonBorder: solid 1px #ced7df;
 
 .options-bar{
   display: none;
-  height: 800px;
+  height: 500px;
   width: 100px;
   float: left;
   background: #FFFFFF;
@@ -180,6 +180,10 @@ $commonBorder: solid 1px #ced7df;
 
 .option-item-selected{
   background: orange;
+}
+
+.option-item-clear{
+  color: red;
 }
 
 .option-description{
@@ -253,14 +257,14 @@ $commonBorder: solid 1px #ced7df;
   cursor: pointer;
   margin-left: 85px;
 }
-
+/* 
 .clear-image{
   cursor: pointer;
   font-size: 12px !important;
   height: 28px;
   padding: 0 5px !important;
   margin-left: 11px;
-}
+} */
 
 .horizontal_line{
   position: relative;
@@ -623,8 +627,8 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .crop-frame{
-  width: 484px;
-  height: 484px;
+  width: 488px;
+  height: 249px;
   border: solid 3px #168EEA;
   position: absolute;
   z-index: 3;
@@ -746,29 +750,29 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .notice{
-  top: -45px;
+  top: -49px;
   left: 450px;
   position: relative;
   font-size: 14px;
   color: orange;
 }
 
-.select-button{
+/* .select-button{
   cursor: pointer;
   height: 28px;
   font-size: 14px !important;
   padding: 0 10px !important;
   margin-left: 10px;
   margin-top: 1px;
-}
-
+} */
+/* 
 .reposition{
   cursor: pointer;
   height: 28px;
   font-size: 14px !important;
   padding: 0 10px !important;
   margin: 5px 10px;
-}
+} */
 /* 
 .resize-button{
   @include button_basic;
