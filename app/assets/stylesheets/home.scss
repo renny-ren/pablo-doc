@@ -67,6 +67,7 @@ $commonBorder: solid 1px #ced7df;
   position: relative;
   left: 57%;
   z-index: 3;
+  width: 630px;
 }
 
 .generate-btn{
@@ -794,9 +795,8 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .submit-url{
-  height: 30px;
-  font-size: 12px !important;
-  padding: 2px !important;
+  height: 34px;
+  padding: 5px !important;
 }
 
 .image-canvas{
