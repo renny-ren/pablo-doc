@@ -6,8 +6,9 @@ $commonBorder: solid 1px #ced7df;
   border-radius: 0 8px 8px 0;
   width: 220px;
   display: none;
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  z-index: 5;
+  left: 100px;
 }
 
 @mixin blank_background{
@@ -33,7 +34,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .doc-container{
-  margin-top: 15px;
+  padding-top: 60px;
 }
 
 .home-logo{
@@ -78,16 +79,17 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .canvas-center{
-  /* background: #FCFCFC; */
   float: left;
+  margin-left: 120px;
+  /* background: #FCFCFC; */
   /* width: 1290px; */
   /* height: 800px; */
-  margin-left: 15px;
   /* padding: 0 28px 0 31px; */
 }
 
 .canvas-center-leftbar{
   width: 500px;
+  margin-left: 335px;
 }
 
 .result{
@@ -158,12 +160,11 @@ $commonBorder: solid 1px #ced7df;
   display: none;
   height: 500px;
   width: 100px;
-  float: left;
   background: #FFFFFF;
   padding-top: 20px;
   box-shadow: 2px 1px 5px #b0c3ea;
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  z-index: 99;
 }
 
 .option-item{
@@ -588,20 +589,22 @@ $commonBorder: solid 1px #ced7df;
   border: $commonBorder;
   border-radius: 0 8px 8px 0;
   width: 220px;
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  z-index: 5;
   margin-top: 280px;
+  left: 100px;
   height: 120px;
 }
 
 .gallery{
-  position: relative;
-  z-index: -1;
+  position: fixed;
+  z-index: 5;
   background: #FFFFFF;
   border: $commonBorder;
   border-radius: 0 6px 6px 0;
   width: 230px;
   height: 720px;
+  left: 100px;
 }
 
 .reload-gallery, .reload-logo{

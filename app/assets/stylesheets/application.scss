@@ -36,9 +36,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .header{
+  position: fixed;
   background: #FFFFFF;
   height: 45px;
+  width: 100%;
   border-bottom: solid 1px #DEDEDE;
+  z-index: 99;
 }
 
 .header-container{
