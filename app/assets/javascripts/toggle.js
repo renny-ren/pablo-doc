@@ -93,9 +93,7 @@ $(function(){
         var image_canvas = document.createElement('div');
         $(image_canvas).attr('class', 'image-canvas');
         // var horizontal_line = document.createElement('div');
-        if ($(this).hasClass('blank-image')) {
-          bg_img.css('display', 'block');
-        }
+      
         background.append(image_canvas);
 
         // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
@@ -105,6 +103,9 @@ $(function(){
         // arr[i] = background.children().get(i).offsetTop +75 - $(header.children().get(i)).height()/2 + 'px';  // get array of where horizontal line shoud show
       }
       var bg_img = $($(this).children().get(0)).clone();
+      if ($(this).hasClass('blank-image')) {
+        bg_img.css('display', 'block');
+      }
       $('.image-canvas').append(bg_img);   //add images
       $('.image-canvas').children()
         .addClass('background-selected size-wide')   // apply css

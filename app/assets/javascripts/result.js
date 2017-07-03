@@ -169,6 +169,11 @@ $(function(){
   $('.font-Lato').click(function(){
     changeFont('Lato');
   });
+
+  $('#delete').click(function(){
+    blur_flag = 1;
+    $("#item-selected").trigger('blur');
+  });
 }); 
 
 function getText(){
@@ -216,8 +221,14 @@ function select_element(obj){
 
   toolbar.style.display = 'block';
   // toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
-  toolbar.style.top = obj.offsetTop - 40 + 'px';
-  toolbar.style.left = obj.offsetLeft + "px";
+  toolbar.style.top = obj.offsetTop + 20 + 'px';
+  if ($('.canvas-center').hasClass('canvas-center-leftbar')){
+    var a = 200;
+  }
+  else{
+    var a = 0;
+  }
+  toolbar.style.left = obj.offsetLeft + 110 + a + 'px';
   blur_flag = 1;
 
   $('#toolbar').mousedown(function(){
@@ -241,13 +252,13 @@ function select_element(obj){
   });
 }
 
-function delete_element(){
-  $('#toolbar').hide();
-  $('#item-selected').remove();
-  getQuantity();
-  // document.getElementById('item-selected').id = 'item-deleted';
-  // refresh_trash(); 
-}
+// function delete_element(){
+//   $('#toolbar').hide();
+//   $('#item-selected').remove();
+//   getQuantity();
+//   // document.getElementById('item-selected').id = 'item-deleted';
+//   // refresh_trash(); 
+// }
 
 // function refresh_trash(){
 //   var trash = document.getElementById('trash');

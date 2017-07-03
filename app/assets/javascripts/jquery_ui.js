@@ -1,6 +1,6 @@
 $(function(){
-  // draggable();
-  // editable();
+  draggable();
+  editable();
 });
 
 function draggable(){
@@ -38,7 +38,7 @@ function editable(){
       if ( $(this).is('.ui-draggable-dragging') ) {
         return;
       }
-      $(this).draggable("option", "disabled", true );
+      $(this).draggable("option", "disabled", true);
       $(this).attr('contenteditable', true);
     })
 
