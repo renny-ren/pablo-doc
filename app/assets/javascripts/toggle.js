@@ -92,10 +92,9 @@ $(function(){
       for (var i = 0; i < image_num; i++) {
         var image_canvas = document.createElement('div');
         $(image_canvas).attr('class', 'image-canvas');
-        // var horizontal_line = document.createElement('div');
-      
         background.append(image_canvas);
 
+        // var horizontal_line = document.createElement('div');
         // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
         // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
         // $('#hor_line').children().addClass('horizontal_line');
