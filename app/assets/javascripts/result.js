@@ -202,12 +202,15 @@ function changeFont(obj){
 }
 
 function select_element(obj){
-  $(obj).css('position', 'relative');
-  $(obj).addClass('resizable-text');
-  resizable();
   if ( $('#item-selected').length > 0 ) {
+    $('.ui-resizable-e').removeClass('ui-resizable-e');
+    $('.ui-resizable-w').removeClass('ui-resizable-w');
+    $('.resizable-text').removeClass('resizable-text');
     $('#item-selected').attr('id', localStorage.getItem("original_id"));
   }
+  // $(obj).css('position', 'relative');
+  $(obj).addClass('resizable-text');
+  resizable();
   localStorage.setItem("original_id", obj.id);
   obj.id = 'item-selected';
 

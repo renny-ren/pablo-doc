@@ -185,7 +185,7 @@
 
 .each-share-button{
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   color: #3569CF;
   cursor: pointer;
   left: 0px;
@@ -194,7 +194,7 @@
 .each-delete-button{
   display: none;
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   color: red;
   cursor: pointer;
   /* left: 270px; */

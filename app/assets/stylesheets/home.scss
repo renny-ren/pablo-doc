@@ -339,6 +339,7 @@ $commonBorder: solid 1px #ced7df;
 #header-item, #quotation-item, #bullet-item, #bold-item{
   display: inline-block;
   width: 300px;
+  padding: 10px;
 }
 
 .font-bold{
@@ -555,6 +556,7 @@ $commonBorder: solid 1px #ced7df;
 
 #item-selected{
   cursor: text;
+  width: 300px;
   border: solid 2px #168EEA !important;
   outline: none 0 transparent;
   padding: 10px;
