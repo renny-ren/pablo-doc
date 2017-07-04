@@ -90,7 +90,7 @@ $(function(){
 
   $('.option-item-logo').click(function(){
     $(this).toggleClass('option-item-selected');
-    $('.reload-logo').toggle();
+    $('.image-logo').toggle();
   });
 
   $('.option-item-clear').click(function(){

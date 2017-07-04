@@ -1,2 +1,7 @@
 $(".reload-gallery").html("<%= j(render 'gallery') %>");
 $(".reload-logo").html("<%= j(render 'logo') %>");
+
+if ($('.option-item-logo').hasClass('option-item-selected')){
+  $('.option-item-logo').removeClass('option-item-selected');
+  $('.canvas-center').removeClass('canvas-center-leftbar');
+}

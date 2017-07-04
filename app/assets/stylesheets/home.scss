@@ -215,8 +215,9 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .logo-item{
-  margin: -160px 0 0 230px;
-  position: relative;
+  left: 120px;
+  top: 60px;
+  position: absolute;
   z-index: 88;
   display: inline-block;
 }
@@ -588,6 +589,7 @@ $commonBorder: solid 1px #ced7df;
 }
 
 .image-logo{
+  display: none;
   background: #FFFFFF;
   border: $commonBorder;
   border-radius: 0 8px 8px 0;
@@ -610,7 +612,7 @@ $commonBorder: solid 1px #ced7df;
   left: 100px;
 }
 
-.reload-gallery, .reload-logo{
+.reload-gallery{
   display: none;
 }
 

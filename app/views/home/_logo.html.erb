@@ -4,17 +4,15 @@
   <div class="logo-notice">You can drag on border of the logo to resize it</div>
   <div class="logo-remove"><%= fa_icon("trash", text: "Remove") %></div>
   <div class="logo-container">
-    <!-- <% if @upload_logo.nil? %> -->
-      <%= form_tag({action: 'upload_logo'}, multipart: true) do %>
-        <%= file_field_tag :logo %>
-        <%= button_tag "Insert Logo", class: 'btn btn-info upload-logo' %>
-      <% end %>
-    <!-- <% end %> -->
-
-    <!-- <% unless @upload_logos.nil? %>  -->
-      <% @upload_logos.reverse.each do |img| %>
-        <div class="logo-item draggable"><%= image_tag img.logo.url, width: '100px', height: '100px', class: "resizable-logo" %></div>
-      <% end %>
-    <!-- <% end %> -->
+    <%= form_tag({action: 'upload_logo'}, multipart: true) do %>
+      <%= file_field_tag :logo %>
+      <%= button_tag "Insert Logo", class: 'btn btn-info upload-logo' %>
+    <% end %>
   </div>
+</div>
+
+<div>
+  <% @upload_logos.reverse.each do |img| %>
+    <div class="logo-item draggable"><%= image_tag img.logo.url, width: '100px', height: '100px', class: "resizable-logo" %></div>
+  <% end %>
 </div>
