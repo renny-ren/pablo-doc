@@ -96,8 +96,18 @@ $(function(){
   $('.option-item-clear').click(function(){
     $('.canvas-center').removeClass('canvas-center-leftbar');
     if(confirm("This operation will delete all the current images, are you sure?")){
-      background.empty();
+      if ($(".gallery-item-selected").length >= 2) {
+        for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
+          var j = 0;
+          while(j < 4){
+            $(result).children().last().remove();     // remove all texts
+            j++;
+          }
+        }
+      }
+      background.empty();  // remove all images
       $('.gallery-item-selected').removeClass('gallery-item-selected');
+      amendHeight();
     };
   });
 

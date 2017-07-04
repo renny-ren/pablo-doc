@@ -69,23 +69,21 @@ $(function(){
   });
 
   $('body').on('click', '.gallery-item', function(){
-    background.empty();     // remove all images from canvas-center
+    if ($(".gallery-item-selected").length >= 2) {
+      for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
+        var j = 0;
+        while(j < 4){
+          $(result).children().last().remove();     // remove all texts
+          j++;
+        }
+      }
+    }
+    background.empty();     // remove all images
     $(this).toggleClass('gallery-item-selected');
     if ($(this).hasClass('gallery-item-selected')){
       $('.option-item-images').trigger('click');
     };
-      // if ($(".gallery-item-selected").length > 0) {
-      //   var i = 0;
-      //   while(i < 4){
-      //     $(result).children().last().remove();     // remove headers, quotes, bullets and bold from canvas-center
-      //     i++;
-      //   }  
-      // }
-      // else{
-      //   resetPosition();
-      // }
-      // amendHeight();
- 
+
     for (var i = 0; i < $('.gallery-item-selected').length; i++){
       for (var j = 0; j < image_num; j++) {
         var image_canvas = document.createElement('div');
@@ -178,9 +176,9 @@ $(function(){
 function amendHeight(){
   $(result).css('height', background.height() - 10 + "px");
   $('.canvas-center').css('height', background.height() - 45 + "px");
-  if (parseInt($(result).css('height')) < 100) {
-    $(result).css('height', background.children().last().offset().top + 235 + 'px');
-  }
+  // if (parseInt($(result).css('height')) < 100) {
+  //   $(result).css('height', background.children().last().offset().top + 235 + 'px');
+  // }
   $('.vertical_line').css('height', $(result).css('height'));
 }
 
