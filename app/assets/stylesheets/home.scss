@@ -14,7 +14,7 @@ $commonBorder: solid 1px #ced7df;
 @mixin blank_background{
   position: relative;
   float: left; 
-  display: none;
+  /* display: none; */
 }
 
 @mixin color_option{
