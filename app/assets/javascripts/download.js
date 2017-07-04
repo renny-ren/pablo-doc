@@ -1,5 +1,5 @@
 $(function(){
-  $('.facebook-btn').click(function(){
+  $('.facebook-btn, .ssb-linkedin').click(function(){
     window.open(this.href, 'mywin', 'left=400,top=100,width=500,height=500,toolbar=1,resizable=0');
     return false;
   });
@@ -208,4 +208,4 @@ function get_left(){
   else{
     image_left = $('.selected').css('left');
   }
-}
+}  
