@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index', as: 'root'
-
   resources :home, only: [:index, :create]
 
+  get '/landing_page', to: 'home#landing'
   get '/download', to: 'home#download'
   post 'start_download', to: 'home#start_download'
   post 'create_image', to: 'home#create_image'

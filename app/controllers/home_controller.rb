@@ -19,6 +19,10 @@ class HomeController < ApplicationController
     Logo.all.destroy_all
   end
 
+  def landing
+    render layout: 'landing'
+  end
+
   def create
     @content = params[:doc]
     separate
