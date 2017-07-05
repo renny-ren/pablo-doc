@@ -239,7 +239,10 @@ function rearrange(){
     if (left_now == 990) {
       left_now = -330;
       top_now += image_height + 50;
-      text_shift += 4;      
+      text_shift += 4;
+      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {   // if user's browser is safari
+        text_shift += 6;
+      }
     }
   }
   // change_left_top(quotation, quotation_num);
@@ -273,6 +276,9 @@ function rearrange(){
         left_now = -330;
         top_now += image_height + 50;
         shift += 4;
+        if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {   // if user's browser is safari
+          shift += 6;
+        }
       }
     }
   }
