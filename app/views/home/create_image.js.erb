@@ -1,5 +1,3 @@
-// $('.share-download-button').prop('disabled', false).val('Share & Download');
-// $('.waiting-notice').css({'top': '40px', 'width': '500px', 'left': '30px'});
 $('.waiting-notice').hide();
 $('.share-button').show();
 $('.download-button').show();
@@ -12,8 +10,3 @@ var fb_href = "https://www.facebook.com/dialog/feed?app_id=311606015958230&pictu
 var lkin_href = "https://www.linkedin.com/cws/share?token&isFramed=false&url=http://word-doc.herokuapp.com/share_download_<%= @salt %>.png";
 $('.facebook-btn').attr('href', fb_href);
 $('.ssb-linkedin').attr('href', lkin_href).removeAttr('onclick');
-
-// if (single_share) {
-//   window.open(fb_href, "popupWindow", "width=600, height=600, scrollbars=yes");
-//   single_share = false;
-// }

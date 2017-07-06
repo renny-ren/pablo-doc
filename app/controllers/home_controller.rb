@@ -91,10 +91,9 @@ class HomeController < ApplicationController
     session[:image] = params[:download_src]
     @@salt = Array.new(10) { rand(1024).to_s(36) }.join
     @salt = @@salt
-    # session[:url] = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
 
-    new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
-    # new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    # new_uri = "http://localhost:3000/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
+    new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
       output: "public/share_download_#{@@salt}.png",    # don't forget the extension!
@@ -146,11 +145,6 @@ class HomeController < ApplicationController
   end
 
   def read_content
-    # if params[:uploaded_file].nil?
-    #   params[:doc]
-    # else
-    #   (params[:uploaded_file].original_filename.match(/.*.doc/)) ? Docx::Document.open(params[:uploaded_file].path) : File.read(params[:uploaded_file].path)
-    # end
     session[:url] = params[:url]
     if params[:url].empty?  
       params[:doc] 
@@ -174,14 +168,13 @@ class HomeController < ApplicationController
       @quotation = get_quotation(doc)
       @bold = get_bold(doc)
       @bullet = get_bullet(doc)
-      # check_length
     end
   end
 
   def get_header(doc)
-    if doc.match(/h[123]/)  # if there is heading format text, return them as header
+    if doc.match(/h[123]/)    # if there is heading format text, return them as header
       doc.scan(/<h[123]>.*?<\/h[123]>/m)
-    else  # if there is no heading, first or second line would be header
+    else    # if there is no heading, first or second line would be header
       doc = doc.gsub(/<.*>/,"").lstrip
       first_line = doc.lines.first || ""
       (first_line.include?("------")) ? doc.lines.second.chomp.split : first_line.split
@@ -199,10 +192,5 @@ class HomeController < ApplicationController
 
   def get_bullet(doc)
     doc.scan(/<li>.*?<\/li>/m).flatten
-    # ^.{1,10}:.*{1,10}$|
-  end
-
-  def check_length
-    # @quotation = [""] if @quotation.first.length > 60 
   end
 end
