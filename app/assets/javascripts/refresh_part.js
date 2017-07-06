@@ -1,6 +1,6 @@
 $(function(){
   $.ajax({
-      url: "home/refresh_part"
+    url: "home/refresh_part"
   })
   
   file_uploaded = 0;
@@ -31,17 +31,4 @@ $(function(){
   $('body').on('change', '#bg_img, #logo', function(){
     file_uploaded = 1;
   });
-
-  // $('body').on('mouseleave', '.upload-image', function(){
-  //   $.ajax({
-  //     url: "home/refresh_part"
-  //   })
-  // });
-
-  // $('body').on("click", ".fa-search", function(e){  
-  //   $.ajax({
-  //     // url: "/search"
-  //   });
-  //   // e.preventDefault();
-  // });
 });

@@ -7,12 +7,8 @@ $(function(){
    }, 1000);
   toolbar = document.getElementById('toolbar');
 
-  $('body').on('click', '#header-item, #quotation-item, #bullet-item, #bold-item', function(){
+  $('body').on('click', '.text-item', function(){
     select_element(this);
-  });
-
-  $('.share-download').click(function(){
-    // alert("Under developing...");
   });
 
   $('#change-size').click(function(){
@@ -126,7 +122,7 @@ $(function(){
   var deg = 0;
   $('.change-font').click(function(){
     $('.font-menu').toggle();
-    deg = (deg+180)%360;
+    deg = (deg + 180) % 360;
     $('.change-font-arrow').css('transform', 'rotate(' + deg + 'deg)');
   })
 
@@ -220,15 +216,14 @@ function select_element(obj){
   obj.id = 'item-selected';
 
   toolbar.style.display = 'block';
-  // toolbar.style.top = obj.offsetTop - 40 + obj.parentNode.offsetTop + 'px';
   toolbar.style.top = obj.offsetTop + 20 + 'px';
   if ($('.canvas-center').hasClass('canvas-center-leftbar')){
-    var a = 200;
+    var tmp = 200;
   }
   else{
-    var a = 0;
+    var tmp = 0;
   }
-  toolbar.style.left = obj.offsetLeft + 110 + a + 'px';
+  toolbar.style.left = obj.offsetLeft + 110 + tmp + 'px';
   blur_flag = 1;
 
   $('#toolbar').mousedown(function(){

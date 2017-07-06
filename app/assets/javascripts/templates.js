@@ -43,18 +43,7 @@ function set_template(description){
   }
 }
 
-function select_template(obj, description){
-  // var background = $('#background-images');
-  // var header = $('#header-item');
-  // var headers = header.children;
-  // var quotation = document.getElementById('quotation');
-  // var quotations = quotation.children;
-  // var bullet = document.getElementById('bullet');
-  // var bullets = bullet.children;
-  // var bold = document.getElementById('bold');
-  // var bolds = bold.children;
-  // var result = document.getElementsByClassName('result').item(0);
-  
+function select_template(obj, description){  
   if ($(obj).hasClass('template-item-selected')) {       // if the template already selected
     if ($('.result').length > 1) {
       changeTextFont();

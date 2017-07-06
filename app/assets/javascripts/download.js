@@ -4,7 +4,7 @@ $(function(){
     return false;
   });
 
-  download_flag = 0;  // 0 --- edit mode,  1 --- download mode
+  // download_flag = 0;  // 0 --- edit mode,  1 --- download mode
   if ($('.download-content').length > 0){    
     $('.cav-img').css({
       'position' : 'relative',
@@ -25,30 +25,30 @@ $(function(){
     })
   }
 
-  $('.draggable').click(function(){
-    if (download_flag == 1) {
-      $(this).addClass('selected-text');
-      localStorage.setItem("original_top", $(this).css('top'));
-      while ( parseInt($(this).css('top')) > 515 ) {
-        $(this).css('top', parseInt($(this).css('top')) - 515 + 'px');
-      }
+  // $('.draggable').click(function(){
+  //   if (download_flag == 1) {
+  //     $(this).addClass('selected-text');
+  //     localStorage.setItem("original_top", $(this).css('top'));
+  //     while ( parseInt($(this).css('top')) > 515 ) {
+  //       $(this).css('top', parseInt($(this).css('top')) - 515 + 'px');
+  //     }
 
-      // hide other text, only show selected one
-      $('.draggable').hide();
-      $(this).show();
-      $('.logo-item').show();
+  //     // hide other text, only show selected one
+  //     $('.draggable').hide();
+  //     $(this).show();
+  //     $('.logo-item').show();
 
-      // refresh notice
-      $('#download-text').addClass('download-text-ready').attr('title', 'click to cancel select');
-      $('.text-status').addClass('text-status-ready').text('selected!');
-      $('.step-notice').text('2- Click on the image which you want to share or download to select it');
+  //     // refresh notice
+  //     $('#download-text').addClass('download-text-ready').attr('title', 'click to cancel select');
+  //     $('.text-status').addClass('text-status-ready').text('selected!');
+  //     $('.step-notice').text('2- Click on the image which you want to share or download to select it');
 
-      $('.background-selected').removeClass('background-not');
-      if ($('#download-image').hasClass('download-image-ready') == false){
-        $('.select-button').trigger('click');
-      }
-    }
-  });
+  //     $('.background-selected').removeClass('background-not');
+  //     if ($('#download-image').hasClass('download-image-ready') == false){
+  //       $('.select-button').trigger('click');
+  //     }
+  //   }
+  // });
 
   // $('#download-text').click(function(){
   //   download_flag = 1;  // restore download mode 
@@ -132,7 +132,6 @@ $(function(){
   // });
 
   $('body').on('click', '.each-share-button', function(){
-    // single_share = true;
     $('.waiting-notice').css('top', parseInt($(this).css('top')) - 10 + 'px').css('left', parseInt($(this).css('left')) + 115 + 'px').show();
     $('.selected-text').removeClass('selected-text');
 
@@ -148,18 +147,18 @@ $(function(){
       }
     }
 
-    // if ( $(this).prev().parent().hasClass('ui-wrapper') ){
-    //   image_left = $(this).prev().parent().css('left'); 
-    // }
-    // else{
-    //   image_left = $(this).prev().css('left');
-    // }
-    image_left = '0px';
-
+    image_left = $(this).prev().children().css('left'); 
+    // image_left = '0px';
     text_top = parseInt($('selected-text').css('top'));
     while (  text_top > 515 ) {
       // $(this).css('top', parseInt($('selected-text').css('top')) - 515 + 'px');
       text_top -= 515;
+    }
+    if ($(this).prev().children().hasClass('ui-wrapper')) {
+      downloadSRC = $($(this).prev().children().children().get(0)).attr('src');
+    }
+    else{
+      downloadSRC = $(this).prev().children().attr('src');
     }
 
     $('.share-button').hide();
@@ -178,7 +177,7 @@ $(function(){
       type: "POST",
       url: '/create_image', 
       data:(
-        'download_src=' + $(this).prev().children().attr('src') + '&' +
+        'download_src=' + downloadSRC + '&' +
         'logo_src=' + $('.resizable-logo').attr('src') + '&' +
         'image_height=' + $(this).prev().children().height() + '&' +
         'image_width=' + $(this).prev().children().width() + '&' +
