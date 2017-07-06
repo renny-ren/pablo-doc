@@ -43,10 +43,6 @@
   filter: contrast(0.2) !important;
 }
 
-.share-download{
-  /* display: none; */
-}
-
 /* .share-download-button{
   cursor: pointer;
   margin-top: 2px;
@@ -60,7 +56,6 @@
 
 .share-button{
   display: none;
-  /* width: 300px; */
   position: absolute;
   z-index: 2;
 }
@@ -71,11 +66,6 @@
   color: #5CB85C;
   z-index: 2;
 }
-/* 
-.download-button button{
-  cursor: pointer;
-  border-radius: 20px;
-} */
 
 .download-notice{
   display: none;
@@ -197,8 +187,6 @@
   z-index: 2;
   color: red;
   cursor: pointer;
-  /* left: 270px; */
-  /* top: 402px; */
 }
 
 .each-delete-button-expand{

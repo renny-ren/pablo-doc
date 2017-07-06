@@ -14,7 +14,6 @@ $commonBorder: solid 1px #ced7df;
 @mixin blank_background{
   position: relative;
   float: left; 
-  /* display: none; */
 }
 
 @mixin color_option{
@@ -82,10 +81,6 @@ $commonBorder: solid 1px #ced7df;
 .canvas-center{
   float: left;
   margin-left: 120px;
-  /* background: #FCFCFC; */
-  /* width: 1290px; */
-  /* height: 800px; */
-  /* padding: 0 28px 0 31px; */
 }
 
 .canvas-center-leftbar{
@@ -260,14 +255,6 @@ $commonBorder: solid 1px #ced7df;
   cursor: pointer;
   margin-left: 85px;
 }
-/* 
-.clear-image{
-  cursor: pointer;
-  font-size: 12px !important;
-  height: 28px;
-  padding: 0 5px !important;
-  margin-left: 11px;
-} */
 
 .horizontal_line{
   position: relative;
@@ -529,8 +516,6 @@ $commonBorder: solid 1px #ced7df;
   font-weight: bold;
 }
 
-
-
 #change-italic, #change-size{
   @include toolbar_btn;
 }
@@ -541,12 +526,6 @@ $commonBorder: solid 1px #ced7df;
   float: left;
   margin-right: 10px;
 }
-
-/* .item-deleted{
-  cursor: pointer;
-  position: static;
-  font-size: 10px;
-} */
 
 #goTopBtn{
   position: fixed;
@@ -618,7 +597,6 @@ $commonBorder: solid 1px #ced7df;
 
 .image-extra-options-header, .gallery-header, .image-tool-header, .image-sizes-header, .image-filters-header, .logo-header, .type-box-header{
   color: #98A0A6;
-  /* border-bottom: dashed 1.2px #f2f2f2; */
   padding: 10px 10px 3px 10px;
 }
 
@@ -628,8 +606,6 @@ $commonBorder: solid 1px #ced7df;
 }
 
 #background-images{
-  /* z-index: 1; */
-  /* overflow: hidden; */
   width: 1320px;
   position: relative;
 }
@@ -648,19 +624,8 @@ $commonBorder: solid 1px #ced7df;
   padding-top: 10px;
 }
 
-#quotation{
-  
-}
-
 #bullet{
-  /* margin-top: 80px; */
   padding: 0 20px;
-}
-
-#bold{
-  /* margin-left: 300px;
-  margin-top: 100px;
-  width: 280px; */
 }
 
 .text-toggle{
@@ -764,28 +729,6 @@ $commonBorder: solid 1px #ced7df;
   font-size: 14px;
   color: orange;
 }
-
-/* .select-button{
-  cursor: pointer;
-  height: 28px;
-  font-size: 14px !important;
-  padding: 0 10px !important;
-  margin-left: 10px;
-  margin-top: 1px;
-} */
-/* 
-.reposition{
-  cursor: pointer;
-  height: 28px;
-  font-size: 14px !important;
-  padding: 0 10px !important;
-  margin: 5px 10px;
-} */
-/* 
-.resize-button{
-  @include button_basic;
-  position: absolute;
-} */
 
 .selectable{
   cursor: pointer;
