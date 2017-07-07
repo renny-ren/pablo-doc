@@ -1,12 +1,12 @@
 $('.waiting-notice').hide();
 $('.share-button').show();
 $('.download-button').show();
-var buffer_href = $('.buffer-button').attr('src').replace(/(text=)(.*?)&/, "$1<%= params[:download_text] %>&").replace(/(picture=)(.*?)&/, "$1http%3A%2F%2Fwww.cactusly.com%2Fshare_download_<%= @salt %>.png&").replace(/(url=)(.*?)&/, "$1<%= session[:url] %>&");
+var buffer_href = $('.buffer-button').attr('src').replace(/(text=)(.*?)&/, "$1<%= params[:download_text] %>&").replace(/(picture=)(.*?)&/, "$1http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&").replace(/(url=)(.*?)&/, "$1<%= session[:url] %>&");
 $('.buffer-button').attr('src', buffer_href).show();
 
 $('.social-share-button').attr('data-title', "<%= params[:download_text].strip %>");
-$('.social-share-button').attr('data-img', "http://www.cactusly.com/share_download_<%= @salt %>.png");
-var fb_href = "https://www.facebook.com/dialog/feed?app_id=311606015958230&picture=http%3A%2F%2Fwww.cactusly.com%2Fshare_download_<%= @salt %>.png&caption=<%= session[:text] %>";
-var lkin_href = "https://www.linkedin.com/cws/share?token&isFramed=false&url=http://www.cactusly.com/share_download_<%= @salt %>.png";
+$('.social-share-button').attr('data-img', "http://word-doc.herokuapp.com/share_download_<%= @salt %>.png");
+var fb_href = "https://www.facebook.com/dialog/feed?app_id=311606015958230&picture=http%3A%2F%2Fword-doc.herokuapp.com%2Fshare_download_<%= @salt %>.png&caption=<%= session[:text] %>";
+var lkin_href = "https://www.linkedin.com/cws/share?token&isFramed=false&url=http://word-doc.herokuapp.com/share_download_<%= @salt %>.png";
 $('.facebook-btn').attr('href', fb_href);
 $('.ssb-linkedin').attr('href', lkin_href).removeAttr('onclick');
