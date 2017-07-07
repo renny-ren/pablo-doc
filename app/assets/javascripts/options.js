@@ -23,13 +23,19 @@ $(function(){
       $(this).toggleClass('option-item-hover');
     })
     .click(function(){
-      $('.canvas-center').toggleClass('canvas-center-leftbar');
-      if ($(this).hasClass('option-item-crop')) {
+      if ($(this).hasClass('option-item-selected')) {
+        $(this).removeClass('option-item-selected');
         $('.canvas-center').removeClass('canvas-center-leftbar');
       }
-      $('.share-button').hide();
-      $('.buffer-button').hide();
-      $('.download-button').hide();
+      else{
+        $('.option-item-selected').removeClass('option-item-selected');
+        $(this).addClass('option-item-selected');
+        $('.canvas-center').addClass('canvas-center-leftbar');
+        if ($(this).hasClass('option-item-crop')) {
+          $('.canvas-center').removeClass('canvas-center-leftbar');
+        }
+        hideOthers();
+      }
     });
 
   $('.generate-btn').click(function(){
@@ -37,24 +43,21 @@ $(function(){
   });
 
   $('.option-item-content').click(function(){
-    $(this).toggleClass('option-item-selected');
     $('.type-box').toggle();
     $('.url-bar').toggle();
   });
 
   $('.option-item-text').click(function(){
-    $(this).toggleClass('option-item-selected');
     $('.image-extra-options').toggle();
   });
 
   $('.option-item-images').click(function(){
-    $(this).toggleClass('option-item-selected');
     $('.reload-gallery').toggle();
   });
 
   $('.option-item-select').click(function(){
     $('.canvas-center').removeClass('canvas-center-leftbar');
-    $(this).toggleClass('option-item-selected');
+
     if ($($(this).children().last()).text() == "Select"){
       $(this).children().last().text("Cancel");
     }
@@ -79,17 +82,14 @@ $(function(){
   });
 
   $('.option-item-sizes').click(function(){
-    $(this).toggleClass('option-item-selected');
     $('.image-sizes').toggle();
   });
 
   $('.option-item-filters').click(function(){
-    $(this).toggleClass('option-item-selected');
     $('.image-filters').toggle();
   });
 
   $('.option-item-logo').click(function(){
-    $(this).toggleClass('option-item-selected');
     $('.image-logo').toggle();
   });
 
@@ -238,4 +238,17 @@ function changeOptionSize(size, canvasSize){
     $('.selected').addClass(size);
   }
   rearrange();
+}
+
+function hideOthers(){
+  $('.share-button').hide();
+  $('.buffer-button').hide();
+  $('.download-button').hide();
+  $('.type-box').hide();
+  $('.url-bar').hide();
+  $('.image-extra-options').hide();
+  $('.reload-gallery').hide();
+  $('.image-sizes').hide();
+  $('.image-filters').hide();
+  $('.image-logo').hide();
 }

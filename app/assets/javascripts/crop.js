@@ -1,6 +1,5 @@
 $(function(){
   $('.option-item-crop').click(function(){
-    // $('.canvas-center').removeClass('canvas-center-leftbar');    
     if ($('.selected').length > 1) {
       alert("Hi, you've selected more than one image, you can only modify one image at one time.");
       return;
