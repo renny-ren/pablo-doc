@@ -151,7 +151,7 @@ class HomeController < ApplicationController
     else
       if params[:url].match(/.*\..*/)
         unless params[:url].match(/^http.*/)
-          url = "http://" + params[:url] 
+          url = "https://" + params[:url] 
           session[:url] = url
         end
         url.nil? ? Nokogiri::HTML(open(params[:url])) : Nokogiri::HTML(open(url))

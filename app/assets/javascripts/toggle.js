@@ -33,12 +33,14 @@ $(function(){
 
     if ($(this).hasClass('text-toggle-selected')) {
       eval(type + "_num" + '=' + 0);
+      $("#" + type).children().removeClass('text-item').addClass('text-item-hide');
     }
     else{
       eval(type + "_num" + '=' + type + '.children().length');
+      $("#" + type).children().addClass('text-item').removeClass('text-item-hide');
     }
-    getQuantity();
-    
+    // getQuantity();
+
     if ($('.background-selected').length > 0){
       background.empty();     // remove all images from canvas-center
 
@@ -197,6 +199,19 @@ function rearrange(){
 
   // rearrange text
   $('#header-item').get(0).style.left = '0px';
+  if ($('#header').css('display') == 'none') {
+    $('#quotation-item').get(0).style.top = '0px';
+  }
+  else{
+    if ($('#quotation').css('display') == 'none') {
+      $('#bullet-item').get(0).style.top = '0px';
+    }
+    else{
+      if ($('#bullet').css('display') == 'none') {
+        $('#bold-item').get(0).style.top = '0px';
+      }
+    }
+  }
   if ($('.image-canvas').height() == null){
     image_height = 249;
   }
