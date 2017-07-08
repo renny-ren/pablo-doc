@@ -30,6 +30,7 @@ $(function(){
   $('.text-toggle').click(function(){
     var text = document.getElementById(this.innerHTML.toLowerCase());
     var type = $(this).text().toLowerCase();
+    getQuantity();
 
     if ($(this).hasClass('text-toggle-selected')) {
       eval(type + "_num" + '=' + 0);
@@ -39,7 +40,7 @@ $(function(){
       eval(type + "_num" + '=' + type + '.children().length');
       $("#" + type).children().addClass('text-item').removeClass('text-item-hide');
     }
-    // getQuantity();
+    image_num =  header_num + quotation_num + bullet_num + bold_num;
 
     if ($('.background-selected').length > 0){
       background.empty();     // remove all images from canvas-center
@@ -70,62 +71,92 @@ $(function(){
     $(text).toggle();
   });
 
-  $('body').on('click', '.gallery-item', function(){
-    if ($(".gallery-item-selected").length >= 2) {
-      for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
-        var j = 0;
-        while(j < 4){
-          $(result).children().last().remove();     // remove all texts
-          j++;
+  $('body').on('click', '.blank-image', function(){  // this is for safari user
+    if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+      if ($('.gallery-item-selected').length > 0 && $('.gallery-item-selected').hasClass('blank-image') == false) {  // if there is picture selected
+        if(confirm("select this will clear other pictures you've selected, do you want to continue?")){
+          if ($(".gallery-item-selected").length >= 2) {
+            for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
+              var j = 0;
+              while(j < 4){
+                $(result).children().last().remove();     // remove all texts
+                j++;
+              }
+            }
+          }
+          background.empty();  // remove all images
+          $('.gallery-item-selected').removeClass('gallery-item-selected');
+          amendHeight();
+        }
+        else{
+          stopPropagation();
+          preventDefault();
         }
       }
     }
-    background.empty();     // remove all images
-    $(this).toggleClass('gallery-item-selected');
-    if ($(this).hasClass('gallery-item-selected')){
-      $('.option-item-images').trigger('click');
-    };
+  });
 
-    for (var i = 0; i < $('.gallery-item-selected').length; i++){
-      for (var j = 0; j < image_num; j++) {
-        var image_canvas = document.createElement('div');
-        $(image_canvas).attr('class', 'image-canvas');
-        background.append(image_canvas);
-        var bg_img = $($('.gallery-item-selected').children().get(i)).clone();
-        $('.image-canvas').last().append(bg_img);   //add images
-
-        // var horizontal_line = document.createElement('div');
-        // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
-        // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
-        // $('#hor_line').children().addClass('horizontal_line');
-
-        // arr[i] = background.children().get(i).offsetTop +75 - $(header.children().get(i)).height()/2 + 'px';  // get array of where horizontal line shoud show
-      }
+  $('body').on('click', '.gallery-item', function(){
+    if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && $(this).hasClass('blank-image') == false && $('.gallery-item-selected').hasClass('blank-image')) {
+      alert("You can't select this picture since you've selected color image, please unselect them first");
     }
-    $('.image-canvas').children()
-        .addClass('background-selected size-wide')   // apply css
-        .removeAttr('height').removeAttr('width'); 
-
-    if ($(".gallery-item-selected").length >= 2) {     // if select multiple images
-      for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
-        $(result).append(header.clone()); 
-        $(result).append(quotation.clone()); 
-        $(result).append(bullet.clone()); 
-        $(result).append(bold.clone()); 
+    else{
+      if ($(".gallery-item-selected").length >= 2) {
+        for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
+          var j = 0;
+          while(j < 4){
+            $(result).children().last().remove();     // remove all texts
+            j++;
+          }
+        }
       }
-    }
-    draggable();
-    editable();
+      background.empty();     // remove all images
+      $(this).toggleClass('gallery-item-selected');
+      if ($(this).hasClass('gallery-item-selected')){
+        $('.option-item-images').trigger('click');
+      };
 
-    var share_button = document.createElement('i');
-    var delete_button = document.createElement('i');
-    $(share_button).addClass('fa fa-share-alt-square fa-2x each-share-button');
-    $(delete_button).addClass('fa fa-trash fa-2x each-delete-button');
-    $('.image-canvas').after(delete_button);
-    $('.image-canvas').after(share_button);
-    getQuantity();
-    rearrange();
-    amendHeight();
+      for (var i = 0; i < $('.gallery-item-selected').length; i++){
+        for (var j = 0; j < image_num; j++) {
+          var image_canvas = document.createElement('div');
+          $(image_canvas).attr('class', 'image-canvas');
+          background.append(image_canvas);
+          var bg_img = $($('.gallery-item-selected').children().get(i)).clone();
+          $('.image-canvas').last().append(bg_img);   //add images
+
+          // var horizontal_line = document.createElement('div');
+          // $('#hor_line').append(horizontal_line).css('display', 'none');   // add auxiliary line for each image
+          // $('#hor_line').children().get(i).style.top = background.children().get(i).offsetTop +75 + 'px';       
+          // $('#hor_line').children().addClass('horizontal_line');
+
+          // arr[i] = background.children().get(i).offsetTop +75 - $(header.children().get(i)).height()/2 + 'px';  // get array of where horizontal line shoud show
+        }
+      }
+      $('.image-canvas').children()
+          .addClass('background-selected size-wide')   // apply css
+          .removeAttr('height').removeAttr('width'); 
+
+      if ($(".gallery-item-selected").length >= 2) {     // if select multiple images
+        for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
+          $(result).append(header.clone()); 
+          $(result).append(quotation.clone()); 
+          $(result).append(bullet.clone()); 
+          $(result).append(bold.clone()); 
+        }
+      }
+      draggable();
+      editable();
+
+      var share_button = document.createElement('i');
+      var delete_button = document.createElement('i');
+      $(share_button).addClass('fa fa-share-alt-square fa-2x each-share-button');
+      $(delete_button).addClass('fa fa-trash fa-2x each-delete-button');
+      $('.image-canvas').after(delete_button);
+      $('.image-canvas').after(share_button);
+      getQuantity();
+      rearrange(this);
+      amendHeight();
+    }
   });
 
   $('body').on('click', '.selectable', function(){
@@ -191,7 +222,7 @@ function getQuantity(){
   image_num =  header_num + quotation_num + bullet_num + bold_num;
 }
 
-function rearrange(){
+function rearrange(galleryItem){
   header.children().css('position', 'absolute');
   quotation.children().css('position', 'absolute');
   bullet.children().css('position', 'absolute');
@@ -199,33 +230,20 @@ function rearrange(){
 
   // rearrange text
   $('#header-item').get(0).style.left = '0px';
-  if ($('#header').css('display') == 'none') {
-    $('#quotation-item').get(0).style.top = '0px';
-  }
-  else{
-    if ($('#quotation').css('display') == 'none') {
-      $('#bullet-item').get(0).style.top = '0px';
-    }
-    else{
-      if ($('#bullet').css('display') == 'none') {
-        $('#bold-item').get(0).style.top = '0px';
-      }
-    }
-  }
   if ($('.image-canvas').height() == null){
     image_height = 249;
   }
   else{
     image_height = $('.image-canvas').height();
   }
-  for (var i = 1, left_now = 330, top_now = 0, text_shift = 0; i < $('.text-item').length; i++, left_now += 330) {
+  for (var i = 0, left_now = 0, top_now = 0, text_shift = 0; i < $('.text-item').length; i++, left_now += 330) {
     $('.text-item').get(i).style.top = top_now - text_shift + 'px';
     $('.text-item').get(i).style.left = left_now + 'px';
     if (left_now == 990) {
       left_now = -330;
       top_now += image_height + 50;
       text_shift += 4;
-      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {   // if user's browser is safari
+      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && ($(galleryItem).hasClass('blank-image') == false) ) {   // if user's browser is safari
         text_shift += 6;
       }
     }
@@ -246,7 +264,7 @@ function rearrange(){
         left_now = -330;
         top_now += image_height + 50;
         shift += 4;
-        if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {   // if user's browser is safari
+        if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 && ($(galleryItem).hasClass('blank-image') == false) ) {   // if user's browser is safari
           shift += 6;
         }
       }

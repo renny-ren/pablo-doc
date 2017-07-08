@@ -173,12 +173,18 @@ $(function(){
 }); 
 
 function getText(){
-  if ($('#item-selected').is(':has(*)') == true) {
+  if ($('#item-selected').parent().attr('id') == 'header'){
     text = $('#item-selected').children();
   }
   else{
     text = $('#item-selected');
   }
+  // if ($('#item-selected').is(':has(*)') == true) {
+  //   text = $('#item-selected').children().get(0);
+  // }
+  // else{
+  //   text = $('#item-selected');
+  // }
 }
 
 function changeSize(size){

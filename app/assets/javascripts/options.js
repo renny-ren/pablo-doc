@@ -95,6 +95,7 @@ $(function(){
 
   $('.option-item-clear').click(function(){
     $('.canvas-center').removeClass('canvas-center-leftbar');
+    $(this).removeClass('option-item-selected');
     if(confirm("This operation will delete all the current images, are you sure?")){
       if ($(".gallery-item-selected").length >= 2) {
         for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
