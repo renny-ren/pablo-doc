@@ -113,9 +113,9 @@ $(function(){
       }
       background.empty();     // remove all images
       $(this).toggleClass('gallery-item-selected');
-      if ($(this).hasClass('gallery-item-selected')){
-        $('.option-item-images').trigger('click');
-      };
+      // if ($(this).hasClass('gallery-item-selected')){
+      //   $('.option-item-images').trigger('click');
+      // };
 
       for (var i = 0; i < $('.gallery-item-selected').length; i++){
         for (var j = 0; j < image_num; j++) {

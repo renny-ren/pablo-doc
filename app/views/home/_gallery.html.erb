@@ -23,12 +23,11 @@
       <% @img_link.length.times do |i| %>
         <li class="gallery-item"><%= image_tag @img_link[i], alt: "background", width: '200px', height: '136px' %></li>
       <% end %>
-    <% else %>
+    <% end %>
       <% 10.times do |n| %>
         <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/batch-2-full-size/#{@images[:batch_2_full_size][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
         <li class="gallery-item"><%= image_tag "https://d3ijcis4e2ziok.cloudfront.net/engaging-images-backgrounds/full-size/#{@images[:full_size][n]}.jpg", alt: "background", width: '200px', height: '136px' %></li>
       <% end %>
-    <% end %>
   </ul>  
 
   <%= form_tag({action: 'upload_image'}, multipart: true) do %>

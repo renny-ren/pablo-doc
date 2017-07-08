@@ -1,1 +1,9 @@
+localStorage.setItem('selected_src', $('.gallery-item-selected').children().attr('src'));
 $('.reload-gallery').html("<%= j(render 'gallery') %>");
+
+if (localStorage.getItem('selected_src') != 'undefined') {
+  temp_item = $('.gallery-item').last().clone();
+  temp_item.children().attr('src', localStorage.getItem('selected_src'));
+  $('.image-yellow').after(temp_item);
+  $(temp_item).trigger('click');
+}

@@ -9,8 +9,8 @@ $(function(){
     localStorage.removeItem("content_generated");
   }
 
-  $('.image-extra-options, .image-sizes, .image-filters').mouseleave(function(){
-    $(this).hide();
+  $('.image-extra-options, .image-sizes, .image-filters, .reload-gallery').mouseleave(function(){
+    $(this).fadeOut();
     $('.option-item-selected').removeClass('option-item-selected');
     if ($('.selected').length > 0 && $($('.option-item-select').children().last()).text() == "Cancel"){
       $('.option-item-select').addClass('option-item-selected');
