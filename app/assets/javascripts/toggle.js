@@ -28,35 +28,36 @@ $(function(){
    })
     
   $('.text-toggle').click(function(){
-    var text = document.getElementById(this.innerHTML.toLowerCase());
+    // var text = document.getElementById(this.innerHTML.toLowerCase());
     var type = $(this).text().toLowerCase();
-    getQuantity();
+    // getQuantity();
 
     if ($(this).hasClass('text-toggle-selected')) {
       eval(type + "_num" + '=' + 0);
-      $("#" + type).children().removeClass('text-item').addClass('text-item-hide');
+      $("[id=" + type + "]").children().removeClass('text-item').addClass('text-item-hide');
     }
     else{
       eval(type + "_num" + '=' + type + '.children().length');
-      $("#" + type).children().addClass('text-item').removeClass('text-item-hide');
+      $("[id=" + type + "]").children().addClass('text-item').removeClass('text-item-hide');
     }
     image_num =  header_num + quotation_num + bullet_num + bold_num;
 
     if ($('.background-selected').length > 0){
-      background.empty();     // remove all images from canvas-center
+      background.empty();     // remove all images 
 
-      for (var i = 0; i < image_num; i++) {
-        var image_canvas = document.createElement('div');
-        $(image_canvas).attr('class', 'image-canvas');
-        background.append(image_canvas);
+      for (var i = 0; i < $('.gallery-item-selected').length; i++){
+        for (var j = 0; j < image_num; j++) {
+          var image_canvas = document.createElement('div');
+          $(image_canvas).attr('class', 'image-canvas');
+          background.append(image_canvas);
+          var bg_img = $($('.gallery-item-selected').children().get(i)).clone();
+          $('.image-canvas').last().append(bg_img);   //add images
+        }
       }
-      amendHeight();
-
-      var bg_img = $($('.gallery-item-selected').children().get(0)).clone();
-      $('.image-canvas').append(bg_img);   //add images
       $('.image-canvas').children()
         .addClass('background-selected size-wide')   // apply css
         .removeAttr('height').removeAttr('width'); 
+      amendHeight();
 
       var share_button = document.createElement('i');
       var delete_button = document.createElement('i');
@@ -68,7 +69,7 @@ $(function(){
     }
 
     $(this).toggleClass('text-toggle-selected');
-    $(text).toggle();
+    $("[id=" + type + "]").toggle();
   });
 
   $('body').on('click', '.blank-image', function(){  // this is for safari user
@@ -255,7 +256,7 @@ function rearrange(galleryItem){
     $('.each-share-button').get(0).style.left = '0px';
     $('.each-delete-button').get(0).style.top = image_height + 'px';
     $('.each-delete-button').get(0).style.left = '270px';
-    for (var i = 1, left_now = 330, top_now = image_height, shift = 0; i < $('.text-item').length; i++, left_now += 330) {  
+    for (var i = 1, left_now = 330, top_now = image_height, shift = 0; i < $('.text-item').length; i++, left_now += 330) {
       $('.each-share-button').get(i).style.left = left_now + 'px';
       $('.each-share-button').get(i).style.top = top_now - shift + 'px';
       $('.each-delete-button').get(i).style.left = left_now + 270 + 'px';
