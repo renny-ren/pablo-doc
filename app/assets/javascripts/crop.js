@@ -21,6 +21,7 @@ $(function(){
         }
       }
     }
+    $("#goTopBtn").trigger('click');
     $('.options-bar').hide();
     $('.image-options').hide();
     $('.reload-gallery').hide();

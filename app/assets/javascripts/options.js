@@ -45,6 +45,9 @@ $(function(){
   $('.option-item-content').click(function(){
     $('.type-box').toggle();
     $('.url-bar').toggle();
+    if ($('.canvas-center').hasClass('canvas-center-leftbar')){
+      $("#goTopBtn").trigger('click');
+    }
   });
 
   $('.option-item-text').click(function(){
@@ -65,7 +68,7 @@ $(function(){
       $(this).children().last().text("Select");
     }
     if (flag == 0) {
-      alert("Now you can click on the image to select it");
+      alert("Now you can click on the image to select it, then you can crop or change their size, filter.");
       flag = 1;
     }
     $('.background-selected').toggleClass('selectable');

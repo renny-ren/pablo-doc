@@ -1,4 +1,6 @@
-localStorage.setItem('selected_src', $('.gallery-item-selected').children().attr('src'));
+localStorage.setItem('selected_src_0', $($('.gallery-item-selected').get(0)).children().attr('src'));
+localStorage.setItem('selected_src_1', $($('.gallery-item-selected').get(1)).children().attr('src'));
+localStorage.setItem('selected_src_2', $($('.gallery-item-selected').get(2)).children().attr('src'));
 $(".reload-gallery").html("<%= j(render 'gallery') %>");
 $(".reload-logo").html("<%= j(render 'logo') %>");
 
@@ -7,9 +9,11 @@ if ($('.option-item-logo').hasClass('option-item-selected')){
   $('.canvas-center').removeClass('canvas-center-leftbar');
 }
 
-if (localStorage.getItem('selected_src') != 'undefined') {
-  temp_item = $('.gallery-item').last().clone();
-  temp_item.children().attr('src', localStorage.getItem('selected_src'));
-  $('.image-yellow').after(temp_item);
-  $(temp_item).trigger('click');
+for (var i = 2; i >= 0; i--){
+  if (localStorage.getItem('selected_src_' + i) != 'undefined') {
+    temp_item = $('.gallery-item').last().clone();
+    temp_item.children().attr('src', localStorage.getItem('selected_src_' + i));
+    $('.image-yellow').after(temp_item);
+    $(temp_item).addClass('gallery-item-selected');
+  }  
 }
