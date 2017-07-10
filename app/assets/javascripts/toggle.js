@@ -10,6 +10,8 @@ $(function(){
   msg_flag = 1;
   // arr = [];
 
+  $('[id=header-item]').find('span').removeAttr('style');
+
   $(window).scroll(function(){
     var sc = $(window).scrollTop();
     var rwidth = $(window).width();
