@@ -3,7 +3,7 @@
   <!-- <%= submit_tag "Share & Download", class: "btn btn-primary share-download-button" %> -->
   <div class="share-button">
     <a class="facebook-btn" target="_blank" href=""></a>
-    <%= social_share_button_tag(session[:text], url: session[:url], image: session[:image]) %>
+    <div class="reload-share"><%= render 'social_share' %></div>
   </div>
 
   <%= link_to fa_icon("download 2x"), start_download_path, method: :post, class: "download-button" %>

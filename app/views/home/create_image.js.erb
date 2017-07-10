@@ -10,3 +10,4 @@ var fb_href = "https://www.facebook.com/dialog/feed?app_id=311606015958230&pictu
 var lkin_href = "https://www.linkedin.com/cws/share?token&isFramed=false&url=http://www.cactusly.com/share_download_<%= @salt %>.png";
 $('.facebook-btn').attr('href', fb_href);
 $('.ssb-linkedin').attr('href', lkin_href).removeAttr('onclick');
+$(".reload-share").html("<%= j(render 'social_share') %>");
