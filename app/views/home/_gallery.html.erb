@@ -10,11 +10,11 @@
   </div>
 
   <ul class="gallery-list">
-    <li class="gallery-item blank-image image-white"><img class="background-white"></li>
-    <li class="gallery-item blank-image image-blue"><img class="background-blue"></li>
-    <li class="gallery-item blank-image image-red"><img class="background-red"></li>
-    <li class="gallery-item blank-image image-black"><img class="background-black"></li>
-    <li class="gallery-item blank-image image-yellow"><img class="background-yellow"></li>
+    <li class="gallery-item blank-image image-white"><img class="background-white" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_Blank.svg" width="0px" height="0px"></li>
+    <li class="gallery-item blank-image image-blue"><img class="background-blue" src="http://www.drodd.com/images14/blue22.jpg" width="0px" height="0px"></li>
+    <li class="gallery-item blank-image image-red"><img class="background-red" src="https://target.scene7.com/is/image/Target/red_bg84112-170313_1489428814121?wid=1110&qlt=80&fmt=png" width="0px" height="0px"></li>
+    <li class="gallery-item blank-image image-black"><img class="background-black" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYKhVd5iHpu4QGopsJjr2kc-BwE9SuiMfR4JHoOwxvg1MxE48-" width="0px" height="0px"></li>
+    <li class="gallery-item blank-image image-yellow"><img class="background-yellow" src="http://is2.mzstatic.com/image/thumb/Purple127/v4/b6/fa/41/b6fa41db-a456-f5a9-1435-6f6c21f2e284/source/1200x630bb.jpg" width="0px" height="0px"></li>
     <% @upload_images.reverse.each do |img| %>
       <li class="gallery-item"><%= image_tag img.bg_img.url, width: '200px', height: '136px' %></li>
     <% end %>
