@@ -71,7 +71,7 @@ $(function(){
         $(delete_button).addClass('fa fa-trash fa-2x each-delete-button');
         $('.image-canvas').after(delete_button);
         $('.image-canvas').after(share_button);
-        rearrange();
+        rearrange($('.gallery-item-selected'));
       }
 
       $(this).toggleClass('text-toggle-selected');
