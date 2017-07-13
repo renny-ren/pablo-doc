@@ -55,13 +55,13 @@ $(function(){
     $('.image-options').show();
     $('.option-item-select').removeClass('option-item-selected');
     $('.option-item-select').children().last().text("Select");
+    $('.option-item-crop').removeClass('option-item-selected');
     $('.canvas-center').removeClass('canvas-center-leftbar');
 
     reposition();
     var current_left = $('.selected').css('left');
     $('.selected').css('left', parseInt(current_left) - left_shift + 'px');
     $('.ui-wrapper').css('overflow', 'hidden');
-    // $('.select-button').text("Select Image");
     $('#background-images').children().show();
     msg_flag = 0;
   });
