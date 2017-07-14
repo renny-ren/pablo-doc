@@ -147,10 +147,10 @@ $(function(){
       }
     }
 
-    image_left = $(this).prev().children().css('left'); 
+    image_left = $(this).prev().children().css('left');
     // image_left = '0px';
     text_top = parseInt($('selected-text').css('top'));
-    while (  text_top > 515 ) {
+    while ( text_top > 515 ) {
       // $(this).css('top', parseInt($('selected-text').css('top')) - 515 + 'px');
       text_top -= 515;
     }
