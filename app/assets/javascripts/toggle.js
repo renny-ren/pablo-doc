@@ -279,29 +279,3 @@ function rearrange(galleryItem){
     }
   }
 }
-
-// function resetPosition(){
-//   for (var i = 0; i < header_num; i++) {
-//     $(header.children().get(i))
-//       .css('position', 'relative')
-//       .css('top', 0);
-//   }
-
-//   for (var i = 0; i < quotation_num; i++) {
-//     $(quotation.children().get(i))
-//       .css('position', 'relative')
-//       .css('top', 0);
-//   }
-
-//   for (var i = 0; i < bullet_num; i++) {
-//     $(bullet.children().get(i))
-//       .css('position', 'relative')
-//       .css('top', 0);
-//   }
-
-//   for (var i = 0; i < bold_num; i++) {
-//     $(bold.children().get(i))
-//       .css('position', 'relative')
-//       .css('top', 0);
-//   }
-// }

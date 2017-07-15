@@ -51,7 +51,6 @@ function select_template(obj, description){
       $('#background-images').last().remove();
     }
     else{
-      // resetPosition();
       $(".text-item").find('*').css('color', 'black');
       $(".text-item").css('color', 'black');
     }
