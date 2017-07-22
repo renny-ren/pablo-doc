@@ -12,6 +12,11 @@ $(function(){
 
   $('[id=header-item]').find('span').removeAttr('style');
 
+  $("#goTopBtn").click(function(){
+    var sc = $(window).scrollTop();
+    $('body, html').animate({ scrollTop: 0 }, 50);
+   })
+
   $(window).scroll(function(){
     var sc = $(window).scrollTop();
     var rwidth = $(window).width();
