@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( bootstrap.min.css font-awesome.min.css magnific-popup.css main.css jquery-2.1.4.min.js bootstrap.min.js waypoints.min.js jquery.animateNumber.min.js waypoints-sticky.min.js retina.min.js jquery.magnific-popup.min.js jquery.ajaxchimp.min.js tweetie.min.js main.js gmap.js )
+Rails.application.config.assets.precompile += %w( landing.scss bootstrap.min.css font-awesome.min.css magnific-popup.css main.css jquery-2.1.4.min.js bootstrap.min.js waypoints.min.js jquery.animateNumber.min.js waypoints-sticky.min.js retina.min.js jquery.magnific-popup.min.js jquery.ajaxchimp.min.js tweetie.min.js main.js gmap.js )
