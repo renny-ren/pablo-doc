@@ -52,9 +52,13 @@
             </ul>
           -->
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://www.cactusly.com/users/sign_in"><i class="fa fa-sign-in"></i> Login</a></li>
-              <li><a href="http://www.cactusly.com/users/sign_up" class="btn">JOIN US</a></li>
-              <li><a href="http://www.cactusly.com/users/sign_out"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <% if user_signed_in? %>
+                <div class="welcome"><%= "Welcome, #{current_user.email.scan(/(.*)@/).first.join}!" %></div>
+                <li><a href="http://www.cactusly.com/users/sign_out"><i class="fa fa-sign-out"></i> Logout</a></li>
+              <% else %>
+                <li><a href="http://www.cactusly.com/users/sign_in"><i class="fa fa-sign-in"></i> Login</a></li>
+                <li><a href="http://www.cactusly.com/users/sign_up" class="btn">JOIN US</a></li>
+              <% end %>
             </ul>
           </div>
         </div>
