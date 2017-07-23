@@ -13,6 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require kindeditor
-//= require_tree .
 //= require social-share-button
 //= require turbolinks
+
+//= require crop
+//= require download
+//= require options
+//= require refresh_part
+//= require result
+//= require search
+//= require templates
+//= require toggle
+//= require jquery_ui
