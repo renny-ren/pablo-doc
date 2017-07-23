@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -41,7 +41,7 @@ gem 'nokogiri'
 gem 'font-awesome-rails'
 gem 'social-share-button'
 gem 'mechanize'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
 gem 'screencap', github: 'Eventshare/screencap'
 gem 'gon'
 gem 'devise'

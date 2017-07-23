@@ -5,9 +5,9 @@ class HomeController < ApplicationController
 
   def initialize_options
     @header = []
-    @quotation = [""]
-    @bullet = [""]
-    @bold = [""]
+    @quotation = ['']
+    @bullet = ['']
+    @bold = ['']
     @images = { batch_2_full_size: (1..52).to_a.sample(10), full_size: (1..33).to_a.sample(10) }
     @img_link = []
     @upload_images = Image.all
@@ -47,9 +47,9 @@ class HomeController < ApplicationController
   #   @upload_logo.save
   # end
 
-  def refresh_part 
+  def refresh_part
     respond_to do |format|
-      format.js 
+      format.js
     end
   end
 
@@ -57,10 +57,10 @@ class HomeController < ApplicationController
     unless params[:search_image].empty?
       page = Mechanize.new.get("https://www.pexels.com/search/#{params[:search_image]}")
       page.links.each do |link|
-        if link.uri.to_s.match(/\/photo.*\d\/$/)
+        if link.uri.to_s =~ /\/photo.*\d\/$/
           page = link.click
           page.links.each do |img_link|
-            @img_link << (img_link.uri.to_s + "?h=650").gsub!('static', 'images') if img_link.uri.to_s.match(/https:\/\/static\..*\..*g$/)
+            @img_link << (img_link.uri.to_s + '?h=650').gsub!('static', 'images') if img_link.uri.to_s =~ /https:\/\/static\..*\..*g$/
           end
         else
           next
@@ -81,7 +81,7 @@ class HomeController < ApplicationController
   def start_download
     send_file(
       "#{Rails.root}/public/share_download_#{@@salt}.png",
-      filename: "Cactusly.png"
+      filename: 'Cactusly.png'
     )
   end
 
@@ -96,11 +96,11 @@ class HomeController < ApplicationController
     new_uri = "https://word-doc.herokuapp.com/download?download_src=#{params[:download_src]}&logo_src=#{params[:logo_src]}"
     f = Screencap::Fetcher.new(new_uri)
     f.fetch(
-      output: "public/share_download_#{@@salt}.png",    # don't forget the extension!
-      div: '.download-content',   # selector for a specific element to take screenshot of
+      output: "public/share_download_#{@@salt}.png", # don't forget the extension!
+      div: '.download-content', # selector for a specific element to take screenshot of
       width: 760,
       height: 484,
-      # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
+    # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
     )
   end
 
@@ -146,24 +146,24 @@ class HomeController < ApplicationController
 
   def read_content
     session[:url] = params[:url]
-    if params[:url].empty?  
-      params[:doc] 
+    if params[:url].empty?
+      params[:doc]
     else
-      if params[:url].match(/.*\..*/)
-        unless params[:url].match(/^http.*/)
-          url = "https://" + params[:url] 
+      if params[:url] =~ /.*\..*/
+        unless params[:url] =~ /^http.*/
+          url = 'https://' + params[:url]
           session[:url] = url
         end
         url.nil? ? Nokogiri::HTML(open(params[:url])) : Nokogiri::HTML(open(url))
       else
-        ""
+        ''
       end
     end
   end
 
   def separate
     unless params[:doc].empty?
-      doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/,"").lstrip
+      doc = params[:doc].gsub(/ id=\".*\"|<br \/>\r/, '').lstrip
       @header = get_header(doc)
       @quotation = get_quotation(doc)
       @bold = get_bold(doc)
@@ -172,12 +172,12 @@ class HomeController < ApplicationController
   end
 
   def get_header(doc)
-    if doc.match(/h[123]/)    # if there is heading format text, return them as header
+    if doc =~ /h[123]/ # if there is heading format text, return them as header
       doc.scan(/<h[123]>.*?<\/h[123]>/m)
-    else    # if there is no heading, first or second line would be header
-      doc = doc.gsub(/<.*>/,"").lstrip
-      first_line = doc.lines.first || ""
-      (first_line.include?("------")) ? doc.lines.second.chomp.split : first_line.split
+    else # if there is no heading, first or second line would be header
+      doc = doc.gsub(/<.*>/, '').lstrip
+      first_line = doc.lines.first || ''
+      first_line.include?('------') ? doc.lines.second.chomp.split : first_line.split
     end
   end
 
@@ -186,7 +186,7 @@ class HomeController < ApplicationController
   end
 
   def get_quotation(doc)
-    doc = doc.gsub(/<(style|script|iframe)[^>]*?>[\s\S]+?<\/\1\s*>/i,'').gsub(/<[^>]+?>/,'').gsub(/\s+/,' ').gsub(/ /,' ').gsub(/>/,' ')
+    doc = doc.gsub(/<(style|script|iframe)[^>]*?>[\s\S]+?<\/\1\s*>/i, '').gsub(/<[^>]+?>/, '').gsub(/\s+/, ' ').tr(' ', ' ').tr('>', ' ')
     doc.scan(/(".*?"|“.*?”)/m).flatten if doc.scan(/(".*?"|“.*?”)/m)
   end
 

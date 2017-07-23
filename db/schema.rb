@@ -10,41 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618135921) do
-
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "bg_img_file_name"
-    t.string   "bg_img_content_type"
-    t.integer  "bg_img_file_size"
-    t.datetime "bg_img_updated_at"
+ActiveRecord::Schema.define(version: 20_170_618_135_921) do
+  create_table 'images', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    t.datetime 'created_at',          null: false
+    t.datetime 'updated_at',          null: false
+    t.string   'bg_img_file_name'
+    t.string   'bg_img_content_type'
+    t.integer  'bg_img_file_size'
+    t.datetime 'bg_img_updated_at'
   end
 
-  create_table "logos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
+  create_table 'logos', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    t.datetime 'created_at',        null: false
+    t.datetime 'updated_at',        null: false
+    t.string   'logo_file_name'
+    t.string   'logo_content_type'
+    t.integer  'logo_file_size'
+    t.datetime 'logo_updated_at'
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  create_table 'users', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
+    t.string   'email',                  default: '', null: false
+    t.string   'encrypted_password',     default: '', null: false
+    t.string   'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.integer  'sign_in_count', default: 0, null: false
+    t.datetime 'current_sign_in_at'
+    t.datetime 'last_sign_in_at'
+    t.string   'current_sign_in_ip'
+    t.string   'last_sign_in_ip'
+    t.datetime 'created_at',                          null: false
+    t.datetime 'updated_at',                          null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true, using: :btree
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true, using: :btree
   end
-
 end

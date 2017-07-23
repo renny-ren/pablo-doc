@@ -114,10 +114,10 @@ $(function(){
       alert("You can't select this picture since you've selected color image, please unselect them first");
     }
     else{
-      if ($(".gallery-item-selected").length >= 2) {
-        for (var i = 0; i < $('.gallery-item-selected').length - 1; i++){
+      if ( $(".gallery-item-selected").length >= 2 ) {
+        for ( var i = 0; i < $('.gallery-item-selected').length - 1; i++ ) {
           var j = 0;
-          while(j < 4){
+          while( j < 4 ) {
             $(result).children().last().remove();     // remove all texts
             j++;
           }
@@ -125,9 +125,6 @@ $(function(){
       }
       background.empty();     // remove all images
       $(this).toggleClass('gallery-item-selected');
-      // if ($(this).hasClass('gallery-item-selected')){
-      //   $('.option-item-images').trigger('click');
-      // };
 
       for (var i = 0; i < $('.gallery-item-selected').length; i++){
         for (var j = 0; j < image_num; j++) {
