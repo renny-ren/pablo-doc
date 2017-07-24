@@ -931,6 +931,8 @@ blockquote::before {
 
 .sub-form .btn { padding: 1em 2em; }
 }
+.site-footer {position: absolute;
+  bottom: 0;}
 
 /* ==========================================================================
    20.Medium devices (desktops, 992px and up)
@@ -1010,8 +1012,12 @@ blockquote::before {
 
 .section-spacing.site-footer { padding: 3em 0; }
 }
+.site-footer {position: absolute;
+  bottom: 0;}
 
 @media (max-width: 460px) {
 
 .video-tour .play-btn img { width: 45%; }
 }
+.site-footer {position: absolute;
+  bottom: 0;}
