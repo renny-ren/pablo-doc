@@ -108,31 +108,33 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .signup-button{
-  right: 1px;
+  left: 90%;
 }
 
 .login-button{
-  right: -100px;
+  left: 100%;
 }
 
 .logout-button{
-  right: -200px;
+  left: 100%;
 }
 
 .welcome{
-  position: absolute;
-  right: 10px;
+  position: relative;
+  left: 70%;
 }
 
 .alert{
-  position: absolute;
-  right: -10px;
+  position: relative;
+  left: 80%;
+  top: 38px;
+  color: red;
 }
 
 .validate-notice{
-  position: absolute;
+  position: relative;
   top: 40px;
-  right: -130px;
+  left: 80%;
 }
 
 .word-doc{
