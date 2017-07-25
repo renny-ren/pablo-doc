@@ -1,4 +1,17 @@
 Rails.application.configure do
+    config.action_mailer.default_url_options = { host: 'cactusly.com' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'cactusly.com',
+      user_name:            'admin@cactusly.com',
+      password:             'password',
+      authentication:       'plain',
+      enable_starttls_auto: true
+    }
+
+
   Paperclip.options[:command_path] = '/usr/local/bin/'
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -17,13 +30,24 @@ Rails.application.configure do
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
 
-    # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-    config.action_mailer.default_url_options = { host: 'cactusly.com' }
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        address:              'smtp.gmail.com',
+        port:                 587,
+        domain:               'cactusly.com',
+        user_name:            'admin@cactusly.com',
+        password:             'password',
+        authentication:       'plain',
+        enable_starttls_auto: true
+    }
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
       'Cache-Control' => 'public, max-age=172800'
     }
+
   else
     config.action_controller.perform_caching = false
 
