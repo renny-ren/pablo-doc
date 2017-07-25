@@ -1,17 +1,4 @@
 Rails.application.configure do
-    config.action_mailer.default_url_options = { host: 'cactusly.com' }
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'cactusly.com',
-      user_name:            'admin@cactusly.com',
-      password:             'password',
-      authentication:       'plain',
-      enable_starttls_auto: true
-    }
-
-
   Paperclip.options[:command_path] = '/usr/local/bin/'
   # Settings specified here will take precedence over those in config/application.rb.
 
