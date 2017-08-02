@@ -136,7 +136,7 @@ $(function(){
     $('.selected-text').removeClass('selected-text');
 
     // find the text which should be selected
-    var text_top_min = parseInt($(this).css('top')) - 400;
+    var text_top_min = parseInt($(this).css('top')) - $(this).prev().height();
     var text_top_max = parseInt($(this).css('top'));
     var text_left_min = parseInt($(this).css('left'));
     var text_left_max = parseInt($(this).css('left')) + 300;
