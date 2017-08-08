@@ -1,6 +1,6 @@
 <div class="url-bar">
   <%= form_tag({action: 'generate_url'}, method: :post, multipart: true, style: "position: absolute;") do %>
-    <%= text_field_tag :url, session[:url], placeholder: "Put URL here...", size: 64 %> 
+    <%= text_field_tag :url, session[:url], placeholder: "Put URL here...", size: 63 %> 
     <%= submit_tag "Submit URL", class: "btn btn-info submit-url", data: { disable_with: "Loading..." } %>
   <% end %> 
 </div>
