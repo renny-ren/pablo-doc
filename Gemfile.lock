@@ -268,7 +268,7 @@ DEPENDENCIES
   mechanize
   mysql2
   nokogiri
-  paperclip (~> 5.0.0)
+  paperclip
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails_kindeditor
