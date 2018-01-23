@@ -41,7 +41,7 @@ gem 'nokogiri'
 gem 'font-awesome-rails'
 gem 'social-share-button'
 gem 'mechanize'
-gem 'paperclip'
+gem "paperclip", "~> 5.0.0"
 gem 'screencap', github: 'Eventshare/screencap'
 gem 'gon'
 gem 'devise'
