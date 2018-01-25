@@ -38,7 +38,7 @@ gem 'bootstrap'
 gem 'rails_kindeditor'
 # gem 'docx'
 # gem "wysiwyg-rails"
-gem 'nokogiri'
+gem 'nokogiri', '>=1.8.1'
 gem 'font-awesome-rails'
 gem 'social-share-button'
 gem 'mechanize'
