@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -41,7 +42,7 @@ gem 'nokogiri'
 gem 'font-awesome-rails'
 gem 'social-share-button'
 gem 'mechanize'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", ">= 5.2.0"
 gem 'screencap', github: 'Eventshare/screencap'
 gem 'gon'
 gem 'devise'
