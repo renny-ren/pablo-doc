@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   end
 
   def index
-    redirect_to root_path unless user_signed_in?
+    # redirect_to root_path unless user_signed_in?
     Image.all.destroy_all
     Logo.all.destroy_all
   end

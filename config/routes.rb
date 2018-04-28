@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
-  root 'home#landing', as: 'root'
+  # root 'home#landing', as: 'root'
+  root 'home#index', as: 'root'
   resources :home, only: [:index, :create]
 
   get 'home', to: 'home#index'
